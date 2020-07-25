@@ -1,0 +1,24 @@
+/*
+Theme Name: Nova 2021
+Text Domain: nova2021
+Version: 1.0
+Description: WP Theme for Nova's website in 2021
+Tags: custom-colors, custom-logo, custom-menu
+Author: Nova Digital Team
+Author URI: https://novaigreja.com/
+Theme URI: https://novaigreja.com/
+*/
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	0. CSS Reset
+/* -------------------------------------------------------------------------- */
+
+header {
+	background-color: aqua;
+}
+
+footer {
+	background-color: blueviolet;
+}
