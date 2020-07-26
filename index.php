@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
-<h1 class="index">Index</h1>
+<div class="index">Index</div>
 
 <?php get_footer(); ?>
+
