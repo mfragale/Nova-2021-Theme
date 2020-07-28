@@ -2,15 +2,15 @@
 
 <html class="no-js" <?php language_attributes(); ?>>
 
-	<head>
-	
-		<meta charset="<?php bloginfo( 'charset' ); ?>">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
-		
-<?php wp_head(); ?>
-	
-	</head>
+<head>
 
-	<body <?php body_class(); ?>>
+	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<header>Header</header>
+	<?php wp_head(); ?>
+
+</head>
+
+<body <?php body_class(); ?>>
+
+	<header>Header</header>
