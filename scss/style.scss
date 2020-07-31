@@ -1,12 +1,118 @@
 /* -------------------------------------------------------------------------- */
 
-/*	0. CSS Reset
+/*	COLORS
 /* -------------------------------------------------------------------------- */
+//$base-color: #c6538c;
 
+
+body {
+	padding-top: 56px;
+}
 header {
 	background-color: aqua;
 }
 
 footer {
 	background-color: blueviolet;
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	HEADER
+/* -------------------------------------------------------------------------- */
+
+//LOGO
+.navbar-brand {
+    margin-right: 0;
+    line-height: 0;
+}
+
+.navbar-nav {
+	li {
+		padding: 0 10px;
+
+		a {
+			svg {
+
+			}
+		}
+
+		&.active {
+			font-weight: 700;
+			background-color: #fff;
+			border-radius: 100px;
+			box-shadow: 0px 0px 20px -5px #7c88f5;
+			//padding: 0 5px;
+
+			a {
+				color: #7c88f5 !important;
+			}
+		}
+	}
+}
+
+
+//FULL SCREEN MENU TOGGLE BUTTON
+.hamburger {
+	// position: fixed;
+	// top: 0px;
+	// right: 0px;
+	// z-index: 1060;
+	// padding: 25px;
+
+	.line {
+		height: 2px;
+		margin: 0 auto;
+		background-color: #666;
+		display: block;
+		-webkit-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+
+		&:nth-child(1) {
+			width: 25px;
+		}
+		&:nth-child(2) {
+			width: 21px;
+			margin: 5px auto;
+		}
+		&:nth-child(3) {
+			width: 17px;
+		}
+	}
+
+	&:hover {
+		cursor: pointer;
+
+		.line {
+			background-color: #333;
+		}
+	}
+}
+
+#hamburger-4.is-active .line:nth-child(1),
+#hamburger-4.is-active .line:nth-child(3) {
+	width: 13px;
+}
+
+#hamburger-4.is-active .line:nth-child(1) {
+	background-color: #fff;
+	-webkit-transform: translateX(9px) rotate(45deg) translateY(4px);
+	-ms-transform: translateX(9px) rotate(45deg) translateY(4px);
+	-o-transform: translateX(9px) rotate(45deg) translateY(4px);
+	transform: translateX(9px) rotate(45deg) translateY(4px);
+}
+
+#hamburger-4.is-active .line:nth-child(2) {
+	background-color: #fff;
+}
+
+#hamburger-4.is-active .line:nth-child(3) {
+	background-color: #fff;
+	-webkit-transform: translateX(9px) rotate(-45deg) translateY(-4px);
+	-ms-transform: translateX(9px) rotate(-45deg) translateY(-4px);
+	-o-transform: translateX(9px) rotate(-45deg) translateY(-4px);
+	transform: translateX(9px) rotate(-45deg) translateY(-4px);
 }
