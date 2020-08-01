@@ -104,7 +104,7 @@ function clean_custom_menus() {
 			$url = $menu_item->url;
 			$class = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $menu_item->classes ), $menu_item) ) );
 			$active = ( $menu_item->object_id == get_queried_object_id() ) ? 'active' : '';
-			$menu_list .= "\t\t\t\t\t". '<li class="nav-item ' . $active . '"><a class="nav-link" href="'. $url .'"><i class="fal '. $class .'"></i><span>'. $title .'</span></a></li>' ."\n";
+			$menu_list .= "\t\t\t\t\t". '<li class="nav-item ' . $active . '"><a class="nav-link" href="'. $url .'"><div class="active_highlight"><i class="fal '. $class .'"></i><span>'. $title .'</span></div></a></li>' ."\n";
 		}
 		$menu_list .= "\t\t\t\t". '</ul>' ."\n";
 		$menu_list .= "\t\t\t". '</div>' ."\n";

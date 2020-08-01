@@ -2,117 +2,199 @@
 
 /*	COLORS
 /* -------------------------------------------------------------------------- */
-//$base-color: #c6538c;
+$off-black: #161720;
+$dark-gray: #404251;
+$medium-gray-1: #6e7489;
+$medium-gray-2: #b5b8bf;
+$light-gray: #dde0e6;
+$off-white: #f1f5fa;
+$purple: #7c88f5;
+$orange: #ff694c;
 
+/* -------------------------------------------------------------------------- */
+
+/*	BREAKPOINTS
+/* -------------------------------------------------------------------------- */
+$breakpoint-menu: 370px;
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@mixin small-breakpoint-up {
+	@media (min-width: 576px) {
+		@content;
+	}
+}
+// Medium devices (tablets, 768px and up)
+@mixin medium-breakpoint-up {
+	@media (min-width: 768px) {
+		@content;
+	}
+}
+// Large devices (desktops, 992px and up)
+@mixin large-breakpoint-up {
+	@media (min-width: 992px) {
+		@content;
+	}
+}
+// Extra large devices (large desktops, 1200px and up)
+@mixin xlarge-breakpoint-up {
+	@media (min-width: 1200px) {
+		@content;
+	}
+}
+// Extra small devices (portrait phones, less than 576px)
+@mixin xsmall-breakpoint-down {
+	@media (max-width: 575.98px) {
+		@content;
+	}
+}
+// Small devices (landscape phones, less than 768px)
+@mixin small-breakpoint-down {
+	@media (max-width: 767.98px) {
+		@content;
+	}
+}
+// Medium devices (tablets, less than 992px)
+@mixin medium-breakpoint-down {
+	@media (max-width: 991.98px) {
+		@content;
+	}
+}
+// Large devices (desktops, less than 1200px)
+@mixin large-breakpoint-down {
+	@media (max-width: 1199.98px) {
+		@content;
+	}
+}
+// Extra large devices (large desktops)
+// No media query since the extra-large breakpoint has no upper bound on its width
 
 body {
-	padding-top: 56px;
+	padding-top: 55px;
 }
-header {
-	background-color: aqua;
-}
-
-footer {
-	background-color: blueviolet;
-}
-
-
 
 /* -------------------------------------------------------------------------- */
 
 /*	HEADER
 /* -------------------------------------------------------------------------- */
 
-//LOGO
-.navbar-brand {
-    margin-right: 0;
-    line-height: 0;
-}
+.navbar {
+	padding-top: 0;
+	padding-bottom: 0;
 
-.navbar-nav {
-	li {
-		padding: 0 10px;
+	//LOGO
+	.navbar-brand {
+		line-height: 0;
+	}
 
-		a {
-			svg {
+	//MENU
+	.navbar-nav {
+		li.nav-item {
+			a.nav-link {
+				line-height: 1;
+				padding: 1.2rem 0.5rem;
 
+				@include small-breakpoint-up {
+					padding: 1.2rem 2rem;
+				}
+
+				svg {
+					@media (max-width: $breakpoint-menu) {
+						width: 30px;
+						height: 18px;
+						display: none;
+					}
+				}
+
+				span {
+					margin-left: 5px;
+				}
 			}
-		}
 
-		&.active {
-			font-weight: 700;
-			background-color: #fff;
-			border-radius: 100px;
-			box-shadow: 0px 0px 20px -5px #7c88f5;
-			//padding: 0 5px;
+			&.active {
+				a.nav-link {
+					color: $purple;
+					padding: 0.4rem 0rem;
 
-			a {
-				color: #7c88f5 !important;
+					@include small-breakpoint-up {
+						padding: 0.4rem 1rem;
+					}
+
+					.active_highlight {
+						background-color: #fff;
+						border-radius: 100px;
+						box-shadow: 0px 0px 20px -5px transparentize($purple, 0.7);
+
+						padding: 0.8rem 0.5rem;
+
+						@include small-breakpoint-up {
+							padding: 0.8rem 1rem;
+						}
+					}
+				}
 			}
 		}
 	}
-}
 
-
-//FULL SCREEN MENU TOGGLE BUTTON
-.hamburger {
-	// position: fixed;
-	// top: 0px;
-	// right: 0px;
-	// z-index: 1060;
-	// padding: 25px;
-
-	.line {
-		height: 2px;
-		margin: 0 auto;
-		background-color: #666;
-		display: block;
-		-webkit-transition: all 0.3s ease-in-out;
-		-o-transition: all 0.3s ease-in-out;
-		transition: all 0.3s ease-in-out;
-
-		&:nth-child(1) {
-			width: 25px;
-		}
-		&:nth-child(2) {
-			width: 21px;
-			margin: 5px auto;
-		}
-		&:nth-child(3) {
-			width: 17px;
-		}
-	}
-
-	&:hover {
-		cursor: pointer;
+	//FULL SCREEN MENU TOGGLE BUTTON
+	.hamburger {
+		padding: 0.7rem 0 0.7rem 1rem;
 
 		.line {
-			background-color: #333;
+			height: 2px;
+			margin: 0 auto;
+			background-color: $medium-gray-1;
+			display: block;
+			-webkit-transition: all 0.3s ease-in-out;
+			-o-transition: all 0.3s ease-in-out;
+			transition: all 0.3s ease-in-out;
+
+			&:nth-child(1) {
+				width: 25px;
+			}
+			&:nth-child(2) {
+				width: 21px;
+				margin: 5px auto;
+			}
+			&:nth-child(3) {
+				width: 17px;
+			}
+		}
+
+		&:hover {
+			@media (min-width: $breakpoint-menu) {
+			}
+			cursor: pointer;
+
+			.line {
+				background-color: $off-black;
+			}
+		}
+
+		&.is-active {
+			.line:nth-child(1) {
+				width: 13px;
+				background-color: #fff;
+				-webkit-transform: translateX(9px) rotate(45deg) translateY(4px);
+				-ms-transform: translateX(9px) rotate(45deg) translateY(4px);
+				-o-transform: translateX(9px) rotate(45deg) translateY(4px);
+				transform: translateX(9px) rotate(45deg) translateY(4px);
+			}
+
+			line:nth-child(2) {
+				background-color: #fff;
+			}
+
+			.line:nth-child(3) {
+				width: 13px;
+				background-color: #fff;
+				-webkit-transform: translateX(9px) rotate(-45deg) translateY(-4px);
+				-ms-transform: translateX(9px) rotate(-45deg) translateY(-4px);
+				-o-transform: translateX(9px) rotate(-45deg) translateY(-4px);
+				transform: translateX(9px) rotate(-45deg) translateY(-4px);
+			}
 		}
 	}
-}
-
-#hamburger-4.is-active .line:nth-child(1),
-#hamburger-4.is-active .line:nth-child(3) {
-	width: 13px;
-}
-
-#hamburger-4.is-active .line:nth-child(1) {
-	background-color: #fff;
-	-webkit-transform: translateX(9px) rotate(45deg) translateY(4px);
-	-ms-transform: translateX(9px) rotate(45deg) translateY(4px);
-	-o-transform: translateX(9px) rotate(45deg) translateY(4px);
-	transform: translateX(9px) rotate(45deg) translateY(4px);
-}
-
-#hamburger-4.is-active .line:nth-child(2) {
-	background-color: #fff;
-}
-
-#hamburger-4.is-active .line:nth-child(3) {
-	background-color: #fff;
-	-webkit-transform: translateX(9px) rotate(-45deg) translateY(-4px);
-	-ms-transform: translateX(9px) rotate(-45deg) translateY(-4px);
-	-o-transform: translateX(9px) rotate(-45deg) translateY(-4px);
-	transform: translateX(9px) rotate(-45deg) translateY(-4px);
 }
