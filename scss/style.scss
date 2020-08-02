@@ -11,12 +11,6 @@ $off-white: #f1f5fa;
 $purple: #7c88f5;
 $orange: #ff694c;
 
-
-
-
-
-
-
 /* -------------------------------------------------------------------------- */
 
 /*	BREAKPOINTS
@@ -80,13 +74,6 @@ body {
 	padding-top: 55px;
 	font-family: "Poppins", sans-serif;
 }
-
-
-
-
-
-
-
 
 /* -------------------------------------------------------------------------- */
 
@@ -214,32 +201,46 @@ body {
 	// FULL SCREEN MENU
 	#fullscreenmenu {
 		display: block;
-		padding: 85px 30px;
+		padding: 90px 30px 0;
 		position: fixed;
 		top: 0;
-		width: 300px;
-		right: -300px;
-		height: 100%;
+		width: 100vw;
+		right: 0;
+		height: 100vh;
 		z-index: 1020;
-		background: rgba(0, 0, 0, 0.92);
+		background: $off-black;
 		overflow-y: scroll;
+		transform: translateY(-50px);
+		opacity: 0;
+		pointer-events: none;
+
+		-webkit-transition: all 0.2s ease-in-out;
+		-o-transition: all 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out;
+
+		&.is-active {
+			transform: translateY(0px);
+			opacity: 1;
+			pointer-events: visible;
+		}
 
 		ul {
 			list-style: none;
 			padding: 0;
-			margin: 0;
+			margin: 0 auto;
 			display: block;
+			max-width: 500px;
 
 			li {
 				border-bottom: solid 1px #333333;
 
 				a {
 					display: block;
-					color: #f1f1f7;
+					color: $medium-gray-1;
 					text-decoration: none;
-					padding: 0.9rem 0 0.6rem;
-					font-size: 0.9rem;
-					line-height: 1.2;
+					padding: 0.8rem 0 0.6rem;
+					font-size: 1.3rem;
+					line-height: 1;
 
 					&:hover {
 						color: $medium-gray-2;
@@ -256,11 +257,6 @@ body {
 	}
 }
 
-
-
-
-
-
 /* -------------------------------------------------------------------------- */
 
 /*	FOOTER
@@ -269,6 +265,7 @@ body {
 	background-color: $off-black;
 	color: $medium-gray-1;
 	padding: 3rem 0;
+	border-top: 3px solid $orange;
 
 	.stamp {
 		float: left;
@@ -286,12 +283,21 @@ body {
 	}
 }
 
-
-
-
-
-
 /* -------------------------------------------------------------------------- */
 
 /*	BUTTONS
 /* -------------------------------------------------------------------------- */
+.btn {
+	border-radius: 1000rem;
+}
+
+.btn-primary {
+	background-color: $purple;
+}
+.btn-seconday {
+	background-color: $medium-gray-1;
+}
+.btn-sm {
+	font-size: 0.8rem;
+	padding: 0.4rem 0.8rem;
+}

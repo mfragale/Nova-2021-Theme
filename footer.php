@@ -3,7 +3,7 @@
 <div class="container">
 
     <div class="stamp">
-        <svg class="footer_logo" width="60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 15.43">
+        <svg class="footer_logo" width="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 15.43">
             <defs>
                 <style>
                     .cls-2 {
@@ -21,8 +21,8 @@
     </div>
 
     <div class="contact">
-        <button type="button" class="btn btn-primary btn-sm">Email <i class="fad fa-paper-plane"></i></button>
-        <button type="button" class="btn btn-secondary btn-sm">Telefone <i class="fab fa-whatsapp"></i></button>
+        <button type="button" class="btn btn-secondary btn-sm">Email <i class="fad fa-paper-plane"></i></button>
+        <button type="button" class="btn btn-primary btn-sm">Telefone <i class="fab fa-whatsapp"></i></button>
     </div>
     </div>
 </footer>
