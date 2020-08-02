@@ -1,1 +1,1 @@
-"use strict";jQuery(document).ready(function(c){c(".index").css("background","#f30")});
+"use strict";jQuery(document).ready(function(t){t(".hamburger").on("click",function(e){e.preventDefault();var r=t("#fullscreenmenu").css("right");"auto"==r||"-300px"==r?(t(".hamburger").toggleClass("is-active"),t("#fullscreenmenu").animate({right:"0px"},200)):(t(".hamburger").toggleClass("is-active"),t("#fullscreenmenu").animate({right:"-300px"},200))})});

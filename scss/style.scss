@@ -11,15 +11,20 @@ $off-white: #f1f5fa;
 $purple: #7c88f5;
 $orange: #ff694c;
 
+
+
+
+
+
+
 /* -------------------------------------------------------------------------- */
 
 /*	BREAKPOINTS
 /* -------------------------------------------------------------------------- */
-$breakpoint-menu: 370px;
+$breakpoint-menu: 380px;
 
 // Extra small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap
-
 // Small devices (landscape phones, 576px and up)
 @mixin small-breakpoint-up {
 	@media (min-width: 576px) {
@@ -73,128 +78,220 @@ $breakpoint-menu: 370px;
 
 body {
 	padding-top: 55px;
+	font-family: "Poppins", sans-serif;
 }
+
+
+
+
+
+
+
 
 /* -------------------------------------------------------------------------- */
 
 /*	HEADER
 /* -------------------------------------------------------------------------- */
+#header {
+	.navbar {
+		padding-top: 0;
+		padding-bottom: 0;
 
-.navbar {
-	padding-top: 0;
-	padding-bottom: 0;
+		//LOGO
+		.navbar-brand {
+			line-height: 0;
+		}
 
-	//LOGO
-	.navbar-brand {
-		line-height: 0;
-	}
-
-	//MENU
-	.navbar-nav {
-		li.nav-item {
-			a.nav-link {
-				line-height: 1;
-				padding: 1.2rem 0.5rem;
-
-				@include small-breakpoint-up {
-					padding: 1.2rem 2rem;
-				}
-
-				svg {
-					@media (max-width: $breakpoint-menu) {
-						width: 30px;
-						height: 18px;
-						display: none;
-					}
-				}
-
-				span {
-					margin-left: 5px;
-				}
-			}
-
-			&.active {
+		//MENU
+		.navbar-nav {
+			li.nav-item {
 				a.nav-link {
-					color: $purple;
-					padding: 0.4rem 0rem;
+					line-height: 1;
+					padding: 1.2rem 0.5rem;
 
 					@include small-breakpoint-up {
-						padding: 0.4rem 1rem;
+						padding: 1.2rem 2rem;
 					}
 
-					.active_highlight {
-						background-color: #fff;
-						border-radius: 100px;
-						box-shadow: 0px 0px 20px -5px transparentize($purple, 0.7);
+					svg {
+						@media (max-width: $breakpoint-menu) {
+							display: none;
+						}
+					}
 
-						padding: 0.8rem 0.5rem;
+					span {
+						margin-left: 5px;
+					}
+				}
+
+				&.active {
+					a.nav-link {
+						color: $purple;
+						padding: 0.4rem 0rem;
 
 						@include small-breakpoint-up {
-							padding: 0.8rem 1rem;
+							padding: 0.4rem 1rem;
+						}
+
+						.active_highlight {
+							background-color: #fff;
+							border-radius: 100px;
+							box-shadow: 0px 0px 20px -5px transparentize($purple, 0.7);
+
+							padding: 0.8rem 0.5rem;
+
+							@include small-breakpoint-up {
+								padding: 0.8rem 1rem;
+							}
 						}
 					}
 				}
 			}
 		}
-	}
 
-	//FULL SCREEN MENU TOGGLE BUTTON
-	.hamburger {
-		padding: 0.7rem 0 0.7rem 1rem;
-
-		.line {
-			height: 2px;
-			margin: 0 auto;
-			background-color: $medium-gray-1;
-			display: block;
-			-webkit-transition: all 0.3s ease-in-out;
-			-o-transition: all 0.3s ease-in-out;
-			transition: all 0.3s ease-in-out;
-
-			&:nth-child(1) {
-				width: 25px;
-			}
-			&:nth-child(2) {
-				width: 21px;
-				margin: 5px auto;
-			}
-			&:nth-child(3) {
-				width: 17px;
-			}
-		}
-
-		&:hover {
-			@media (min-width: $breakpoint-menu) {
-			}
-			cursor: pointer;
+		//FULL SCREEN MENU TOGGLE BUTTON
+		.hamburger {
+			padding: 0.7rem 0 0.7rem 1rem;
+			width: 42px;
 
 			.line {
-				background-color: $off-black;
+				height: 1px;
+				margin: 0 auto;
+				background-color: $medium-gray-1;
+				display: block;
+				-webkit-transition: all 0.3s ease-in-out;
+				-o-transition: all 0.3s ease-in-out;
+				transition: all 0.3s ease-in-out;
+
+				&:nth-child(1) {
+					width: 25px;
+				}
+				&:nth-child(2) {
+					width: 21px;
+					margin: 5px auto;
+				}
+				&:nth-child(3) {
+					width: 17px;
+				}
+			}
+
+			&:hover {
+				@media (min-width: $breakpoint-menu) {
+				}
+				cursor: pointer;
+
+				.line {
+					background-color: $off-black;
+				}
+			}
+
+			&.is-active {
+				.line:nth-child(1) {
+					width: 13px;
+					//background-color: #fff;
+					-webkit-transform: translateX(8px) rotate(45deg) translateY(2px);
+					-ms-transform: translateX(8px) rotate(45deg) translateY(2px);
+					-o-transform: translateX(8px) rotate(45deg) translateY(2px);
+					transform: translateX(8px) rotate(45deg) translateY(2px);
+				}
+
+				.line:nth-child(2) {
+					//background-color: #fff;
+				}
+
+				.line:nth-child(3) {
+					width: 13px;
+					//background-color: #fff;
+					-webkit-transform: translateX(8px) rotate(-45deg) translateY(-2px);
+					-ms-transform: translateX(8px) rotate(-45deg) translateY(-2px);
+					-o-transform: translateX(8px) rotate(-45deg) translateY(-2px);
+					transform: translateX(8px) rotate(-45deg) translateY(-2px);
+				}
 			}
 		}
+	}
 
-		&.is-active {
-			.line:nth-child(1) {
-				width: 13px;
-				background-color: #fff;
-				-webkit-transform: translateX(9px) rotate(45deg) translateY(4px);
-				-ms-transform: translateX(9px) rotate(45deg) translateY(4px);
-				-o-transform: translateX(9px) rotate(45deg) translateY(4px);
-				transform: translateX(9px) rotate(45deg) translateY(4px);
-			}
+	// FULL SCREEN MENU
+	#fullscreenmenu {
+		display: block;
+		padding: 85px 30px;
+		position: fixed;
+		top: 0;
+		width: 300px;
+		right: -300px;
+		height: 100%;
+		z-index: 1020;
+		background: rgba(0, 0, 0, 0.92);
+		overflow-y: scroll;
 
-			line:nth-child(2) {
-				background-color: #fff;
-			}
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: block;
 
-			.line:nth-child(3) {
-				width: 13px;
-				background-color: #fff;
-				-webkit-transform: translateX(9px) rotate(-45deg) translateY(-4px);
-				-ms-transform: translateX(9px) rotate(-45deg) translateY(-4px);
-				-o-transform: translateX(9px) rotate(-45deg) translateY(-4px);
-				transform: translateX(9px) rotate(-45deg) translateY(-4px);
+			li {
+				border-bottom: solid 1px #333333;
+
+				a {
+					display: block;
+					color: #f1f1f7;
+					text-decoration: none;
+					padding: 0.9rem 0 0.6rem;
+					font-size: 0.9rem;
+					line-height: 1.2;
+
+					&:hover {
+						color: $medium-gray-2;
+					}
+				}
+
+				&.active {
+					a {
+						color: $purple;
+					}
+				}
 			}
 		}
 	}
 }
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	FOOTER
+/* -------------------------------------------------------------------------- */
+#footer {
+	background-color: $off-black;
+	color: $medium-gray-1;
+	padding: 3rem 0;
+
+	.stamp {
+		float: left;
+
+		.footer_logo {
+		}
+
+		.tagline {
+			line-height: 1;
+		}
+	}
+
+	.contact {
+		float: right;
+	}
+}
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	BUTTONS
+/* -------------------------------------------------------------------------- */
