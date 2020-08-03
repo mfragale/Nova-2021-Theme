@@ -1,0 +1,1 @@
+jQuery(document).ready(function(e){e(".hamburger").on("click",function(n){n.preventDefault(),e(".hamburger").toggleClass("is-active"),e("#fullscreenmenu").toggleClass("is-active")})});
