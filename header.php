@@ -20,7 +20,7 @@
 		<nav class="navbar fixed-top navbar-expand navbar-light bg-light">
 
 			<!-- Logo -->
-			<a class="navbar-brand" href="/">
+			<a class="navbar-brand" href="<?php echo get_site_url(); ?>">
 				<svg width="60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 15.43">
 					<defs>
 						<style>
