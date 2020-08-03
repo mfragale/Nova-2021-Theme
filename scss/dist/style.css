@@ -87,11 +87,7 @@ body {
 
 #header .navbar .hamburger .line:nth-child(2) {
   width: 21px;
-  margin: 5px auto;
-}
-
-#header .navbar .hamburger .line:nth-child(3) {
-  width: 17px;
+  margin-top: 6px;
 }
 
 #header .navbar .hamburger:hover {
@@ -103,19 +99,19 @@ body {
 }
 
 #header .navbar .hamburger.is-active .line:nth-child(1) {
-  width: 13px;
+  width: 20px;
   -webkit-transform: translateX(8px) rotate(45deg) translateY(2px);
   -ms-transform: translateX(8px) rotate(45deg) translateY(2px);
   -o-transform: translateX(8px) rotate(45deg) translateY(2px);
-  transform: translateX(8px) rotate(45deg) translateY(2px);
+  transform: translateX(-1px) rotate(45deg) translateY(4px);
 }
 
-#header .navbar .hamburger.is-active .line:nth-child(3) {
-  width: 13px;
+#header .navbar .hamburger.is-active .line:nth-child(2) {
+  width: 20px;
   -webkit-transform: translateX(8px) rotate(-45deg) translateY(-2px);
   -ms-transform: translateX(8px) rotate(-45deg) translateY(-2px);
   -o-transform: translateX(8px) rotate(-45deg) translateY(-2px);
-  transform: translateX(8px) rotate(-45deg) translateY(-2px);
+  transform: translateX(0) rotate(-45deg) translateY(-5px);
 }
 
 #header #fullscreenmenu {
