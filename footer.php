@@ -14,8 +14,8 @@
     </div>
 
     <div class="contact">
-        <button type="button" class="btn btn-secondary btn-sm">Email <i class="fad fa-paper-plane"></i></button>
-        <button type="button" class="btn btn-primary btn-sm">Telefone <i class="fab fa-whatsapp"></i></button>
+        <a href="mailto: oi@novaigreja.com" type="button" class="btn btn-secondary btn-sm">Email <i class="fad fa-paper-plane"></i></a>
+        <a href="tel: +552124312114" type="button" class="btn btn-primary btn-sm">Telefone <i class="fab fa-whatsapp"></i></a>
     </div>
     </div>
 </footer>

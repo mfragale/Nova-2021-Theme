@@ -3,12 +3,11 @@
  *  Built on top of Bootstrap 4 (https://getbootstrap.com)
  *  Built with the Bootstrap Theme Kit by HackerThemes (https://hackerthemes.com)
  */
- @import 'custom-variables';
- @import '../node_modules/bootstrap/scss/bootstrap';
- 
+@import "custom-variables";
+@import "../node_modules/bootstrap/scss/bootstrap";
 
 body {
-	padding-top: 55px;
+	padding-top: 54px;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -24,8 +23,16 @@ body {
 		.navbar-brand {
 			line-height: 0;
 
+			@media (max-width: $breakpoint-menu) {
+				margin-right: 0.5rem;
+			}
+
 			svg {
 				width: 60px;
+
+				@media (max-width: $breakpoint-menu) {
+					width: 40px;
+				}
 
 				.navbar_logo {
 					fill: $gray-700;
@@ -34,20 +41,29 @@ body {
 		}
 
 		//MENU
-		.navbar-nav {
+		ul.navbar-nav {
+			flex-grow: 1;
+			max-width: 380px;
+
 			li.nav-item {
+				flex-grow: 1;
+
 				a.nav-link {
-					line-height: 1;
+					line-height: 1rem;
 					padding: 1.2rem 0.5rem;
+					text-align: center;
 
 					@include media-breakpoint-up(sm) {
 						padding: 1.2rem 2rem;
 					}
 
+					@media (max-width: $breakpoint-menu) {
+						padding: 1.2rem 0.2rem;
+						font-size: 0.8rem;
+						line-height: 1rem;
+					}
+
 					svg {
-						@media (max-width: $breakpoint-menu) {
-							display: none;
-						}
 					}
 
 					span {
@@ -64,6 +80,10 @@ body {
 							padding: 0.4rem 1rem;
 						}
 
+						@media (max-width: $breakpoint-menu) {
+							padding: 0.6rem 0rem;
+						}
+
 						.active_highlight {
 							background-color: $white;
 							border-radius: 100px;
@@ -74,6 +94,10 @@ body {
 							@include media-breakpoint-up(sm) {
 								padding: 0.8rem 1rem;
 							}
+
+							@media (max-width: $breakpoint-menu) {
+								padding: 0.6rem 0.4rem;
+							}
 						}
 					}
 				}
@@ -82,12 +106,18 @@ body {
 
 		//FULL SCREEN MENU TOGGLE BUTTON
 		.hamburger {
-			padding: 0.7rem 0 0.7rem 1rem;
-			width: 42px;
+			padding: 0.7rem 0;
+			width: 60px;
+			margin-left: 1rem;
+
+			@media (max-width: $breakpoint-menu) {
+				width: 40px;
+				margin-left: 0.5rem;
+			}
 
 			.line {
 				height: 1px;
-				margin: 0 auto;
+				margin: 0 0 0 auto;
 				background-color: $gray-700;
 				display: block;
 				-webkit-transition: all 0.3s ease-in-out;
@@ -101,7 +131,6 @@ body {
 					width: 21px;
 					margin-top: 6px;
 				}
-
 			}
 
 			&:hover {
@@ -132,8 +161,6 @@ body {
 					-o-transform: translateX(8px) rotate(-45deg) translateY(-2px);
 					transform: translateX(0) rotate(-45deg) translateY(-5px);
 				}
-
-
 			}
 		}
 	}
@@ -225,5 +252,90 @@ body {
 
 	.contact {
 		float: right;
+	}
+}
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	HOME
+/* -------------------------------------------------------------------------- */
+
+//SPLASH SCREEN
+.splash_screen {
+	background-image: url(https://nova2021.dev/wp-content/uploads/2020/08/ivana-cajina-dnL6ZIpht2s-unsplash2.jpg);
+	height: 650px;
+	background-size: cover;
+	background-position: right 65%;
+	display: flex;
+	align-items: center;
+
+	@include media-breakpoint-down(lg) {
+		height: 500px;
+	}
+
+	@include media-breakpoint-down(md) {
+		height: 350px;
+	}
+
+	@include media-breakpoint-down(sm) {
+		height: 300px;
+	}
+
+	@include media-breakpoint-down(xs) {
+		height: 350px;
+		align-items: stretch;
+		text-align: center;
+	}
+
+	.container {
+		@include media-breakpoint-down(xs) {
+			justify-content: space-between;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.tagline {
+			width: 500px;
+			margin-bottom: 20px;
+
+			@include media-breakpoint-down(lg) {
+				width: 400px;
+				font-size: 1.9rem;
+			}
+
+			@include media-breakpoint-down(md) {
+				width: 300px;
+				font-size: 1.5rem;
+			}
+
+			@include media-breakpoint-down(sm) {
+				width: 250px;
+				font-size: 1.3rem;
+			}
+
+			@include media-breakpoint-down(xs) {
+				width: 250px;
+				margin: 20px auto;
+			}
+
+			span {
+				background-color: $gray-100;
+				line-height: 1.8;
+			}
+		}
+		.btn {
+			text-transform: uppercase;
+			color: $gray-700;
+			font-weight: bold;
+
+			@include media-breakpoint-down(xs) {
+				margin: 20px auto;
+			}
+		}
 	}
 }

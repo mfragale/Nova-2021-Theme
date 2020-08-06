@@ -148,3 +148,31 @@ function fullscreen_custom_menu()
 	}
 	echo $menu_list;
 }
+
+
+
+
+
+
+
+
+/*
+ * Set the Nova Igreja Custom Shortcode [nics-mensagem-mais-recente]
+ */
+function splash_screen()
+{
+
+	$return_string = '		<div class="splash_screen">
+	<div class="container">
+		<h1 class="tagline">
+			<span>
+				Uma família integrada, que se ama e apoia em todos os momentos.
+			<span>
+		</h1>
+		<a href="/sobre" class="btn btn-lg btn-danger">Quero saber mais</a>
+	</div>
+</div>';
+
+	return $return_string;
+}
+add_shortcode('splash-screen', 'splash_screen');
