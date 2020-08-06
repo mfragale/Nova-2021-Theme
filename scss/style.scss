@@ -273,6 +273,7 @@ body {
 	background-position: right 65%;
 	display: flex;
 	align-items: center;
+	background-repeat: no-repeat;
 
 	@include media-breakpoint-down(lg) {
 		height: 500px;
@@ -290,6 +291,8 @@ body {
 		height: 350px;
 		align-items: stretch;
 		text-align: center;
+		background-size: 180%;
+		background-position: right 50%;
 	}
 
 	.container {
