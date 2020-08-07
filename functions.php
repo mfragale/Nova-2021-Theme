@@ -157,22 +157,47 @@ function fullscreen_custom_menu()
 
 
 /*
- * Set the Nova Igreja Custom Shortcode [nics-mensagem-mais-recente]
+ * SET SPLASH SCREEN SHORTCODE [splash-screen]
  */
 function splash_screen()
 {
-
-	$return_string = '		<div class="splash_screen">
-	<div class="container">
-		<h1 class="tagline">
-			<span>
-				Uma família integrada, que se ama e apoia em todos os momentos.
-			<span>
-		</h1>
-		<a href="/sobre" class="btn btn-lg btn-danger">Quero saber mais</a>
-	</div>
-</div>';
+	$return_string = '<div class="splash_screen">
+						<div class="container">
+							<h1 class="tagline">
+								<span>
+									Uma família integrada, que se ama e apoia em todos os momentos.
+								<span>
+							</h1>
+							<a href="/sobre" class="btn btn-lg btn-danger">Quero saber mais</a>
+						</div>
+					</div>';
 
 	return $return_string;
 }
 add_shortcode('splash-screen', 'splash_screen');
+
+
+
+/*
+ * SET LATEST MESSAGE SHORTCODE [latest-message]
+ */
+function latest_message()
+{
+	$return_string = '<div class="latest_message">
+						<div class="container">
+							<h3>
+								<span>
+									Vídeo desta semana
+								<span>
+							</h3>
+							<a class="card" href="/play">
+								<i class="fad fa-play"></i>
+								<h2>Nascidos e chamados com propósito</h2>
+							</a>
+							<a href="/play" class="btn btn-link">Mais conteúdos <i class="fal fa-long-arrow-right"></i></a>
+						</div>
+					</div>';
+
+	return $return_string;
+}
+add_shortcode('latest-message', 'latest_message');

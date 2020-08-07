@@ -18,6 +18,7 @@ body {
 	.navbar {
 		padding-top: 0;
 		padding-bottom: 0;
+		box-shadow: 0 -22px 25px 15px transparentize($gray-500, 0.5);
 
 		//LOGO
 		.navbar-brand {
@@ -35,7 +36,7 @@ body {
 				}
 
 				.navbar_logo {
-					fill: $gray-700;
+					fill: $gray-400;
 				}
 			}
 		}
@@ -64,10 +65,14 @@ body {
 					}
 
 					svg {
+						margin-right: 5px;
+
+						@media (max-width: 300px) {
+							display: none;
+						}
 					}
 
 					span {
-						margin-left: 5px;
 					}
 				}
 
@@ -85,7 +90,7 @@ body {
 						}
 
 						.active_highlight {
-							background-color: $white;
+							background-color: $gray-700;
 							border-radius: 100px;
 							box-shadow: 0px 0px 20px -5px transparentize($primary, 0.7);
 
@@ -96,7 +101,7 @@ body {
 							}
 
 							@media (max-width: $breakpoint-menu) {
-								padding: 0.6rem 0.4rem;
+								padding: 0.6rem 0.2rem;
 							}
 						}
 					}
@@ -118,10 +123,8 @@ body {
 			.line {
 				height: 1px;
 				margin: 0 0 0 auto;
-				background-color: $gray-700;
+				background-color: $gray-400;
 				display: block;
-				-webkit-transition: all 0.3s ease-in-out;
-				-o-transition: all 0.3s ease-in-out;
 				transition: all 0.3s ease-in-out;
 
 				&:nth-child(1) {
@@ -139,26 +142,18 @@ body {
 				cursor: pointer;
 
 				.line {
-					background-color: $gray-900;
+					background-color: $gray-100;
 				}
 			}
 
 			&.is-active {
 				.line:nth-child(1) {
 					width: 20px;
-					//background-color: $white;
-					-webkit-transform: translateX(8px) rotate(45deg) translateY(2px);
-					-ms-transform: translateX(8px) rotate(45deg) translateY(2px);
-					-o-transform: translateX(8px) rotate(45deg) translateY(2px);
 					transform: translateX(-1px) rotate(45deg) translateY(4px);
 				}
 
 				.line:nth-child(2) {
 					width: 20px;
-					//background-color: $white;
-					-webkit-transform: translateX(8px) rotate(-45deg) translateY(-2px);
-					-ms-transform: translateX(8px) rotate(-45deg) translateY(-2px);
-					-o-transform: translateX(8px) rotate(-45deg) translateY(-2px);
 					transform: translateX(0) rotate(-45deg) translateY(-5px);
 				}
 			}
@@ -180,9 +175,6 @@ body {
 		transform: translateY(-50px);
 		opacity: 0;
 		pointer-events: none;
-
-		-webkit-transition: all 0.2s ease-in-out;
-		-o-transition: all 0.2s ease-in-out;
 		transition: all 0.2s ease-in-out;
 
 		&.is-active {
@@ -229,36 +221,44 @@ body {
 /*	FOOTER
 /* -------------------------------------------------------------------------- */
 #footer {
-	background-color: $gray-900;
-	color: $gray-700;
+	background-color: $gray-700;
+	color: $gray-500;
 	padding: 3rem 0;
-	border-top: 3px solid $danger;
 
-	.stamp {
-		float: left;
+	.container {
+		display: flex;
+		flex-direction: row;
+		text-align: center;
+		justify-content: space-between;
 
-		svg {
-			width: 50px;
+		@include media-breakpoint-down(xs) {
+			flex-direction: column;
+		}
+		
+		.stamp {
+			@include media-breakpoint-down(xs) {
+				margin-bottom: 1rem;
+			}
 
-			.footer_logo {
-				fill: $gray-700;
+			svg {
+				width: 50px;
+				margin-right: 1rem;
+
+				.footer_logo {
+					fill: $gray-500;
+				}
+			}
+
+			.tagline {
+				line-height: 1;
 			}
 		}
 
-		.tagline {
-			line-height: 1;
+		.contact {
+			
 		}
 	}
-
-	.contact {
-		float: right;
-	}
 }
-
-
-
-
-
 
 /* -------------------------------------------------------------------------- */
 
@@ -303,26 +303,26 @@ body {
 		}
 
 		.tagline {
-			width: 500px;
+			max-width: 500px;
 			margin-bottom: 20px;
 
 			@include media-breakpoint-down(lg) {
-				width: 400px;
+				max-width: 400px;
 				font-size: 1.9rem;
 			}
 
 			@include media-breakpoint-down(md) {
-				width: 300px;
+				max-width: 300px;
 				font-size: 1.5rem;
 			}
 
 			@include media-breakpoint-down(sm) {
-				width: 250px;
+				max-width: 250px;
 				font-size: 1.3rem;
 			}
 
 			@include media-breakpoint-down(xs) {
-				width: 250px;
+				max-width: 250px;
 				margin: 20px auto;
 			}
 
@@ -340,5 +340,117 @@ body {
 				margin: 20px auto;
 			}
 		}
+	}
+}
+
+// LATEST MESSAGE
+.latest_message {
+	text-align: center;
+	background-color: $gray-100;
+	padding: 2rem 0;
+
+	h3 {
+		font-weight: 900;
+		margin-bottom: 1rem;
+
+		span {
+			text-align: center;
+		}
+	}
+
+	.card {
+		background-image: url(https://nova2021.dev/wp-content/uploads/2020/08/Fragale.jpg);
+		height: 600px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		margin-bottom: 1rem;
+		background-blend-mode: luminosity;
+		background-color: $gray-700;
+		padding: 1rem;
+		justify-content: center;
+		box-shadow: 0 5px 25px 5px transparentize($gray-500, 0.5);
+		border-radius: 15px;
+
+		@include media-breakpoint-down(lg) {
+			height: 500px;
+		}
+
+		@include media-breakpoint-down(md) {
+			height: 400px;
+		}
+
+		@include media-breakpoint-down(sm) {
+			height: 300px;
+		}
+
+		@include media-breakpoint-down(xs) {
+			height: 400px;
+		}
+
+		svg {
+			margin: 0 auto 30px;
+			width: 150px;
+			height: 150px;
+			padding: 20px 23px 20px 35px;
+			border: 12px solid transparentize($gray-100, 0.8);
+			color: transparentize($gray-100, 0.5);
+			border-radius: 100px;
+			transition: all 0.2s ease-in-out;
+
+			@include media-breakpoint-down(lg) {
+				transform: scale(0.8);
+			}
+
+			@include media-breakpoint-down(md) {
+				transform: scale(0.7);
+			}
+
+			@include media-breakpoint-down(sm) {
+				transform: scale(0.6);
+			}
+
+			@include media-breakpoint-down(xs) {
+				transform: scale(0.5);
+			}
+		}
+
+		h2 {
+			color: $gray-100;
+			font-weight: 900;
+			font-size: 2.2rem;
+			margin: 0;
+			transition: all 0.2s ease-in-out;
+
+			@include media-breakpoint-down(lg) {
+				transform: scale(0.9);
+			}
+
+			@include media-breakpoint-down(md) {
+				transform: scale(0.8);
+			}
+
+			@include media-breakpoint-down(sm) {
+				transform: scale(0.75);
+			}
+
+			@include media-breakpoint-down(xs) {
+				transform: scale(0.7);
+			}
+		}
+
+		&:hover {
+			text-decoration: none;
+
+			svg {
+				border: 3px solid $primary;
+				transition: all 0.2s ease-in-out;
+				color: $primary;
+			}
+		}
+	}
+
+	.btn {
+		text-align: center;
 	}
 }

@@ -17,7 +17,7 @@
 
 	<!-- Header -->
 	<header id="header">
-		<nav class="navbar fixed-top navbar-expand navbar-light bg-light">
+		<nav class="navbar fixed-top navbar-expand navbar-dark bg-dark">
 
 			<!-- Logo -->
 			<a class="navbar-brand" href="<?php echo get_site_url(); ?>">

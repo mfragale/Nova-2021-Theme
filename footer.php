@@ -10,7 +10,7 @@
             <polygon class="footer_logo" points="55.76 7.74 51.52 0.39 47.27 7.74 43.03 15.09 47.27 15.09 49.39 11.41 51.52 7.74 53.64 11.41 55.76 15.09 60 15.09 55.76 7.74" />
         </svg>
 
-        <div class="tagline"><small><?php echo get_bloginfo ( 'description' ); ?></small></div>
+        <span class="tagline"><small><?php echo get_bloginfo ( 'description' ); ?></small></span>
     </div>
 
     <div class="contact">
