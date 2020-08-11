@@ -1,1 +1,1 @@
-jQuery(document).ready(function(e){e(".hamburger").on("click",function(n){n.preventDefault(),e(".hamburger").toggleClass("is-active"),e("#fullscreenmenu").toggleClass("is-active")})});
+jQuery(document).ready(function(e){e(".hamburger").on("click",function(l){l.preventDefault(),e(".hamburger").toggleClass("is-active"),e("#fullscreenmenu").toggleClass("is-active")}),e("body").keydown(function(l){27==l.which&&(e(".hamburger").toggleClass("is-active"),e("#fullscreenmenu").toggleClass("is-active"))})});
