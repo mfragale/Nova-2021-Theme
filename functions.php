@@ -201,3 +201,41 @@ function latest_message()
 	return $return_string;
 }
 add_shortcode('latest-message', 'latest_message');
+
+
+
+/*
+ * SET MAURICIO E DENISE SHORTCODE [mauricio-denise]
+ */
+function mauricio_denise()
+{
+	$return_string = '<div class="mauricio_denise container-fluid">
+
+						<div class="row align-items-center">
+							<div class="fragales_pic col-lg"></div>						
+						
+							<div class="fragales_titles col-lg">
+								<div class="container">
+									<h4>
+										<span>
+											“O que mais nos inspira é ver pessoas alcançando o potencial que Deus às deu.”
+										<span>
+									</h4>
+									<div class="row align-items-center">
+										<div class="col-sm">
+											<h6>Mauricio & Denise Fragale</h6>
+											<p><small>Pastores Sêniores da Nova</small></p>
+										</div>
+										<div class="col-sm">
+											<a href="/play" class="btn btn-dark">Mais <i class="fal fa-long-arrow-right"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>';
+
+	return $return_string;
+}
+add_shortcode('mauricio-denise', 'mauricio_denise');

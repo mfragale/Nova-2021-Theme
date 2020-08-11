@@ -234,7 +234,7 @@ body {
 		@include media-breakpoint-down(xs) {
 			flex-direction: column;
 		}
-		
+
 		.stamp {
 			@include media-breakpoint-down(xs) {
 				margin-bottom: 1rem;
@@ -255,7 +255,6 @@ body {
 		}
 
 		.contact {
-			
 		}
 	}
 }
@@ -347,7 +346,7 @@ body {
 .latest_message {
 	text-align: center;
 	background-color: $gray-100;
-	padding: 2rem 0;
+	padding: 4rem 0;
 
 	h3 {
 		font-weight: 900;
@@ -452,5 +451,75 @@ body {
 
 	.btn {
 		text-align: center;
+	}
+}
+
+//Mauricio & Denise
+.mauricio_denise {
+	background-color: $primary;
+	color: $gray-100;
+
+	@include media-breakpoint-down(md) {
+		padding-bottom: 3rem;
+	}
+
+	.fragales_pic {
+		background-image: url(../../img_placeholders/Fragale-e-Denise.jpg);
+		height: 400px;
+		background-size: cover;
+		background-position: center;
+		display: flex;
+		align-items: center;
+		background-repeat: no-repeat;
+
+		@include media-breakpoint-down(xs) {
+			height: 200px;
+		}
+	}
+
+	.fragales_titles {
+
+		h4 {
+			margin-left: -60px;
+			max-width: 600px;
+
+			@include media-breakpoint-down(lg) {
+				max-width: 500px;
+				font-size: 1.4rem;
+			}
+
+			@include media-breakpoint-down(md) {
+				margin-left: 0px;
+				margin-top: -60px;
+			}
+
+			@include media-breakpoint-down(sm) {
+				max-width: 330px;
+				font-size: 1.3rem;
+			}
+			
+			span {
+				background-color: $danger;
+				line-height: 1.8;
+			}
+		}
+
+		h6 {
+			margin-bottom: 0;
+		}
+		p {
+			margin-bottom: 0;
+		}
+		a {
+			color: $gray-100;
+
+			@include media-breakpoint-up(sm) {
+				float: right;
+			}
+
+			@include media-breakpoint-down(xs) {
+				margin-top: 1rem;
+			}
+		}
 	}
 }
