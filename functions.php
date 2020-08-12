@@ -153,7 +153,6 @@ function fullscreen_custom_menu()
 
 
 
-
 // registration code for LOCAIS post type
 function register_locais_posttype()
 {
@@ -172,7 +171,7 @@ function register_locais_posttype()
 		'menu_name'			=> __('Locais')
 	);
 
-	$supports = array('title', 'editor', 'thumbnail');
+	$supports = array('title', 'editor', 'excerpt', 'thumbnail');
 
 	$post_type_args = array(
 		'labels' 			=> $labels,
@@ -184,7 +183,7 @@ function register_locais_posttype()
 		'exclude_from_search' => false,
 		'show_in_nav_menus'	=> true,
 		'capability_type' 	=> 'post',
-		'has_archive' 		=> 'locais',
+		'has_archive' 		=> false,
 		'hierarchical' 		=> false,
 		'rewrite' 			=> array('slug' => 'local', 'with_front' => true),
 		'supports' 			=> $supports,
@@ -288,7 +287,7 @@ function mauricio_denise()
 					</div>
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 
@@ -298,3 +297,68 @@ function mauricio_denise()
 	return  $output;
 }
 add_shortcode('mauricio-denise', 'mauricio_denise');
+
+
+
+
+
+
+
+
+/*
+ * SET LOCAIS SHORTCODE [locais]
+ */
+function locais()
+{
+	ob_start(); 
+
+	$args = array(  
+		'post_type' => 'locais'
+	);
+
+	$loop = new WP_Query( $args );
+
+?>
+
+<?php if ($loop->have_posts()) : ?>
+
+    <div class="locais">
+        <div class="container">
+
+            <!-- the loop -->
+            <?php while ($loop->have_posts()) : $loop->the_post(); ?>
+
+
+                <a href="<?php the_permalink(); ?>">
+                    <div class="row align-items-center">
+                        <div class="col-3"><img src="<?php the_post_thumbnail_url(); ?>"></div>
+                        <div class="col-7">
+							<h1><?php the_title(); ?></h1>
+							<?php if (get_the_excerpt()) { the_excerpt(); } ?>
+                        </div>
+                        <div class="col-2 text-right"><i class="fal fa-angle-right"></i></div>
+                    </div>
+                </a>
+
+
+            <?php endwhile; ?>
+            <!-- end of the loop -->
+            
+        </div>
+    </div>
+
+    <!-- pagination here -->
+
+    <?php wp_reset_postdata(); ?>
+
+<?php else : ?>
+    <p><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
+<?php endif; 
+
+
+
+$output = ob_get_contents();
+	ob_end_clean();
+	return  $output;
+}
+add_shortcode('locais', 'locais');
