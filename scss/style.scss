@@ -478,7 +478,6 @@ body {
 	}
 
 	.fragales_titles {
-
 		h4 {
 			margin-left: -60px;
 			max-width: 600px;
@@ -497,7 +496,7 @@ body {
 				max-width: 330px;
 				font-size: 1.3rem;
 			}
-			
+
 			span {
 				background-color: $danger;
 				line-height: 1.8;
@@ -520,6 +519,94 @@ body {
 			@include media-breakpoint-down(xs) {
 				margin-top: 1rem;
 			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	LOCAIS
+/* -------------------------------------------------------------------------- */
+.locais {
+	max-width: 576px;
+    margin: 0 auto;
+
+	a {
+		text-decoration: none;
+		color: $gray-700;
+		display: block;
+		padding: 1rem 0;
+		border-bottom: 1px solid $gray-300;
+
+		img {
+			max-width: 100%;
+			box-shadow: 0 5px 25px 5px transparentize($gray-500, 0.5);
+			border-radius: 15px;
+		}
+		h1 {
+			font-size: 1.5rem;
+			font-weight: 900;
+
+			@include media-breakpoint-down(xs) {
+				font-size: 1rem;
+			}
+		}
+		svg {
+			height: 30px;
+			width: 10px !important;
+			transition: all 0.3s ease-in-out;
+
+		}
+
+		&:hover {
+			color: $primary;
+			
+			svg {
+				transform: scale(1.2) translateX(2px);
+				transition: all 0.3s ease-in-out;
+				color: $primary;
+			}
+		}
+	}
+}
+
+.local {
+	max-width: 576px;
+    margin: 0 auto;
+
+	.campus_title {
+		text-decoration: none;
+		color: $gray-700;
+		display: block;
+		padding: 1rem 0;
+		border-bottom: 1px solid $gray-300;
+
+		img {
+			max-width: 100%;
+			box-shadow: 0 5px 25px 5px transparentize($gray-500, 0.5);
+			border-radius: 15px;
+		}
+		h1 {
+			font-size: 1.5rem;
+			font-weight: 900;
+
+			@include media-breakpoint-down(xs) {
+				font-size: 1rem;
+			}
+		}
+		svg {
+			height: 30px;
+			width: 10px !important;
+			transition: all 0.3s ease-in-out;
+
 		}
 	}
 }

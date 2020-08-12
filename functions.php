@@ -7,9 +7,9 @@ function nova2021_scripts()
 {
 
 	$theme = wp_get_theme();
-	$ver = $theme->get( 'Version' );
+	$ver = $theme->get('Version');
 	$themecsspath = get_stylesheet_directory() . '/style.css';
-	$style_ver = filemtime( $themecsspath );
+	$style_ver = filemtime($themecsspath);
 
 	wp_enqueue_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js', array('jquery'), true);
 
@@ -23,19 +23,9 @@ function nova2021_scripts()
 
 	wp_enqueue_script('functions', get_template_directory_uri() . '/js/dist/functions-min.js', array('jquery'), true);
 
-	wp_enqueue_script('fontawesome', 'https://pro.fontawesome.com/releases/v5.14.0/js/all.js', array(), null);
+	wp_enqueue_script('fontawesome', 'https://kit.fontawesome.com/edc432ff9b.js', array(), null);
 }
 add_action('wp_enqueue_scripts', 'nova2021_scripts');
-
-
-function add_font_awesome_5_cdn_attributes($html, $handle)
-{
-	if ('fontawesome' === $handle) {
-		return str_replace("media='all'", "media='all' integrity='sha384-8nFttujfhbCh3CZJ34J+BtLPrg9cGflbku3ZQUTUewA7mqA8TG5Uip4fzQRbERs0' crossorigin='anonymous'", $html);
-	}
-	return $html;
-}
-add_filter('style_loader_tag', 'add_font_awesome_5_cdn_attributes', 10, 2);
 
 
 
@@ -164,23 +154,78 @@ function fullscreen_custom_menu()
 
 
 
+// registration code for LOCAIS post type
+function register_locais_posttype()
+{
+	$labels = array(
+		'name' 				=> _x('Locais', 'post type general name'),
+		'singular_name'		=> _x('Local', 'post type singular name'),
+		'add_new' 			=> __('Novo local'),
+		'add_new_item' 		=> __('Local'),
+		'edit_item' 		=> __('Local'),
+		'new_item' 			=> __('Local'),
+		'view_item' 		=> __('Local'),
+		'search_items' 		=> __('Local'),
+		'not_found' 		=> __('Local'),
+		'not_found_in_trash' => __('Local'),
+		'parent_item_colon' => __(''),
+		'menu_name'			=> __('Locais')
+	);
+
+	$supports = array('title', 'editor', 'thumbnail');
+
+	$post_type_args = array(
+		'labels' 			=> $labels,
+		'singular_label' 	=> __('Local'),
+		'public' 			=> true,
+		'show_ui' 			=> true,
+		'publicly_queryable' => true,
+		'query_var'			=> true,
+		'exclude_from_search' => false,
+		'show_in_nav_menus'	=> true,
+		'capability_type' 	=> 'post',
+		'has_archive' 		=> 'locais',
+		'hierarchical' 		=> false,
+		'rewrite' 			=> array('slug' => 'local', 'with_front' => true),
+		'supports' 			=> $supports,
+		'menu_position' 	=> 4,
+		'menu_icon' 		=> 'dashicons-admin-site',
+		'taxonomies'		=> false,
+		'show_in_rest'		=> true
+	);
+	register_post_type('locais', $post_type_args);
+}
+add_action('init', 'register_locais_posttype');
+
+
+
+
+
+
+
+
+
+
 /*
  * SET SPLASH SCREEN SHORTCODE [splash-screen]
  */
 function splash_screen()
 {
-	$return_string = '<div class="splash_screen">
-						<div class="container">
-							<h1 class="tagline">
-								<span>
-									Uma família integrada, que se ama e apoia em todos os momentos.
-								<span>
-							</h1>
-							<a href="/sobre" class="btn btn-lg btn-danger">Quero saber mais</a>
-						</div>
-					</div>';
+	ob_start(); ?>
 
-	return $return_string;
+	<div class="splash_screen">
+		<div class="container">
+			<h1 class="tagline">
+				<span>Uma família integrada, que se ama e apoia em todos os momentos.<span>
+			</h1>
+			<a href="/sobre" class="btn btn-lg btn-danger">Quero saber mais</a>
+		</div>
+	</div>
+
+<?php
+	$output = ob_get_contents();
+	ob_end_clean();
+	return  $output;
 }
 add_shortcode('splash-screen', 'splash_screen');
 
@@ -191,22 +236,25 @@ add_shortcode('splash-screen', 'splash_screen');
  */
 function latest_message()
 {
-	$return_string = '<div class="latest_message">
-						<div class="container">
-							<h3>
-								<span>
-									Vídeo desta semana
-								<span>
-							</h3>
-							<a class="card" href="/play">
-								<i class="fad fa-play"></i>
-								<h2>Nascidos e chamados com propósito</h2>
-							</a>
-							<a href="/play" class="btn btn-link">Mais conteúdos <i class="fal fa-long-arrow-right"></i></a>
-						</div>
-					</div>';
+	ob_start(); ?>
 
-	return $return_string;
+	<div class="latest_message">
+		<div class="container">
+			<h3>
+				<span>Vídeo desta semana<span>
+			</h3>
+			<a class="card" href="/play">
+				<i class="fad fa-play"></i>
+				<h2>Nascidos e chamados com propósito</h2>
+			</a>
+			<a href="/play" class="btn btn-link">Mais conteúdos <i class="fal fa-long-arrow-right"></i></a>
+		</div>
+	</div>
+
+<?php
+	$output = ob_get_contents();
+	ob_end_clean();
+	return  $output;
 }
 add_shortcode('latest-message', 'latest_message');
 
@@ -217,33 +265,36 @@ add_shortcode('latest-message', 'latest_message');
  */
 function mauricio_denise()
 {
-	$return_string = '<div class="mauricio_denise container-fluid">
+	ob_start(); ?>
 
-						<div class="row align-items-center">
-							<div class="fragales_pic col-lg"></div>						
-						
-							<div class="fragales_titles col-lg">
-								<div class="container">
-									<h4>
-										<span>
-											“O que mais nos inspira é ver pessoas alcançando o potencial que Deus às deu.”
-										<span>
-									</h4>
-									<div class="row align-items-center">
-										<div class="col-sm">
-											<h6>Mauricio & Denise Fragale</h6>
-											<p><small>Pastores Sêniores da Nova</small></p>
-										</div>
-										<div class="col-sm">
-											<a href="/play" class="btn btn-dark">Mais <i class="fal fa-long-arrow-right"></i></a>
-										</div>
-									</div>
-								</div>
-							</div>
+	<div class="mauricio_denise container-fluid">
+		<div class="row align-items-center">
+
+			<div class="fragales_pic col-lg"></div>
+
+			<div class="fragales_titles col-lg">
+				<div class="container">
+					<h4>
+						<span>“O que mais nos inspira é ver pessoas alcançando o potencial que Deus às deu.”<span>
+					</h4>
+					<div class="row align-items-center">
+						<div class="col-sm">
+							<h6>Mauricio & Denise Fragale</h6>
+							<p><small>Pastores Sêniores da Nova</small></p>
 						</div>
+						<div class="col-sm">
+							<a href="/play" class="btn btn-dark">Mais <i class="fal fa-long-arrow-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
 
-					</div>';
-
-	return $return_string;
+<?php
+	$output = ob_get_contents();
+	ob_end_clean();
+	return  $output;
 }
 add_shortcode('mauricio-denise', 'mauricio_denise');
