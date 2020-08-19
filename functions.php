@@ -374,9 +374,10 @@ function mensagens()
 		<div class="mensagens">
 
 			<div class="recent_message">
+				<video src="https://nova2021.dev/wp-content/themes/Nova-2021-Theme/img_placeholders/Play-original.mp4" autoplay loop playsinline muted></video>
 				<a href="/play">
 					<h2>Nascidos e chamados com propósito</h2>
-					<div><button type="button" class="btn btn-light"><i class="fad fa-play"></i> Play</button></div>
+					<div><button type="button" class="btn btn-light"><i class="fad fa-play-circle"></i> Play</button></div>
 				</a>
 			</div>
 
