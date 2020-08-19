@@ -199,6 +199,54 @@ add_action('init', 'register_locais_posttype');
 
 
 
+// registration code for MENSAGENS post type
+function register_mensagens_posttype()
+{
+	$labels = array(
+		'name' 				=> _x('Mensagens', 'post type general name'),
+		'singular_name'		=> _x('Mensagem', 'post type singular name'),
+		'add_new' 			=> __('Nova Mensagem'),
+		'add_new_item' 		=> __('Mensagem'),
+		'edit_item' 		=> __('Mensagem'),
+		'new_item' 			=> __('Mensagem'),
+		'view_item' 		=> __('Mensagem'),
+		'search_items' 		=> __('Mensagem'),
+		'not_found' 		=> __('Mensagem'),
+		'not_found_in_trash' => __('Mensagem'),
+		'parent_item_colon' => __(''),
+		'menu_name'			=> __('Mensagens')
+	);
+
+	$supports = array('title', 'editor', 'excerpt', 'thumbnail');
+
+	$post_type_args = array(
+		'labels' 			=> $labels,
+		'singular_label' 	=> __('Mensagem'),
+		'public' 			=> true,
+		'show_ui' 			=> true,
+		'publicly_queryable' => true,
+		'query_var'			=> true,
+		'exclude_from_search' => false,
+		'show_in_nav_menus'	=> true,
+		'capability_type' 	=> 'post',
+		'has_archive' 		=> false,
+		'hierarchical' 		=> false,
+		'rewrite' 			=> array('slug' => 'mensagem', 'with_front' => true),
+		'supports' 			=> $supports,
+		'menu_position' 	=> 4,
+		'menu_icon' 		=> 'dashicons-video-alt3',
+		'taxonomies'		=> false,
+		'show_in_rest'		=> true
+	);
+	register_post_type('mensagens', $post_type_args);
+}
+add_action('init', 'register_mensagens_posttype');
+
+
+
+
+
+
 
 
 
@@ -274,7 +322,7 @@ function mauricio_denise()
 			<div class="fragales_titles col-lg">
 				<div class="container">
 					<h4>
-						<span>“O que mais nos inspira é ver pessoas alcançando o potencial que Deus às deu.”<span>
+						<span>“O que mais nos inspira é ver pessoas alcançando o potencial que Deus às deu.”</span>
 					</h4>
 					<div class="row align-items-center">
 						<div class="col-sm">
@@ -305,59 +353,138 @@ add_shortcode('mauricio-denise', 'mauricio_denise');
 
 
 
+
+
+/*
+ * SET MENSAGENS SHORTCODE [mensagens]
+ */
+function mensagens()
+{
+	ob_start();
+
+	$args = array(
+		'post_type' => 'mensagens'
+	);
+
+	$loop = new WP_Query($args);
+?>
+
+	<?php if ($loop->have_posts()) : $loop->the_post(); ?>
+
+		<div class="mensagens">
+
+			<div class="recent_message">
+				<a href="/play">
+					<h2>Nascidos e chamados com propósito</h2>
+					<div><button type="button" class="btn btn-light"><i class="fad fa-play"></i> Play</button></div>
+				</a>
+			</div>
+
+
+			<div class="more_messages">
+				<div class="more_messages_container">
+					<!-- the loop -->
+					<?php while ($loop->have_posts()) : $loop->the_post(); ?>
+
+
+						<a href="<?php the_permalink(); ?>">
+							<img src="<?php the_post_thumbnail_url(); ?>">
+							<h3><?php the_title(); ?></h3>
+						</a>
+
+
+					<?php endwhile; ?>
+					<!-- end of the loop -->
+				</div>
+			</div>
+
+		</div>
+
+		<!-- pagination here -->
+
+		<?php wp_reset_postdata(); ?>
+
+	<?php else : ?>
+		<p><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
+	<?php endif;
+
+
+
+	$output = ob_get_contents();
+	ob_end_clean();
+	return  $output;
+}
+add_shortcode('mensagens', 'mensagens');
+
+
+
+
+
+
+
+
+
+
+
 /*
  * SET LOCAIS SHORTCODE [locais]
  */
 function locais()
 {
-	ob_start(); 
+	ob_start();
 
-	$args = array(  
+	$args = array(
 		'post_type' => 'locais'
 	);
 
-	$loop = new WP_Query( $args );
+	$loop = new WP_Query($args);
 
-?>
+	?>
 
-<?php if ($loop->have_posts()) : ?>
+	<?php if ($loop->have_posts()) : ?>
 
-    <div class="locais">
-        <div class="container">
+		<div class="locais">
+			<div class="container">
 
-            <!-- the loop -->
-            <?php while ($loop->have_posts()) : $loop->the_post(); ?>
-
-
-                <a href="<?php the_permalink(); ?>">
-                    <div class="row align-items-center">
-                        <div class="col-3"><img src="<?php the_post_thumbnail_url(); ?>"></div>
-                        <div class="col-7">
-							<h1><?php the_title(); ?></h1>
-							<?php if (get_the_excerpt()) { the_excerpt(); } ?>
-                        </div>
-                        <div class="col-2 text-right"><i class="fal fa-angle-right"></i></div>
-                    </div>
-                </a>
+				<!-- the loop -->
+				<?php while ($loop->have_posts()) : $loop->the_post(); ?>
 
 
-            <?php endwhile; ?>
-            <!-- end of the loop -->
-            
-        </div>
-    </div>
-
-    <!-- pagination here -->
-
-    <?php wp_reset_postdata(); ?>
-
-<?php else : ?>
-    <p><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
-<?php endif; 
-
+					<a href="<?php the_permalink(); ?>">
+						<div class="row align-items-center">
+							<div class="col-3"><img src="<?php the_post_thumbnail_url(); ?>"></div>
+							<div class="col-7">
+								<h1><?php the_title(); ?></h1>
+								<?php if (get_the_excerpt()) {
+									the_excerpt();
+								} ?>
+							</div>
+							<div class="col-2 text-right"><i class="fal fa-angle-right"></i></div>
+						</div>
+					</a>
 
 
-$output = ob_get_contents();
+				<?php endwhile; ?>
+				<!-- end of the loop -->
+
+			</div>
+		</div>
+
+		<!-- <div class="local_info">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d909.6455432038415!2d-43.33492431507925!3d-22.998592524446266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bdc87c943ed9f%3A0x4ef202a53be9425f!2sNova%20Igreja!5e0!3m2!1sen!2sau!4v1597579589853!5m2!1sen!2sau" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+		</div> -->
+
+		<!-- pagination here -->
+
+		<?php wp_reset_postdata(); ?>
+
+	<?php else : ?>
+		<p><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
+<?php endif;
+
+
+
+	$output = ob_get_contents();
 	ob_end_clean();
 	return  $output;
 }

@@ -525,11 +525,130 @@ body {
 
 /* -------------------------------------------------------------------------- */
 
+/*	PLAY
+/* -------------------------------------------------------------------------- */
+
+.mensagens {
+
+	.recent_message {
+		display: flex;
+		background-image: url(../../img_placeholders/Fragale.jpg);
+		height: 600px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		justify-content: flex-start;
+		align-items: stretch;
+		background-blend-mode: color-burn;
+		background-color: $gray-100;
+
+		a {
+			padding: 5rem;
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			color: $gray-100;
+
+			&:hover {
+				text-decoration: none;
+			}
+
+			@include media-breakpoint-down(lg) {
+				height: 500px;
+			}
+	
+			@include media-breakpoint-down(md) {
+				height: 400px;
+			}
+	
+			@include media-breakpoint-down(sm) {
+				height: 300px;
+			}
+
+			h2 {
+				font-weight: 900;
+				max-width: 400px;
+			}
+		}
+	}
+
+	.more_messages {
+		padding: 3rem;
+		margin-top: -8rem;
+		width: 100%;
+		overflow: scroll;
+		background: linear-gradient(0deg, $gray-900 0%, $gray-900 50%, transparentize($gray-900, 1) 100%);
+
+		.more_messages_container {
+			width: calc( 200px * 9 + 90px + 3rem);
+			font-size: 0;
+
+
+			@include media-breakpoint-down(sm) {
+				width: calc( 180px * 9 + 90px + 3rem);
+			}
+
+			@include media-breakpoint-down(xs) {
+				width: calc( 130px * 9 + 90px + 3rem);
+			}
+
+			a {
+				display: inline-block;
+				line-height: 0rem;
+				position: relative;
+				border-radius: 10px;
+				overflow: auto;
+				width: 200px;
+				margin-right: 10px;
+
+	
+				@include media-breakpoint-down(sm) {
+					width: 180px;
+				}
+	
+				@include media-breakpoint-down(xs) {
+					width: 130px;
+				}
+
+				img {
+					width: 100%;
+				}
+				h3 {
+					position: absolute;
+					font-size: 1rem;
+					bottom: 0.5rem;
+					left: 1rem;
+					color: $white;
+					text-shadow: 0px 0px 20px $gray-900;
+
+					@include media-breakpoint-down(sm) {
+						font-size: .85rem;
+					}
+		
+					@include media-breakpoint-down(xs) {
+						font-size: .7rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* -------------------------------------------------------------------------- */
+
 /*	LOCAIS
 /* -------------------------------------------------------------------------- */
 .locais {
-	max-width: 576px;
-	margin: 0 auto;
+	max-width: 470px;
+	
+	@include media-breakpoint-down(md) {
+		max-width: 320px;
+	}
+
+	@include media-breakpoint-down(xs) {
+		max-width: 100%;
+	}
 
 	a {
 		text-decoration: none;
@@ -551,14 +670,14 @@ body {
 				font-weight: 900;
 				margin-bottom: 0;
 
-				@include media-breakpoint-down(xs) {
+				@include media-breakpoint-down(md) {
 					font-size: 1rem;
 				}
 			}
 			p {
 				margin-bottom: 0;
 
-				@include media-breakpoint-down(xs) {
+				@include media-breakpoint-down(md) {
 					font-size: 0.6rem;
 				}
 			}
@@ -575,6 +694,19 @@ body {
 				transition: all 0.1s ease-in-out;
 			}
 		}
+	}
+}
+
+.local_info {
+	width: calc(100vw - 470px);
+	height: 100%;
+	position: absolute;
+	top: 56px;
+	right: 0;
+	
+	iframe {
+		width: 100%;
+		height: 100%;
 	}
 }
 
