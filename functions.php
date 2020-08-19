@@ -1,5 +1,9 @@
 <?php
 
+// add theme thumbnail support
+add_theme_support( 'post-thumbnails' );
+
+
 /**
  * Enqueue scripts and styles.
  */
