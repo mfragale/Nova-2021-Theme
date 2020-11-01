@@ -537,7 +537,7 @@ body {
 		// background-repeat: no-repeat;
 		// background-position: center;
 		// background-blend-mode: color-burn;
-		background-color: $gray-100;
+		background-color: #b1b7ea;
 		justify-content: center;
 		align-items: center;
 		position: relative;
@@ -552,7 +552,7 @@ body {
 		}
 
 		video {
-			background: #000;
+			mix-blend-mode: overlay;
 			object-fit: cover;
 			object-position: 50% 30%;
 			width: 100%;
@@ -583,7 +583,7 @@ body {
 			}
 
 			h2 {
-				font-weight: 900;
+				//font-weight: 900;
 				max-width: 400px;
 
 				@include media-breakpoint-down(sm) {
@@ -598,11 +598,11 @@ body {
 	}
 
 	.more_messages {
-		padding: 3rem;
+		padding: 5rem 2rem 3rem;
 		margin-top: -8rem;
 		width: 100%;
 		overflow: scroll;
-		background: linear-gradient(0deg, $gray-900 0%, $gray-900 50%, transparentize($gray-900, 1) 100%);
+		background: linear-gradient(0deg, $gray-900 0%, $gray-900 60%, transparentize($gray-900, 1) 100%);
 		position: relative;
 		z-index: 2;
 
@@ -664,15 +664,6 @@ body {
 /*	LOCAIS
 /* -------------------------------------------------------------------------- */
 .locais {
-	max-width: 470px;
-
-	@include media-breakpoint-down(md) {
-		max-width: 320px;
-	}
-
-	@include media-breakpoint-down(xs) {
-		max-width: 100%;
-	}
 
 	a {
 		text-decoration: none;
@@ -686,6 +677,7 @@ body {
 
 			img {
 				max-width: 100%;
+				height: auto;
 				box-shadow: 0 5px 25px 5px transparentize($gray-500, 0.5);
 				border-radius: 15px;
 			}
@@ -710,58 +702,13 @@ body {
 				width: 10px !important;
 			}
 		}
-		&:hover {
+		&:hover, &.active {
 			color: $primary;
 
 			.row {
 				transform: scale(1.03);
 				transition: all 0.1s ease-in-out;
 			}
-		}
-	}
-}
-
-.local_info {
-	width: calc(100vw - 470px);
-	height: 100%;
-	position: absolute;
-	top: 56px;
-	right: 0;
-
-	iframe {
-		width: 100%;
-		height: 100%;
-	}
-}
-
-.local {
-	max-width: 576px;
-	margin: 0 auto;
-
-	.campus_title {
-		text-decoration: none;
-		color: $gray-700;
-		display: block;
-		padding: 1rem 0;
-		border-bottom: 1px solid $gray-300;
-
-		img {
-			max-width: 100%;
-			box-shadow: 0 5px 25px 5px transparentize($gray-500, 0.5);
-			border-radius: 15px;
-		}
-		h1 {
-			font-size: 1.5rem;
-			font-weight: 900;
-
-			@include media-breakpoint-down(xs) {
-				font-size: 1rem;
-			}
-		}
-		svg {
-			height: 30px;
-			width: 10px !important;
-			transition: all 0.3s ease-in-out;
 		}
 	}
 }

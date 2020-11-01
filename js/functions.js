@@ -11,13 +11,18 @@ jQuery(document).ready(function ($) {
 	});
 
 	// Open and Close Fullscreen Menu by pressing esc
-	$('body').keydown(function(e){
-		if (e.which==27){
+	$('body').keydown(function (e) {
+		if (e.which == 27) {
 			$(".hamburger").toggleClass("is-active");
 			$('#fullscreenmenu').toggleClass("is-active");
 		}
 	});
 
+	$('#myTab a').on('click', function (e) {
+		e.preventDefault()
+		$(this).tab('show')
+	})
 
-	
+
+
 }); // jQuery

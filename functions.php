@@ -1,7 +1,7 @@
 <?php
 
 // add theme thumbnail support
-add_theme_support( 'post-thumbnails' );
+add_theme_support('post-thumbnails');
 
 
 /**
@@ -378,10 +378,13 @@ function mensagens()
 		<div class="mensagens">
 
 			<div class="recent_message">
-				<video src="https://nova2021.dev/wp-content/themes/Nova-2021-Theme/img_placeholders/Play-original.mp4" autoplay loop playsinline muted></video>
+				<video src="<?php echo get_template_directory_uri(); ?>/img_placeholders/Play-original.mp4" autoplay loop playsinline muted></video>
 				<a href="/play">
-					<h2>Nascidos e chamados com propósito</h2>
-					<div><button type="button" class="btn btn-light"><i class="fad fa-play-circle"></i> Play</button></div>
+					<div class="mb-3">
+						<div class="badge badge-danger">Mais recente</div>
+					</div>
+					<h2 class="mb-3">Nascidos e chamados com propósito</h2>
+					<div><button type="button" class="btn btn-outline-light btn-lg"><i class="fad fa-play-circle"></i> Play</button></div>
 				</a>
 			</div>
 
@@ -449,35 +452,62 @@ function locais()
 	<?php if ($loop->have_posts()) : ?>
 
 		<div class="locais">
-			<div class="container">
-
-				<!-- the loop -->
-				<?php while ($loop->have_posts()) : $loop->the_post(); ?>
+			<div class="container-fluid">
+				<div class="row">
 
 
-					<a href="<?php the_permalink(); ?>">
-						<div class="row align-items-center">
-							<div class="col-3"><img src="<?php the_post_thumbnail_url(); ?>"></div>
-							<div class="col-7">
-								<h1><?php the_title(); ?></h1>
-								<?php if (get_the_excerpt()) {
-									the_excerpt();
-								} ?>
-							</div>
-							<div class="col-2 text-right"><i class="fal fa-angle-right"></i></div>
+
+					<div class="col">
+						<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+							<!-- the loop -->
+							<?php while ($loop->have_posts()) : $loop->the_post();
+								global $post; ?>
+
+								<a class="<?php if (!get_next_post_link()) { echo 'active'; } ?>" id="<?php echo $post->post_name; ?>-tab" data-toggle="pill" href="#<?php echo $post->post_name; ?>" role="tab" aria-controls="<?php echo $post->post_name; ?>" aria-selected="<?php if (!get_next_post_link()) { echo 'true'; } ?>">
+									<div class="row align-items-center">
+										<div class="col-3"><img src="<?php the_post_thumbnail_url(); ?>"></div>
+										<div class="col-7">
+											<h1><?php the_title(); ?></h1>
+											<?php if (get_the_excerpt()) {
+												the_excerpt();
+											} ?>
+										</div>
+										<div class="col-2 text-right"><i class="fal fa-angle-right"></i></div>
+									</div>
+								</a>
+
+							<?php endwhile; ?>
+							<!-- end of the loop -->
+
 						</div>
-					</a>
+					</div>
 
 
-				<?php endwhile; ?>
-				<!-- end of the loop -->
 
+					<div class="col">
+						<div class="tab-content" id="v-pills-tabContent">
+
+							<!-- the loop -->
+							<?php while ($loop->have_posts()) : $loop->the_post();
+								global $post; ?>
+
+								<div class="tab-pane fade <?php if (!get_next_post_link()) { echo 'show active'; } ?>" id="<?php echo $post->post_name; ?>" role="tabpanel" aria-labelledby="<?php echo $post->post_name; ?>-tab">
+									<h1><?php the_title(); ?></h1>
+								</div>
+
+							<?php endwhile; ?>
+							<!-- end of the loop -->
+
+						</div>
+					</div>
+
+
+
+				</div>
 			</div>
 		</div>
 
-		<!-- <div class="local_info">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d909.6455432038415!2d-43.33492431507925!3d-22.998592524446266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bdc87c943ed9f%3A0x4ef202a53be9425f!2sNova%20Igreja!5e0!3m2!1sen!2sau!4v1597579589853!5m2!1sen!2sau" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-		</div> -->
 
 		<!-- pagination here -->
 

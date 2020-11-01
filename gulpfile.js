@@ -1,13 +1,13 @@
-var gulp  = require('gulp'),
-  sass = require('gulp-sass'),
-  sourcemaps = require('gulp-sourcemaps'),
-  cleanCss = require('gulp-clean-css'),
-  rename = require('gulp-rename'),
-  postcss      = require('gulp-postcss'),
-  autoprefixer = require('autoprefixer');
+var gulp         = require('gulp'),
+    sass         = require('gulp-sass'),
+    sourcemaps   = require('gulp-sourcemaps'),
+    cleanCss     = require('gulp-clean-css'),
+    rename       = require('gulp-rename'),
+    postcss      = require('gulp-postcss'),
+    autoprefixer = require('autoprefixer');
 
-  const { src, dest }  = require("gulp");
-  const minify = require("gulp-minify");
+const { src, dest }  = require("gulp");
+const minify = require("gulp-minify");
 
 function buildCss() {
     return gulp.src(['scss/*.scss'])
