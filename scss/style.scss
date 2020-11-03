@@ -75,8 +75,8 @@ body {
 						}
 					}
 
-					span {
-					}
+					// span {
+					// }
 				}
 
 				&.active {
@@ -264,8 +264,8 @@ body {
 			}
 		}
 
-		.contact {
-		}
+		// .contact {
+		// }
 	}
 }
 
@@ -849,10 +849,10 @@ body {
 		&.active {
 			color: $primary;
 
-			.row {
-				// transform: scale(1.03);
-				// transition: all 0.1s ease-in-out;
-			}
+			// .row {
+			// 	transform: scale(1.03);
+			// 	transition: all 0.1s ease-in-out;
+			// }
 		}
 	}
 }
