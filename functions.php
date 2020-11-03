@@ -457,16 +457,21 @@ function locais()
 
 
 
-					<div class="col">
-						<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+					<div class="col-12 col-md-4">
+						<div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
 							<!-- the loop -->
 							<?php while ($loop->have_posts()) : $loop->the_post();
 								global $post; ?>
 
-								<a class="<?php if (!get_next_post_link()) { echo 'active'; } ?>" id="<?php echo $post->post_name; ?>-tab" data-toggle="pill" href="#<?php echo $post->post_name; ?>" role="tab" aria-controls="<?php echo $post->post_name; ?>" aria-selected="<?php if (!get_next_post_link()) { echo 'true'; } ?>">
+								<a class="<?php //if (!get_next_post_link()) { echo 'active'; } 
+											?>" id="<?php echo $post->post_name; ?>-tab" data-toggle="tab" href="#<?php echo $post->post_name; ?>" role="tab" aria-controls="<?php echo $post->post_name; ?>" aria-selected="<?php if (!get_next_post_link()) {
+																																																									echo 'true';
+																																																								} ?>">
 									<div class="row align-items-center">
-										<div class="col-3"><img src="<?php the_post_thumbnail_url(); ?>"></div>
+										<div class="col-3">
+											<img class="img-fluid mx-auto d-block" src="<?php the_post_thumbnail_url(); ?>">
+										</div>
 										<div class="col-7">
 											<h1><?php the_title(); ?></h1>
 											<?php if (get_the_excerpt()) {
@@ -485,15 +490,47 @@ function locais()
 
 
 
-					<div class="col">
-						<div class="tab-content" id="v-pills-tabContent">
+					<div class="col-12 col-md-8 tab-wrap">
+						<div class="tab-content">
+
+							<div class="tab-pane fade show active text-center" id="noLocalSelected" role="tabpanel" aria-labelledby="noLocalSelected-tab">
+								<div class="row h-100">
+									<div class="col-sm-12 my-auto">
+										<i class="fad fa-map-marked-alt"></i>
+										<p>Selecione um campus</p>
+									</div>
+								</div>
+							</div>
 
 							<!-- the loop -->
 							<?php while ($loop->have_posts()) : $loop->the_post();
 								global $post; ?>
 
-								<div class="tab-pane fade <?php if (!get_next_post_link()) { echo 'show active'; } ?>" id="<?php echo $post->post_name; ?>" role="tabpanel" aria-labelledby="<?php echo $post->post_name; ?>-tab">
+								<div class="tab-pane fade <?php //if (!get_next_post_link()) { echo 'show active'; } 
+															?>" id="<?php echo $post->post_name; ?>" role="tabpanel" aria-labelledby="<?php echo $post->post_name; ?>-tab">
+
+
+									<a class="btn btn-danger closeLocal d-block d-md-none" id="noLocalSelected-tab" data-toggle="tab" href="#noLocalSelected" role="tab" aria-controls="noLocalSelected" aria-selected="true">Fechar</a>
+
 									<h1><?php the_title(); ?></h1>
+									<div class="local-wrap">
+										<div class="local-hero" style="background-image: url(https://nova2021.dev/wp-content/uploads/2020/08/local-barra.jpg);">
+											<img width="50" height="50" src="https://nova2021.dev/wp-content/themes/Nova-2021-Theme/img_placeholders/Fragale-e-Denise.jpg" class="rounded-circle">
+											<h3>Mauricio & Denise Fragale</h3>
+											<h4>Pastores Sêniors</h4>
+											<div class="contact">
+												<a href="mailto: oi@novaigreja.com" type="button" class="btn btn-light btn-sm">Email <i class="fad fa-paper-plane"></i></a>
+											</div>
+										</div>
+										<div class="row info">
+											<div class="col">
+												<h3>Encontros</h3>
+											</div>
+											<div class="col">
+												<h3>Como chegar</h3>
+											</div>
+										</div>
+									</div>
 								</div>
 
 							<?php endwhile; ?>
