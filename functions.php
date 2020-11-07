@@ -464,10 +464,10 @@ function locais()
 							<?php while ($loop->have_posts()) : $loop->the_post();
 								global $post; ?>
 
-								<a class="<?php //if (!get_next_post_link()) { echo 'active'; } 
-											?>" id="<?php echo $post->post_name; ?>-tab" data-toggle="tab" href="#<?php echo $post->post_name; ?>" role="tab" aria-controls="<?php echo $post->post_name; ?>" aria-selected="<?php if (!get_next_post_link()) {
-																																																									echo 'true';
-																																																								} ?>">
+								<a class="nav-link <?php //if (!get_next_post_link()) { echo 'active'; } 
+													?>" id="<?php echo $post->post_name; ?>-tab" data-toggle="tab" href="#<?php echo $post->post_name; ?>" role="tab" aria-controls="<?php echo $post->post_name; ?>" aria-selected="<?php if (!get_next_post_link()) {
+																																																											echo 'true';
+																																																										} ?>">
 									<div class="row align-items-center">
 										<div class="col-3">
 											<img class="img-fluid mx-auto d-block" src="<?php the_post_thumbnail_url(); ?>">
@@ -510,24 +510,72 @@ function locais()
 															?>" id="<?php echo $post->post_name; ?>" role="tabpanel" aria-labelledby="<?php echo $post->post_name; ?>-tab">
 
 
-									<a class="btn btn-danger closeLocal d-block d-md-none" id="noLocalSelected-tab" data-toggle="tab" href="#noLocalSelected" role="tab" aria-controls="noLocalSelected" aria-selected="true">Fechar</a>
-
-									<h1><?php the_title(); ?></h1>
+									<h1>
+										<a class="btn btn-link closeLocal d-block d-md-none" id="noLocalSelected-tab" data-toggle="tab" href="#noLocalSelected" role="tab" aria-controls="noLocalSelected" aria-selected="true"><i class="fa fa-chevron-left"></i></a>
+										<?php the_title(); ?>
+									</h1>
 									<div class="local-wrap">
-										<div class="local-hero" style="background-image: url(https://nova2021.dev/wp-content/uploads/2020/08/local-barra.jpg);">
-											<img width="50" height="50" src="https://nova2021.dev/wp-content/themes/Nova-2021-Theme/img_placeholders/Fragale-e-Denise.jpg" class="rounded-circle">
-											<h3>Mauricio & Denise Fragale</h3>
-											<h4>Pastores Sêniors</h4>
-											<div class="contact">
-												<a href="mailto: oi@novaigreja.com" type="button" class="btn btn-light btn-sm">Email <i class="fad fa-paper-plane"></i></a>
+
+										<div class="local-hero row" style="background-image: url(https://nova2021.dev/wp-content/uploads/2020/11/local-barra-grande.jpg);">
+											<div class="col-sm-6 pastores">
+												<h3>Mauricio & Denise Fragale</h3>
+												<h4>Pastores Sêniors</h4>
+											</div>
+											<div class="col-sm-6 contato">
+												<a href="mailto: oi@novaigreja.com" type="button" class="btn btn-light btn-sm">Entrar em contato <i class="fad fa-paper-plane"></i></a>
 											</div>
 										</div>
-										<div class="row info">
-											<div class="col">
-												<h3>Encontros</h3>
+
+										<div class="row info text-center">
+
+
+
+
+
+											<div class="col-lg-6">
+												<div class="row">
+													<div class="col">
+														<h3>Encontros</h3>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col">
+														<p class="info_dia_semana">Domingo</p>
+														<p class="info_horario">10:00</p>
+													</div>
+													<div class="col">
+														<p class="info_dia_semana">Domingo</p>
+														<p class="info_horario">18:00</p>
+													</div>
+													<div class="col">
+														<p class="info_dia_semana">Quinta</p>
+														<p class="info_horario">20:00</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col">
+														<a class="btn btn-light btn_visita"><i class="fad fa-clock"></i> Marcar uma visita</a>
+													</div>
+												</div>
 											</div>
-											<div class="col">
-												<h3>Como chegar</h3>
+
+											<div class="col-lg-6">
+												<div class="row">
+													<div class="col">
+														<h3>Como chegar</h3>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col">
+														<p class="info_detalhes">Nova Igreja Barra da Tijuca fica dentro do Freeway. O ponto de BRT mais próximo é o Alvorada. </p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col">
+														<a class="btn btn-light"><i class="fad fa-map-marked"></i> Ver no mapa</a>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>

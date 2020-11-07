@@ -16,21 +16,20 @@ jQuery(function () {
 		}
 	});
 
+
+
+
 	// Locais tabs
-	let url = location.href.replace(/\/$/, "");
 
 	// Show tab that if it is in the URL
 	if (location.hash) {
-		const hash = url.split("#");
+		const hash = location.href.split("#");
 		$('.nav a[href="#' + hash[1] + '"]').tab("show");
-		url = location.href.replace(/\/#/, "#");
-		history.replaceState(null, null, url);
 	}
 	// Close local tab
 	$('.closeLocal').on("click", function () {
 		$('.tab-pane').removeClass('active');
 		$('a[data-toggle="tab"]').removeClass('active');
-		newUrl = url.split("#")[0];
 	});
 
 	// Change the URL when the tab is selected
@@ -38,15 +37,28 @@ jQuery(function () {
 		let newUrl;
 		const hash = $(this).attr("href");
 		if (hash == "#noLocalSelected") {
-			newUrl = url.split("#")[0];
+			newUrl = location.href.split("#")[0];
 		} else {
-			newUrl = url.split("#")[0] + "/" + hash;
+			newUrl = location.href.split("#")[0] + hash;
 		}
-		newUrl += "/";
+
 		history.replaceState(null, null, newUrl);
 	});
 
-	
+	// Set the tab-pane height to the same as the body on mobile screens
+
+	$(window).resize(function () {
+		if ($(window).width() < 768) {
+			var bodyheight = $('body').height();
+			$(".tab-pane").height(bodyheight);
+		} else {
+			$(".tab-pane").height('auto')
+		}
+	}).resize();
+
+
+
+
 
 
 

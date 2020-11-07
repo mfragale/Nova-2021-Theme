@@ -10,9 +10,6 @@ body {
 	padding-top: 54px;
 }
 
-
-
-
 /* -------------------------------------------------------------------------- */
 
 /*	HEADER
@@ -219,13 +216,6 @@ body {
 	}
 }
 
-
-
-
-
-
-
-
 /* -------------------------------------------------------------------------- */
 
 /*	FOOTER
@@ -268,13 +258,6 @@ body {
 		// }
 	}
 }
-
-
-
-
-
-
-
 
 /* -------------------------------------------------------------------------- */
 
@@ -540,13 +523,6 @@ body {
 	}
 }
 
-
-
-
-
-
-
-
 /* -------------------------------------------------------------------------- */
 
 /*	PLAY
@@ -729,35 +705,31 @@ body {
 	}
 }
 
-
-
-
-
-
-
-
 /* -------------------------------------------------------------------------- */
 
 /*	LOCAIS
 /* -------------------------------------------------------------------------- */
 .locais {
+	//Local details
 	.tab-wrap {
-		position: fixed;
-		right: 0;
-		
+		@include media-breakpoint-down(sm) {
+			position: absolute;
+			right: 0;
+			background: #fff;
+		}
 
 		.tab-content {
 			font-weight: inherit;
 
 			#noLocalSelected {
 				color: $gray-300;
-				height: calc(100vh - 250px);
+				height: calc(100vh - 250px) !important;
 
 				svg {
 					width: 120px;
 					height: 120px;
 				}
-				
+
 				@include media-breakpoint-down(sm) {
 					display: none;
 				}
@@ -765,40 +737,124 @@ body {
 
 			.tab-pane {
 				font-weight: inherit;
-				background: #fff;
-				padding: 50px;
+				background: $white;
+				margin-bottom: 50px;
+
+				@include media-breakpoint-down(sm) {
+					//height: 100vh;
+				}
 
 				&.active {
 					font-weight: inherit;
 				}
 
 				h1 {
-					font-weight: inherit;
+					text-align: center;
+					margin-bottom: -13px;
+					margin-top: 40px;
+					font-weight: 900;
+					color: $gray-300;
+					z-index: 0;
+
+					.closeLocal {
+						float: left;
+					}
+
+					@include media-breakpoint-down(sm) {
+						margin-top: 10px;
+						font-size: 20px;
+						margin-bottom: 10px;
+						text-align: left;
+						line-height: 2.3rem;
+					}
 				}
 
 				.local-wrap {
 					font-weight: inherit;
+					background: $white;
+					padding: 15px;
+					box-shadow: 0px 0px 40px $gray-300;
+					border-radius: 20px;
+					z-index: 1;
+					position: relative;
+
 					.local-hero {
 						font-weight: inherit;
-						img {
-							font-weight: inherit;
+						border-radius: 8px;
+						background-size: cover;
+						background-position: center;
+						height: 300px;
+						margin: 0;
+						align-content: flex-end;
+
+						@include media-breakpoint-down(sm) {
+							height: 150px;
 						}
-						h3 {
-							font-weight: inherit;
+
+						.pastores {
+							h3 {
+								background-color: $primary;
+								font-size: 14px;
+								width: fit-content;
+								padding: 2px 5px;
+								margin: 0 0 0 0px;
+							}
+							h4 {
+								background-color: $primary;
+								font-size: 10px;
+								width: fit-content;
+								padding: 2px 5px;
+								margin: 0 0 10px 10px;
+							}
 						}
-						h4 {
-							font-weight: inherit;
-						}
-						.contact {
-							font-weight: inherit;
+
+						.contato {
+							text-align: right;
+							
+							@include media-breakpoint-down(xs) {
+								text-align: left;
+								margin-bottom: 10px;
+							}
 						}
 					}
 					.info {
-						font-weight: inherit;
-						.col {
-							font-weight: inherit;
+						padding: 50px 0;
+
+						> .col-lg-6 {
+							padding: 0 50px;
+
+							@include media-breakpoint-down(md) {
+								&:first-child {
+									margin-bottom: 50px;
+								}
+							}
+
+							@include media-breakpoint-down(xs) {
+								padding: 0 20px;
+							}
+
 							h3 {
-								font-weight: inherit;
+								color: $primary;
+								font-size: 16px;
+								font-weight: 900;
+							}
+
+							.info_dia_semana {
+								font-size: 12px;
+								margin: 0;
+							}
+
+							.info_horario {
+								font-size: 30px;
+								font-weight: 900;
+
+								@include media-breakpoint-down(xs) {
+									font-size: 20px;
+								}
+							}
+
+							.info_detalhes {
+								font-size: 12px;
 							}
 						}
 					}
@@ -806,7 +862,9 @@ body {
 			}
 		}
 	}
-	a {
+
+	// Local nav list
+	.nav-link {
 		text-decoration: none;
 		color: $gray-700;
 		display: block;
@@ -848,6 +906,7 @@ body {
 		&:hover,
 		&.active {
 			color: $primary;
+			background-color: $white;
 
 			// .row {
 			// 	transform: scale(1.03);
