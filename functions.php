@@ -404,6 +404,34 @@ function mensagens()
 					<?php endwhile; ?>
 					<!-- end of the loop -->
 				</div>
+
+				<div class="text-center mt-5">
+					<a class="btn btn-link" href="#"></a>
+					<!-- Action Sheet Trigger -->
+					<button type="button" class="btn btn-link" data-toggle="modal" data-target="#mais_mensagens_action_sheet">Mais mensagens <i class="fad fa-external-link-alt"></i></button>
+
+					<!-- Action Sheet Options -->
+					<div class="modal fade action_sheet" id="mais_mensagens_action_sheet" tabindex="-1" role="dialog" aria-labelledby="action_sheet">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+
+								<div class="modal-body">
+									<div class="btn-group-vertical mb-2 pt-1">
+										<p class="mb-1 text-muted"><small>Escolha a plataforma</small></p>
+
+										<a target="_blank" href="https://youtube.com/novaigreja" type="button" class="btn btn-light btn-lg btn-block"><span class="text-primary"><i class="fab fa-youtube"></i> YouTube</span></a>
+
+										<a target="_blank" href="https://youtube.com/novaigreja" type="button" class="btn btn-light btn-lg btn-block"><span class="text-primary"><i class="fab fa-spotify"></i> Spotify</span></a>
+
+									</div>
+
+									<button type="button" class="btn btn-light btn-lg btn-block" data-dismiss="modal"><span class="text-primary">Cancel</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
 
 		</div>
@@ -423,6 +451,15 @@ function mensagens()
 	return  $output;
 }
 add_shortcode('mensagens', 'mensagens');
+
+
+
+
+
+
+
+
+
 
 
 

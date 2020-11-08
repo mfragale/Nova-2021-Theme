@@ -532,16 +532,11 @@ body {
 	.recent_message {
 		display: flex;
 		height: 600px;
-		// background-image: url(../../img_placeholders/Fragale.jpg);
-		// background-size: cover;
-		// background-repeat: no-repeat;
-		// background-position: center;
-		// background-blend-mode: color-burn;
 		background-color: #b1b7ea;
 		justify-content: center;
 		align-items: center;
 		position: relative;
-		z-index: 1;
+		z-index: -1;
 
 		@include media-breakpoint-down(sm) {
 			height: 500px;
@@ -552,7 +547,6 @@ body {
 		}
 
 		video {
-			mix-blend-mode: overlay;
 			object-fit: cover;
 			object-position: 50% 30%;
 			width: 100%;
@@ -560,7 +554,6 @@ body {
 			position: absolute;
 			top: 0;
 			left: 0;
-			z-index: 1;
 		}
 
 		a {
@@ -608,12 +601,9 @@ body {
 
 	.more_messages {
 		padding: 5rem $moreMessagesPadding * 2.5 3rem;
-		margin-top: -8rem;
+		margin-top: $moreMessagesPadding * -5;
 		width: 100%;
 		background: linear-gradient(0deg, $gray-900 0%, $gray-900 60%, transparentize($gray-900, 1) 100%);
-		position: relative;
-		z-index: 2;
-
 		overflow-x: scroll;
 		-ms-overflow-style: none; /* IE and Edge */
 		scrollbar-width: none; /* Firefox */
@@ -651,7 +641,6 @@ body {
 
 			a {
 				width: $messageThumbnailWidthLG;
-
 				display: inline-block;
 				line-height: 0rem;
 				position: relative;
@@ -659,9 +648,15 @@ body {
 				overflow: hidden;
 				margin-right: $messageThumbnailGutter;
 				border: 1px solid transparentize($primary, 0.8);
+				transition: all 0.1s linear;
 
 				&:last-child {
 					margin-right: 0;
+				}
+
+				&:hover {
+					transform: scale(1.03);
+					transition: all 0.1s linear;
 				}
 
 				@include media-breakpoint-down(sm) {
@@ -907,11 +902,64 @@ body {
 		&.active {
 			color: $primary;
 			background-color: $white;
-
-			// .row {
-			// 	transform: scale(1.03);
-			// 	transition: all 0.1s ease-in-out;
-			// }
 		}
 	}
 }
+
+
+
+
+
+/* Action Sheet */
+.modal {
+    &.action_sheet {
+      .modal-dialog {
+        position: fixed;
+        margin: auto;
+        width: 95%;
+        max-width: 400px;
+        height: auto;
+        right: 50%;
+        transform: translateX(50%);
+  
+        .modal-content {
+          height: auto;
+          overflow-y: auto;
+          border: none;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          background: none;
+        }
+      }
+      .modal-body {
+        padding: 0 0 2rem 0;
+  
+        .btn[data-dismiss$="modal"] {
+          border-radius: 13px;
+        }
+        .btn-group-vertical {
+          width: 100%;
+          border-radius: 13px;
+          overflow: auto;
+          background: #eee;
+          align-items: center;
+  
+          .btn:not(:last-child) {
+            border-bottom: 2px solid #eee;
+          }
+        }
+      }
+    }
+    &.fade {
+      .modal-dialog {
+        bottom: -100%;
+        transition: opacity 0.1s linear, bottom 0.1s ease-out;
+      }
+      &.show {
+        .modal-dialog {
+          bottom: 0;
+        }
+      }
+    }
+  }
+  

@@ -38,7 +38,6 @@ jQuery(function () {
 			newUrl = location.href.split("#")[0];
 		} else {
 			initialWindowScrollValue = $(window).scrollTop();
-			console.log(initialWindowScrollValue);
 			newUrl = location.href.split("#")[0] + hash;
 
 			$("html, body").animate({ 
@@ -61,7 +60,6 @@ jQuery(function () {
 
 	// Close local tab
 	$('.closeLocal').on("click", function () {
-		console.log(initialWindowScrollValue);
 		$("html, body").animate({ 
             scrollTop: initialWindowScrollValue
         }, 0);
