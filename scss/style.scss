@@ -10,6 +10,14 @@ body {
 	padding-top: 54px;
 }
 
+p {
+    margin-bottom: 0rem;
+
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+}
+
 /* -------------------------------------------------------------------------- */
 
 /*	HEADER
@@ -358,7 +366,6 @@ body {
 	}
 
 	.card {
-		background-image: url(../../img_placeholders/Fragale.jpg);
 		height: 600px;
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -392,8 +399,8 @@ body {
 			width: 150px;
 			height: 150px;
 			padding: 20px 23px 20px 35px;
-			border: 12px solid transparentize($gray-100, 0.8);
-			color: transparentize($gray-100, 0.5);
+			border: 12px solid transparentize($gray-300, 0.5);
+			color: transparentize($gray-300, 0.2);
 			border-radius: 100px;
 			transition: all 0.2s ease-in-out;
 
@@ -420,6 +427,7 @@ body {
 			font-size: 2.2rem;
 			margin: 0;
 			transition: all 0.2s ease-in-out;
+			text-shadow: 0px 0px 15px #000;
 
 			@include media-breakpoint-down(lg) {
 				transform: scale(0.9);
@@ -535,12 +543,15 @@ $thumbList_WidthXS: $thumbList_WidthLG * 0.65;
 $thumbList_Gutter: 20px;
 $moreMessagesPadding: 2rem;
 .section {
+	background-color: $gray-900;
+
 	.section_hero {
 		display: flex;
 		height: 600px;
 		justify-content: center;
 		align-items: center;
 		position: relative;
+		margin-bottom: $moreMessagesPadding * -5;
 
 		@include media-breakpoint-down(sm) {
 			height: 500px;
@@ -558,20 +569,17 @@ $moreMessagesPadding: 2rem;
 			position: absolute;
 			top: 0;
 			left: 0;
-			z-index: -1;
 		}
 	}
 
 	.section_thumb_list {
 		padding: 5rem $moreMessagesPadding * 2.5 3rem;
-		margin-top: $moreMessagesPadding * -5;
 		width: 100%;
 		text-align: center;
 		background: linear-gradient(0deg, $gray-900 0%, $gray-900 60%, transparentize($gray-900, 1) 100%);
 		white-space: nowrap;
 		font-size: 0;
 		overflow-x: auto;
-		z-index: 10;
 		position: relative;
 		-ms-overflow-style: none; /* IE and Edge */
 		scrollbar-width: none; /* Firefox */
@@ -631,6 +639,7 @@ $moreMessagesPadding: 2rem;
 				);
 				text-shadow: 0px 0px 20px $gray-900;
 				width: 100%;
+				white-space: initial;
 
 				@include media-breakpoint-down(sm) {
 					font-size: 0.85rem;
@@ -645,12 +654,12 @@ $moreMessagesPadding: 2rem;
 
 	.section_btn {
 		background-color: $gray-900;
-		padding: 0rem 0 3rem;
+		padding: 0.5rem 0 3rem;
 		text-align: center;
 	}
 }
 
-// Mensagens
+// PLAY > Mensagens section
 .mensagens {
 	.section_hero {	
 		a {
@@ -662,7 +671,7 @@ $moreMessagesPadding: 2rem;
 			justify-content: center;
 			color: $gray-100;
 			position: relative;
-			z-index: 2;
+			//z-index: 2;
 
 			@include media-breakpoint-down(sm) {
 				padding: 2rem;
@@ -692,8 +701,14 @@ $moreMessagesPadding: 2rem;
 	}
 }
 
-// Nova Music
+// PLAY > Nova Music section
 .nova_music {
+
+	.section_hero {
+		flex-direction: column;
+		color: $white;
+	}
+
 	.section_thumb_list {
 		background: linear-gradient(0deg, $gray-900 0%, $gray-900 60%, transparentize($gray-900, 1) 100%);
 
@@ -709,7 +724,7 @@ $moreMessagesPadding: 2rem;
 	}
 }
 
-// Geração Nova
+// PLAY > Geração Nova section
 .geracao_nova {
 	.section_thumb_list {
 		background: linear-gradient(0deg, $gn 0%, $gn 60%, transparentize($gn, 1) 100%);

@@ -331,7 +331,7 @@ function register_nova_music_posttype()
 		'capability_type' 	=> 'post',
 		'has_archive' 		=> false,
 		'hierarchical' 		=> false,
-		'rewrite' 			=> array('slug' => 'gn', 'with_front' => true),
+		'rewrite' 			=> array('slug' => 'music', 'with_front' => true),
 		'supports' 			=> $supports,
 		'menu_position' 	=> 4,
 		'menu_icon' 		=> 'dashicons-format-audio',
@@ -383,22 +383,36 @@ add_shortcode('splash-screen', 'splash_screen');
  */
 function latest_message()
 {
-	ob_start(); ?>
+	ob_start();
 
-	<div class="latest_message">
-		<div class="container">
-			<h3>
-				<span>Vídeo desta semana<span>
-			</h3>
-			<a class="card" href="/play">
-				<i class="fad fa-play"></i>
-				<h2>Nascidos e chamados com propósito</h2>
-			</a>
-			<a href="/play" class="btn btn-link">Mais conteúdos <i class="fal fa-long-arrow-right"></i></a>
+	$args = array(
+		'post_type' => 'mensagens'
+	);
+
+	$loop = new WP_Query($args);
+?>
+
+	<?php if ($loop->have_posts()) : $loop->the_post(); ?>
+
+		<div class="latest_message">
+			<div class="container">
+				<h3>
+					<span>Vídeo desta semana<span>
+				</h3>
+				<a class="card" href="<?php the_permalink(); ?>" style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
+					<i class="fad fa-play"></i>
+					<h2><?php the_title(); ?></h2>
+				</a>
+				<a href="<?php echo get_site_url(); ?>/play" class="btn btn-link">Mais conteúdos <i class="fal fa-long-arrow-right"></i></a>
+			</div>
 		</div>
-	</div>
 
-<?php
+		<?php wp_reset_postdata(); ?>
+
+	<?php else : ?>
+		<p><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
+	<?php endif;
+
 	$output = ob_get_contents();
 	ob_end_clean();
 	return  $output;
@@ -451,128 +465,59 @@ add_shortcode('mauricio-denise', 'mauricio_denise');
 
 
 
-
-
-
-
 /*
- * SET MENSAGENS SHORTCODE [mensagens]
+ * SET SECTION THUMB LIST SHORTCODE [section-thumb-list]
  */
-function mensagens()
+function section_thumb_list($atts)
 {
 	ob_start();
 
+	extract(shortcode_atts(array(
+		'hero' => '',
+		'items' => '9',
+		'bg' => '#161720',
+		'post_type' => 'mensagens',
+		'nome' => 'Mensagens',
+		'youtube_link' => '',
+		'spotify_link' => ''
+	), $atts));
+
 	$args = array(
-		'post_type' => 'mensagens'
+		'post_type' => $post_type,
+		'post_count' => $items
 	);
 
 	$loop = new WP_Query($args);
 ?>
 
-	<?php if ($loop->have_posts()) : $loop->the_post(); ?>
+	<?php if ($loop->have_posts()) : if ($post_type == 'mensagens') {  $loop->the_post(); } ?>
 
-		<div class="section mensagens">
+		<div class="section <?php echo $post_type; ?>">
 
-			<div class="section_hero">
-				<video src="<?php echo get_template_directory_uri(); ?>/img_placeholders/Play-original.mp4" autoplay loop playsinline muted></video>
-				<a href="/play">
-					<div class="mb-3">
-						<div class="badge badge-danger">Mais recente</div>
-					</div>
-					<h2 class="mb-3">Nascidos e chamados com propósito</h2>
-					<div><button type="button" class="btn btn-outline-light btn-lg"><i class="fad fa-play-circle"></i> Play</button></div>
-				</a>
-			</div>
+			<?php if ($hero) { ?>
 
+				<div class="section_hero" style="background-color: <?php echo $bg; ?>">
 
-			<div class="section_thumb_list">
-				<!-- the loop -->
-				<?php while ($loop->have_posts()) : $loop->the_post(); ?>
+					<?php if ($post_type == 'mensagens') { ?>
 
-
-					<a href="<?php the_permalink(); ?>">
-						<img src="<?php the_post_thumbnail_url(); ?>">
-						<h3><?php the_title(); ?></h3>
-					</a>
-
-
-				<?php endwhile; ?>
-				<!-- end of the loop -->
-			</div>
-
-			<div class="section_btn">
-				<!-- Action Sheet Trigger -->
-				<button type="button" class="btn btn-link" data-toggle="modal" data-target="#mais_mensagens_action_sheet">Mais mensagens <i class="fad fa-external-link-alt"></i></button>
-
-				<!-- Action Sheet Options -->
-				<div class="modal fade action_sheet" id="mais_mensagens_action_sheet" tabindex="-1" role="dialog" aria-labelledby="action_sheet">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-
-							<div class="modal-body">
-								<div class="btn-group-vertical mb-2 pt-1">
-									<p class="mb-1 text-muted"><small>Escolha a plataforma</small></p>
-
-									<a target="_blank" href="https://youtube.com/novaigreja" type="button" class="btn btn-light btn-lg btn-block"><span class="text-primary"><i class="fab fa-youtube"></i> YouTube</span></a>
-
-									<a target="_blank" href="https://youtube.com/novaigreja" type="button" class="btn btn-light btn-lg btn-block"><span class="text-primary"><i class="fab fa-spotify"></i> Spotify</span></a>
-
-								</div>
-
-								<button type="button" class="btn btn-light btn-lg btn-block" data-dismiss="modal"><span class="text-primary">Cancel</span></button>
+						<video src="<?php the_field('video_highlight'); ?>" poster="<?php the_post_thumbnail_url(); ?>" autoplay loop playsinline muted></video>
+						<a href="<?php the_permalink(); ?>">
+							<div class="mb-3">
+								<div class="badge badge-danger">Mais recente</div>
 							</div>
-						</div>
-					</div>
+							<h2 class="mb-3"><?php the_title(); ?></h2>
+							<div><button type="button" class="btn btn-outline-light btn-lg"><i class="fad fa-play-circle"></i> Play</button></div>
+						</a>
+
+					<?php } else { ?>
+
+						<img src="<?php echo $hero; ?>" />
+
+					<?php } ?>
+
 				</div>
-			</div>
 
-		</div>
-
-		<!-- pagination here -->
-
-		<?php wp_reset_postdata(); ?>
-
-	<?php else : ?>
-		<p><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
-	<?php endif;
-
-
-
-	$output = ob_get_contents();
-	ob_end_clean();
-	return  $output;
-}
-add_shortcode('mensagens', 'mensagens');
-
-
-
-
-
-
-
-
-
-/*
- * SET NOVA_MUSIC SHORTCODE [nova-music]
- */
-function nova_music()
-{
-	ob_start();
-
-	$args = array(
-		'post_type' => 'nova_music'
-	);
-
-	$loop = new WP_Query($args);
-	?>
-
-	<?php if ($loop->have_posts()) : ?>
-
-		<div class="section nova_music">
-
-			<div class="section_hero">
-				<img src="https://nova2021.dev/wp-content/uploads/2020/11/nm.jpg" />
-			</div>
+			<?php } ?>
 
 			<div class="section_thumb_list">
 				<!-- the loop -->
@@ -590,31 +535,35 @@ function nova_music()
 				<!-- end of the loop -->
 			</div>
 
-			<div class="section_btn">
-				<!-- Action Sheet Trigger -->
-				<button type="button" class="btn btn-link" data-toggle="modal" data-target="#nova_music_action_sheet">Mais da Nova Music <i class="fad fa-external-link-alt"></i></button>
+			<?php if ($youtube_link || $spotify_link) { ?>
+				<div class="section_btn" style="background-color: <?php echo $bg; ?>">
+					<!-- Action Sheet Trigger -->
+					<button type="button" class="btn btn-link" data-toggle="modal" data-target="#<?php echo $post_type; ?>_action_sheet">Mais da <?php echo $nome; ?> <i class="fad fa-external-link-alt"></i></button>
 
-				<!-- Action Sheet Options -->
-				<div class="modal fade action_sheet" id="nova_music_action_sheet" tabindex="-1" role="dialog" aria-labelledby="action_sheet">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
+					<!-- Action Sheet Options -->
+					<div class="modal fade action_sheet" id="<?php echo $post_type; ?>_action_sheet" tabindex="-1" role="dialog" aria-labelledby="action_sheet">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
 
-							<div class="modal-body">
-								<div class="btn-group-vertical mb-2 pt-1">
-									<p class="mb-1 text-muted"><small>Escolha a plataforma</small></p>
+								<div class="modal-body">
+									<div class="btn-group-vertical mb-2 pt-1">
+										<p class="mb-1 text-muted"><small>Escolha a plataforma</small></p>
 
-									<a target="_blank" href="https://youtube.com/novaigreja" type="button" class="btn btn-light btn-lg btn-block"><span class="text-primary"><i class="fab fa-youtube"></i> YouTube</span></a>
+										<?php if ($youtube_link) { ?>
+											<a target="_blank" href="<?php echo $youtube_link; ?>" type="button" class="btn btn-light btn-lg btn-block"><span class="text-primary"><i class="fab fa-youtube"></i> YouTube</span></a>
+										<?php } ?>
+										<?php if ($spotify_link) { ?>
+											<a target="_blank" href="<?php echo $spotify_link; ?>" type="button" class="btn btn-light btn-lg btn-block"><span class="text-primary"><i class="fab fa-spotify"></i> Spotify</span></a>
+										<?php } ?>
+									</div>
 
-									<a target="_blank" href="https://youtube.com/novaigreja" type="button" class="btn btn-light btn-lg btn-block"><span class="text-primary"><i class="fab fa-spotify"></i> Spotify</span></a>
-
+									<button type="button" class="btn btn-light btn-lg btn-block" data-dismiss="modal"><span class="text-primary">Cancelar</span></button>
 								</div>
-
-								<button type="button" class="btn btn-light btn-lg btn-block" data-dismiss="modal"><span class="text-primary">Cancel</span></button>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			<?php } ?>
 
 		</div>
 
@@ -632,98 +581,7 @@ function nova_music()
 	ob_end_clean();
 	return  $output;
 }
-add_shortcode('nova-music', 'nova_music');
-
-
-
-
-
-
-
-
-
-
-/*
- * SET GERACAO_NOVA SHORTCODE [geracao-nova]
- */
-function geracao_nova()
-{
-	ob_start();
-
-	$args = array(
-		'post_type' => 'geracao_nova'
-	);
-
-	$loop = new WP_Query($args);
-	?>
-
-	<?php if ($loop->have_posts()) : ?>
-
-		<div class="section geracao_nova">
-
-			<div class="section_hero">
-				<img src="https://nova2021.dev/wp-content/uploads/2020/11/gn-hero.jpg" />
-			</div>
-
-			<div class="section_thumb_list">
-				<!-- the loop -->
-				<?php while ($loop->have_posts()) : $loop->the_post();
-					global $post; ?>
-
-
-					<a href="<?php the_permalink(); ?>">
-						<img src="<?php the_post_thumbnail_url(); ?>">
-						<h3><?php the_title(); ?></h3>
-					</a>
-
-
-				<?php endwhile; ?>
-				<!-- end of the loop -->
-			</div>
-
-			<div class="section_btn">
-				<!-- Action Sheet Trigger -->
-				<button type="button" class="btn btn-link" data-toggle="modal" data-target="#geracao_nova_action_sheet">Mais da Geração Nova <i class="fad fa-external-link-alt"></i></button>
-
-				<!-- Action Sheet Options -->
-				<div class="modal fade action_sheet" id="geracao_nova_action_sheet" tabindex="-1" role="dialog" aria-labelledby="action_sheet">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-
-							<div class="modal-body">
-								<div class="btn-group-vertical mb-2 pt-1">
-									<p class="mb-1 text-muted"><small>Escolha a plataforma</small></p>
-
-									<a target="_blank" href="https://youtube.com/novaigreja" type="button" class="btn btn-light btn-lg btn-block"><span class="text-primary"><i class="fab fa-youtube"></i> YouTube</span></a>
-
-									<a target="_blank" href="https://youtube.com/novaigreja" type="button" class="btn btn-light btn-lg btn-block"><span class="text-primary"><i class="fab fa-spotify"></i> Spotify</span></a>
-
-								</div>
-
-								<button type="button" class="btn btn-light btn-lg btn-block" data-dismiss="modal"><span class="text-primary">Cancel</span></button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-		<!-- pagination here -->
-
-		<?php wp_reset_postdata(); ?>
-
-	<?php else : ?>
-		<p><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
-	<?php endif;
-
-
-
-	$output = ob_get_contents();
-	ob_end_clean();
-	return  $output;
-}
-add_shortcode('geracao-nova', 'geracao_nova');
+add_shortcode('section-thumb-list', 'section_thumb_list');
 
 
 
