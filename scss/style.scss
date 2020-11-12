@@ -975,6 +975,10 @@ $moreMessagesPadding: 2rem;
 				background: #eee;
 				align-items: center;
 
+				.btn {
+					border-radius: 0;
+				}
+
 				.btn:not(:last-child) {
 					border-bottom: 2px solid #eee;
 				}
