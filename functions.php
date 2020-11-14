@@ -356,16 +356,28 @@ add_action('init', 'register_nova_music_posttype');
 /*
  * SET SPLASH SCREEN SHORTCODE [splash-screen]
  */
-function splash_screen()
+function splash_screen($atts)
 {
-	ob_start(); ?>
+	ob_start();
 
-	<div class="splash_screen">
+	extract(shortcode_atts(array(
+		'imagem' => '',
+		'imagem_mobile' => '',
+		'texto' => '',
+		'texto_botao' => '',
+		'link_botao' => '',
+	), $atts));
+
+?>
+
+	<div class="splash_screen" style="background-image: url(<?php echo $imagem; ?>);">
+		<img class="d-sm-none" src="<?php echo $imagem_mobile; ?>" alt="">
+
 		<div class="container">
 			<h1 class="tagline">
-				<span>Uma família integrada, que se ama e apoia em todos os momentos.<span>
+				<span><?php echo $texto; ?><span>
 			</h1>
-			<a href="/sobre" class="btn btn-lg btn-danger">Quero saber mais</a>
+			<a href="<?php echo $link_botao; ?>" class="btn btn-lg btn-danger"><?php echo $texto_botao; ?></a>
 		</div>
 	</div>
 
@@ -528,7 +540,7 @@ function section_thumb_list($atts)
 
 
 					<a href="<?php the_permalink(); ?>">
-						<img src="<?php the_post_thumbnail_url(); ?>">
+						<img src="<?php the_post_thumbnail_url('medium'); ?>">
 						<h3><?php the_title(); ?></h3>
 					</a>
 
@@ -677,7 +689,7 @@ function locais()
 
 									<div class="local-wrap">
 
-										<div class="local-hero row" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+										<div class="local-hero row" style="background-image: url(<?php the_post_thumbnail_url('large'); ?>);">
 											<div class="col-sm-6 pastores">
 												<h3><?php the_field('nome_dos_pastores'); ?></h3>
 												<h4><?php the_field('titulo_dos_pastores'); ?></h4>
