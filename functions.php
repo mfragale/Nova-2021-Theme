@@ -512,9 +512,15 @@ function section_thumb_list($atts)
 
 				<div class="section_hero" style="background-color: <?php echo $bg; ?>">
 
-					<?php if ($post_type == 'mensagens') { ?>
+					<?php if ($post_type == 'mensagens') {
+						$video = pathinfo(get_field('video_highlight'));
+					?>
 
-						<video src="<?php the_field('video_highlight'); ?>" poster="<?php the_post_thumbnail_url(); ?>" autoplay loop playsinline muted></video>
+						<video autoplay loop autobuffer muted playsinline poster="<?php the_post_thumbnail_url(); ?>">
+							<source src="<?php echo $video['dirname']; echo "/"; echo $video['filename']; ?>.webm" type="video/webm">
+							<source src="<?php echo $video['dirname']; echo "/"; echo $video['filename']; ?>.mp4" type="video/mp4">
+						</video>
+
 						<a href="<?php the_permalink(); ?>">
 							<div class="mb-3">
 								<div class="badge badge-danger">Mais recente</div>
