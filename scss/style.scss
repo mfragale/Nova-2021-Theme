@@ -8,14 +8,27 @@
 
 body {
 	padding-top: 54px;
+	display: none;
+}
+
+.fontawesome-i2svg-active body {
+	display: block;
 }
 
 p {
-    margin-bottom: 0rem;
+	margin-bottom: 0rem;
 
-    &:not(:last-child) {
-        margin-bottom: 1rem;
-    }
+	&:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+}
+
+.thrv_wrapper {
+	margin: 0;
+	padding: 0px;
+}
+.thrv_wrapper div {
+    box-sizing: border-box;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -171,7 +184,7 @@ p {
 	// FULL SCREEN MENU
 	#fullscreenmenu {
 		display: block;
-		padding: 90px 30px 0;
+		padding: 90px 30px 50px;
 		position: fixed;
 		top: 0;
 		width: 100vw;
@@ -196,7 +209,7 @@ p {
 			padding: 0;
 			margin: 0 auto;
 			display: block;
-			max-width: 500px;
+			max-width: 320px;
 
 			li {
 				border-bottom: solid 1px #333333;
@@ -255,10 +268,18 @@ p {
 				.footer_logo {
 					fill: $gray-500;
 				}
+
+				@include media-breakpoint-down(xs) {
+					margin-right: 0;
+				}
 			}
 
 			.tagline {
 				line-height: 1;
+
+				@include media-breakpoint-down(xs) {
+					display: block;
+				}
 			}
 		}
 
@@ -342,9 +363,9 @@ p {
 			}
 		}
 		.btn {
-			text-transform: uppercase;
-			color: $gray-700;
-			font-weight: bold;
+			// text-transform: uppercase;
+			// color: $gray-700;
+			// font-weight: bold;
 
 			@include media-breakpoint-down(xs) {
 				margin: 20px auto -20px;
@@ -521,7 +542,7 @@ p {
 			margin-bottom: 0;
 		}
 		a {
-			color: $gray-100;
+			//color: $gray-100;
 
 			@include media-breakpoint-up(sm) {
 				float: right;
@@ -564,7 +585,8 @@ $moreMessagesPadding: 2rem;
 			height: 400px;
 		}
 
-		img, video {
+		img,
+		video {
 			object-fit: cover;
 			object-position: 50% 30%;
 			width: 100%;
@@ -664,7 +686,7 @@ $moreMessagesPadding: 2rem;
 
 // PLAY > Mensagens section
 .mensagens {
-	.section_hero {	
+	.section_hero {
 		a {
 			padding: 5rem;
 			flex-grow: 1;
@@ -685,15 +707,16 @@ $moreMessagesPadding: 2rem;
 			}
 
 			h2 {
-				//font-weight: 900;
 				max-width: 400px;
 
 				@include media-breakpoint-down(sm) {
 					font-size: 1.6rem;
+					max-width: 300px;
 				}
 
 				@include media-breakpoint-down(xs) {
 					font-size: 1.2rem;
+					max-width: 200px;
 				}
 			}
 		}
@@ -706,7 +729,6 @@ $moreMessagesPadding: 2rem;
 
 // PLAY > Nova Music section
 .nova_music {
-
 	.section_hero {
 		flex-direction: column;
 		color: $white;
@@ -783,7 +805,6 @@ $moreMessagesPadding: 2rem;
 
 				h1 {
 					text-align: center;
-					margin-bottom: -13px;
 					margin-top: 40px;
 					font-weight: 900;
 					color: $gray-300;
@@ -844,9 +865,15 @@ $moreMessagesPadding: 2rem;
 						.contato {
 							text-align: right;
 
-							@include media-breakpoint-down(xs) {
-								text-align: left;
+							@include media-breakpoint-down(sm) {
+								text-align: center;
 								margin-bottom: 10px;
+							}
+
+							a {
+								@include media-breakpoint-down(sm) {
+									margin-bottom: -40px;
+								}
 							}
 						}
 					}

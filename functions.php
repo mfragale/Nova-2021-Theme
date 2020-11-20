@@ -456,7 +456,7 @@ function mauricio_denise()
 							<p><small>Pastores Sêniores da Nova</small></p>
 						</div>
 						<div class="col-sm">
-							<a href="/play" class="btn btn-dark">Mais <i class="fal fa-long-arrow-right"></i></a>
+							<a href="/play" class="btn btn-light">Mais <i class="fal fa-long-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -512,21 +512,16 @@ function section_thumb_list($atts)
 
 				<div class="section_hero" style="background-color: <?php echo $bg; ?>">
 
-					<?php if ($post_type == 'mensagens') {
-						$video = pathinfo(get_field('video_highlight'));
-					?>
+					<?php if ($post_type == 'mensagens') { ?>
 
-						<video autoplay loop autobuffer muted playsinline poster="<?php the_post_thumbnail_url(); ?>">
-							<source src="<?php echo $video['dirname']; echo "/"; echo $video['filename']; ?>.webm" type="video/webm">
-							<source src="<?php echo $video['dirname']; echo "/"; echo $video['filename']; ?>.mp4" type="video/mp4">
-						</video>
+						<img src="<?php the_post_thumbnail_url(); ?>" />
 
 						<a href="<?php the_permalink(); ?>">
 							<div class="mb-3">
 								<div class="badge badge-danger">Mais recente</div>
 							</div>
 							<h2 class="mb-3"><?php the_title(); ?></h2>
-							<div><button type="button" class="btn btn-outline-light btn-lg"><i class="fad fa-play-circle"></i> Play</button></div>
+							<div><button type="button" class="btn btn-light btn-lg"><i class="fad fa-play-circle"></i> Play</button></div>
 						</a>
 
 					<?php } else { ?>
@@ -696,11 +691,11 @@ function locais()
 									<div class="local-wrap">
 
 										<div class="local-hero row" style="background-image: url(<?php the_post_thumbnail_url('large'); ?>);">
-											<div class="col-sm-6 pastores">
+											<div class="col-md-6 pastores d-none d-md-block">
 												<h3><?php the_field('nome_dos_pastores'); ?></h3>
 												<h4><?php the_field('titulo_dos_pastores'); ?></h4>
 											</div>
-											<div class="col-sm-6 mb-2 contato">
+											<div class="col-md-6 mb-2 contato">
 												<a href="mailto: <?php the_field('email_de_contato'); ?>" type="button" class="btn btn-light btn-sm">Entrar em contato <i class="fad fa-paper-plane"></i></a>
 											</div>
 										</div>
