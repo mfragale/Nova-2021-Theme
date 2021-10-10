@@ -15,17 +15,18 @@ function nova2021_scripts()
 	$themecsspath = get_stylesheet_directory() . '/style.css';
 	$style_ver = filemtime($themecsspath);
 
-	wp_enqueue_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js', array('jquery'), true);
+	wp_enqueue_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js', array('jquery'), true);
 
-	wp_enqueue_script('bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js', array('jquery'), true);
+	wp_enqueue_script('bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js', array('jquery'), true);
 
 	//DEV
-	wp_enqueue_style('style', get_template_directory_uri() . '/scss/dist/style-min.css', array(), $style_ver);
+	wp_enqueue_style('nova2021-style', get_template_directory_uri() . '/scss/dist/style-min.css', array(), $style_ver);
+
 
 	//PROD
 	//wp_enqueue_style('style', get_template_directory_uri() . '/scss/dist/style-min.css', array(), true);
 
-	wp_enqueue_script('functions', get_template_directory_uri() . '/js/dist/functions-min.js', array('jquery'), true);
+	wp_enqueue_script('nova2021-functions', get_template_directory_uri() . '/js/dist/functions-min.js', array('jquery'), true);
 
 	wp_enqueue_script('fontawesome', 'https://kit.fontawesome.com/edc432ff9b.js', array(), null);
 }
@@ -94,63 +95,6 @@ function add_specific_menu_location_atts($atts, $item, $args)
 	return $atts;
 }
 add_filter('nav_menu_link_attributes', 'add_specific_menu_location_atts', 10, 3);
-
-
-/**
- * Create my custom menus
- */
-// custom menu example @ https://digwp.com/2011/11/html-formatting-custom-menus/
-// https://wordpress.stackexchange.com/questions/228947/get-css-class-of-menu-item-in-custom-menu-structure
-// https://stackoverflow.com/questions/10019493/adding-class-current-page-item
-
-function navbar_custom_menu()
-{
-	$menu_name = 'navbar'; // specify custom menu slug
-	if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
-		$menu = wp_get_nav_menu_object($locations[$menu_name]);
-		$menu_items = wp_get_nav_menu_items($menu->term_id);
-
-		$menu_list = '<div class="collapse navbar-collapse">' . "\n";
-		$menu_list .= "\t\t\t\t" . '<ul class="navbar-nav mr-auto ml-auto">' . "\n";
-		foreach ((array) $menu_items as $key => $menu_item) {
-			$title = $menu_item->title;
-			$url = $menu_item->url;
-			$class = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($menu_item->classes), $menu_item)));
-			$active = ($menu_item->object_id == get_queried_object_id()) ? 'active' : '';
-
-			$menu_list .= "\t\t\t\t\t" . '<li class="nav-item ' . $active . '"><a class="nav-link" href="' . $url . '"><div class="active_highlight"><i class="fad ' . $class . '"></i><span>' . $title . '</span></div></a></li>' . "\n";
-		}
-		$menu_list .= "\t\t\t\t" . '</ul>' . "\n";
-		$menu_list .= "\t\t\t" . '</div>' . "\n";
-	} else {
-		// $menu_list = '<!-- no list defined -->';
-	}
-	echo $menu_list;
-}
-
-function fullscreen_custom_menu()
-{
-	$menu_name = 'fullscreen_menu'; // specify custom menu slug
-	if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
-		$menu = wp_get_nav_menu_object($locations[$menu_name]);
-		$menu_items = wp_get_nav_menu_items($menu->term_id);
-
-		$menu_list = "\t\t\t\t" . '<ul>' . "\n";
-		foreach ((array) $menu_items as $key => $menu_item) {
-			$title = $menu_item->title;
-			$url = $menu_item->url;
-			$class = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($menu_item->classes), $menu_item)));
-			$active = ($menu_item->object_id == get_queried_object_id()) ? 'active' : '';
-
-			$menu_list .= "\t\t\t\t\t" . '<li class="' . $active . '"><a href="' . $url . '">' . $title . '</a></li>' . "\n";
-		}
-		$menu_list .= "\t\t\t\t" . '</ul>' . "\n";
-	} else {
-		// $menu_list = '<!-- no list defined -->';
-	}
-	echo $menu_list;
-}
-
 
 
 
@@ -617,7 +561,8 @@ function locais()
 	ob_start();
 
 	$args = array(
-		'post_type' => 'locais'
+		'post_type' => 'locais',
+		'order' => 'ASC'
 	);
 
 	$loop = new WP_Query($args);
@@ -632,16 +577,17 @@ function locais()
 
 
 
+
 					<div class="col-12 col-md-4">
-						<div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
 							<!-- the loop -->
 							<?php while ($loop->have_posts()) : $loop->the_post();
 								global $post; ?>
 
-								<a class="nav-link" id="<?php echo $post->post_name; ?>-tab" data-toggle="tab" href="#<?php echo $post->post_name; ?>" role="tab" aria-controls="<?php echo $post->post_name; ?>" aria-selected="<?php if (!get_next_post_link()) {
-																																																										echo 'true';
-																																																									} ?>">
+								<a class="nav-link" id="<?php echo $post->post_name; ?>-tab" data-bs-toggle="pill" data-bs-target="#<?php echo $post->post_name; ?>" href="#<?php echo $post->post_name; ?>" role="tab" aria-controls="<?php echo $post->post_name; ?>" aria-selected="<?php if (!get_next_post_link()) {
+																																																																							echo 'true';
+																																																																						} ?>">
 									<div class="row align-items-center">
 										<div class="col-3">
 											<img class="img-fluid mx-auto d-block" src="<?php the_post_thumbnail_url('thumbnail'); ?>">
@@ -665,7 +611,7 @@ function locais()
 
 
 					<div class="col-12 col-md-8 tab-wrap">
-						<div class="tab-content">
+						<div class="tab-content" id="v-pills-tabContent">
 
 							<div class="tab-pane fade show active text-center" id="noLocalSelected" role="tabpanel" aria-labelledby="noLocalSelected-tab">
 								<div class="row h-100">
@@ -689,62 +635,7 @@ function locais()
 									</h1>
 
 									<div class="local-wrap">
-
-										<div class="local-hero row" style="background-image: url(<?php the_post_thumbnail_url('large'); ?>);">
-											<div class="col-md-6 pastores d-none d-md-block">
-												<h3><?php the_field('nome_dos_pastores'); ?></h3>
-												<h4><?php the_field('titulo_dos_pastores'); ?></h4>
-											</div>
-											<div class="col-md-6 mb-2 contato">
-												<a href="mailto: <?php the_field('email_de_contato'); ?>" type="button" class="btn btn-light btn-sm">Entrar em contato <i class="fad fa-paper-plane"></i></a>
-											</div>
-										</div>
-
-										<div class="row info text-center">
-											<div class="col-lg-6">
-												<div class="row">
-													<div class="col">
-														<h3>Encontros</h3>
-													</div>
-												</div>
-												<div class="row mb-3">
-													<?php if (have_rows('horarios_dos_encontros')) : while (have_rows('horarios_dos_encontros')) : the_row(); ?>
-
-															<div class="col">
-																<p class="info_dia_semana"><?php the_sub_field('encontro_dia'); ?></p>
-																<p class="info_horario"><?php the_sub_field('encontro_horario'); ?></p>
-															</div>
-
-													<?php endwhile;
-													endif; ?>
-
-												</div>
-												<div class="row">
-													<div class="col">
-														<a class="btn btn-light btn_visita"><i class="fad fa-clock"></i> Marcar uma visita</a>
-													</div>
-												</div>
-											</div>
-
-											<div class="col-lg-6">
-												<div class="row">
-													<div class="col">
-														<h3>Como chegar</h3>
-													</div>
-												</div>
-
-												<div class="row mb-3">
-													<div class="col">
-														<div class="info_detalhes"><?php the_field('como_chegar'); ?></div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col">
-														<a href="<?php the_field('link_para_o_mapa'); ?>" class="btn btn-light"><i class="fad fa-map-marked"></i> Ver no mapa</a>
-													</div>
-												</div>
-											</div>
-										</div>
+										<?php the_content(); ?>
 									</div>
 								</div>
 

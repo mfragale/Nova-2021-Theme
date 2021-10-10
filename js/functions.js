@@ -30,8 +30,7 @@ jQuery(function () {
 
 	var initialWindowScrollValue;
 	// Change the URL when the tab is selected
-	$('a[data-toggle="tab"]').on("click", function () {
-
+	$('a[data-bs-toggle="pill"]').on("click", function () {
 		let newUrl;
 		const hash = $(this).attr("href");
 		if (hash == "#noLocalSelected") {
@@ -40,8 +39,8 @@ jQuery(function () {
 			initialWindowScrollValue = $(window).scrollTop();
 			newUrl = location.href.split("#")[0] + hash;
 
-			$("html, body").animate({ 
-				scrollTop: 0 
+			$("html, body").animate({
+				scrollTop: 0
 			}, "fast");
 		}
 
@@ -60,11 +59,11 @@ jQuery(function () {
 
 	// Close local tab
 	$('.closeLocal').on("click", function () {
-		$("html, body").animate({ 
-            scrollTop: initialWindowScrollValue
-        }, 0);
+		$("html, body").animate({
+			scrollTop: initialWindowScrollValue
+		}, 0);
 		$('.tab-pane').removeClass('active');
-		$('a[data-toggle="tab"]').removeClass('active');
+		$('a[data-bs-toggle="pill"]').removeClass('active');
 	});
 
 
