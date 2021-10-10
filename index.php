@@ -1,25 +1,19 @@
 <?php get_header(); ?>
 
-<?php if (have_posts()) : ?>
+<div class="container">
+    <div class="row py-5">
 
-    <!-- the loop -->
-    <?php while (have_posts()) : the_post(); ?>
+        <section id="all_my_posts">
 
-        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <?php get_template_part('template-parts/posts/post-content'); ?>
 
-            <?php the_content(); ?>
+        </section>
 
-        </article><!-- .post -->
+        <?php if ($wp_query->max_num_pages > 1) { ?>
+            <div class="btn btn-primary misha_loadmore">More posts</div>
+        <?php } ?>
 
-    <?php endwhile; ?>
-    <!-- end of the loop -->
-
-    <!-- pagination here -->
-
-    <?php wp_reset_postdata(); ?>
-
-<?php else : ?>
-    <p><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
-<?php endif; ?>
+    </div>
+</div>
 
 <?php get_footer(); ?>
