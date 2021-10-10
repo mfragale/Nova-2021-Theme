@@ -16,6 +16,7 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 
 ?>
 
+
 <div class="collapse navbar-collapse">
     <ul class="navbar-nav ms-auto me-auto">
         <?php
