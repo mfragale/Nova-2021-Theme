@@ -147,411 +147,6 @@ add_action('init', 'register_locais_posttype');
 
 
 
-// registration code for MENSAGENS post type
-function register_mensagens_posttype()
-{
-	$labels = array(
-		'name' 				=> _x('Mensagens', 'post type general name'),
-		'singular_name'		=> _x('Mensagem', 'post type singular name'),
-		'add_new' 			=> __('Adicionar'),
-		'add_new_item' 		=> __('Adicionar item'),
-		'edit_item' 		=> __('Editar item'),
-		'new_item' 			=> __('Novo item'),
-		'view_item' 		=> __('Ver item'),
-		'search_items' 		=> __('Buscar itens'),
-		'not_found' 		=> __('Não encontrado'),
-		'not_found_in_trash' => __('Não encontrado no lixo'),
-		'parent_item_colon' => __(''),
-		'menu_name'			=> __('Mensagens')
-	);
-
-	$supports = array('title', 'editor', 'excerpt', 'thumbnail');
-
-	$post_type_args = array(
-		'labels' 			=> $labels,
-		'singular_label' 	=> __('Mensagem'),
-		'public' 			=> true,
-		'show_ui' 			=> true,
-		'publicly_queryable' => true,
-		'query_var'			=> true,
-		'exclude_from_search' => false,
-		'show_in_nav_menus'	=> true,
-		'capability_type' 	=> 'post',
-		'has_archive' 		=> false,
-		'hierarchical' 		=> false,
-		'rewrite' 			=> array('slug' => 'mensagem', 'with_front' => true),
-		'supports' 			=> $supports,
-		'menu_position' 	=> 4,
-		'menu_icon' 		=> 'dashicons-video-alt3',
-		'taxonomies'		=> false,
-		'show_in_rest'		=> true
-	);
-	register_post_type('mensagens', $post_type_args);
-}
-add_action('init', 'register_mensagens_posttype');
-
-
-
-
-
-// registration code for GERACAO_NOVA post type
-function register_geracao_nova_posttype()
-{
-	$labels = array(
-		'name' 				=> _x('Geração Nova', 'post type general name'),
-		'singular_name'		=> _x('Geração Nova', 'post type singular name'),
-		'add_new' 			=> __('Adicionar'),
-		'add_new_item' 		=> __('Adicionar item'),
-		'edit_item' 		=> __('Editar item'),
-		'new_item' 			=> __('Novo item'),
-		'view_item' 		=> __('Ver item'),
-		'search_items' 		=> __('Buscar itens'),
-		'not_found' 		=> __('Não encontrado'),
-		'not_found_in_trash' => __('Não encontrado no lixo'),
-		'parent_item_colon' => __(''),
-		'menu_name'			=> __('Geração Nova')
-	);
-
-	$supports = array('title', 'editor', 'excerpt', 'thumbnail');
-
-	$post_type_args = array(
-		'labels' 			=> $labels,
-		'singular_label' 	=> __('Geração Nova'),
-		'public' 			=> true,
-		'show_ui' 			=> true,
-		'publicly_queryable' => true,
-		'query_var'			=> true,
-		'exclude_from_search' => false,
-		'show_in_nav_menus'	=> true,
-		'capability_type' 	=> 'post',
-		'has_archive' 		=> false,
-		'hierarchical' 		=> false,
-		'rewrite' 			=> array('slug' => 'gn', 'with_front' => true),
-		'supports' 			=> $supports,
-		'menu_position' 	=> 4,
-		'menu_icon' 		=> 'dashicons-universal-access',
-		'taxonomies'		=> false,
-		'show_in_rest'		=> true
-	);
-	register_post_type('geracao_nova', $post_type_args);
-}
-add_action('init', 'register_geracao_nova_posttype');
-
-
-
-
-
-
-
-// registration code for NOVA_MUSIC post type
-function register_nova_music_posttype()
-{
-	$labels = array(
-		'name' 				=> _x('Nova Music', 'post type general name'),
-		'singular_name'		=> _x('Nova Music', 'post type singular name'),
-		'add_new' 			=> __('Adicionar'),
-		'add_new_item' 		=> __('Adicionar item'),
-		'edit_item' 		=> __('Editar item'),
-		'new_item' 			=> __('Novo item'),
-		'view_item' 		=> __('Ver item'),
-		'search_items' 		=> __('Buscar itens'),
-		'not_found' 		=> __('Não encontrado'),
-		'not_found_in_trash' => __('Não encontrado no lixo'),
-		'parent_item_colon' => __(''),
-		'menu_name'			=> __('Nova Music')
-	);
-
-	$supports = array('title', 'editor', 'excerpt', 'thumbnail');
-
-	$post_type_args = array(
-		'labels' 			=> $labels,
-		'singular_label' 	=> __('Nova Music'),
-		'public' 			=> true,
-		'show_ui' 			=> true,
-		'publicly_queryable' => true,
-		'query_var'			=> true,
-		'exclude_from_search' => false,
-		'show_in_nav_menus'	=> true,
-		'capability_type' 	=> 'post',
-		'has_archive' 		=> false,
-		'hierarchical' 		=> false,
-		'rewrite' 			=> array('slug' => 'music', 'with_front' => true),
-		'supports' 			=> $supports,
-		'menu_position' 	=> 4,
-		'menu_icon' 		=> 'dashicons-format-audio',
-		'taxonomies'		=> false,
-		'show_in_rest'		=> true
-	);
-	register_post_type('nova_music', $post_type_args);
-}
-add_action('init', 'register_nova_music_posttype');
-
-
-
-
-
-
-
-
-
-
-
-
-/*
- * SET SPLASH SCREEN SHORTCODE [splash-screen]
- */
-function splash_screen($atts)
-{
-	ob_start();
-
-	extract(shortcode_atts(array(
-		'imagem' => '',
-		'imagem_mobile' => '',
-		'texto' => '',
-		'texto_botao' => '',
-		'link_botao' => '',
-	), $atts));
-
-?>
-
-	<div class="splash_screen" style="background-image: url(<?php echo $imagem; ?>);">
-		<img class="d-sm-none" src="<?php echo $imagem_mobile; ?>" alt="">
-
-		<div class="container">
-			<h1 class="tagline">
-				<span><?php echo $texto; ?><span>
-			</h1>
-			<a href="<?php echo $link_botao; ?>" class="btn btn-lg btn-danger"><?php echo $texto_botao; ?></a>
-		</div>
-	</div>
-
-<?php
-	$output = ob_get_contents();
-	ob_end_clean();
-	return  $output;
-}
-add_shortcode('splash-screen', 'splash_screen');
-
-
-
-/*
- * SET LATEST MESSAGE SHORTCODE [latest-message]
- */
-function latest_message()
-{
-	ob_start();
-
-	$args = array(
-		'post_type' => 'mensagens'
-	);
-
-	$loop = new WP_Query($args);
-?>
-
-	<?php if ($loop->have_posts()) : $loop->the_post(); ?>
-
-		<div class="latest_message">
-			<div class="container">
-				<h3>
-					<span>Vídeo desta semana<span>
-				</h3>
-				<a class="card" href="<?php the_permalink(); ?>" style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
-					<i class="fad fa-play"></i>
-					<h2><?php the_title(); ?></h2>
-				</a>
-				<a href="<?php echo get_site_url(); ?>/play" class="btn btn-link">Mais conteúdos <i class="fal fa-long-arrow-right"></i></a>
-			</div>
-		</div>
-
-		<?php wp_reset_postdata(); ?>
-
-	<?php else : ?>
-		<p><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
-	<?php endif;
-
-	$output = ob_get_contents();
-	ob_end_clean();
-	return  $output;
-}
-add_shortcode('latest-message', 'latest_message');
-
-
-
-/*
- * SET MAURICIO E DENISE SHORTCODE [mauricio-denise]
- */
-function mauricio_denise()
-{
-	ob_start(); ?>
-
-	<div class="mauricio_denise container-fluid">
-		<div class="row align-items-center">
-
-			<div class="fragales_pic col-lg"></div>
-
-			<div class="fragales_titles col-lg">
-				<div class="container">
-					<h4>
-						<span>“O que mais nos inspira é ver pessoas alcançando o potencial que Deus às deu.”</span>
-					</h4>
-					<div class="row align-items-center">
-						<div class="col-sm">
-							<h6>Mauricio & Denise Fragale</h6>
-							<p><small>Pastores Sêniores da Nova</small></p>
-						</div>
-						<div class="col-sm">
-							<a href="/play" class="btn btn-light">Mais <i class="fal fa-long-arrow-right"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-<?php
-	$output = ob_get_contents();
-	ob_end_clean();
-	return  $output;
-}
-add_shortcode('mauricio-denise', 'mauricio_denise');
-
-
-
-
-
-
-/*
- * SET SECTION THUMB LIST SHORTCODE [section-thumb-list]
- */
-function section_thumb_list($atts)
-{
-	ob_start();
-
-	extract(shortcode_atts(array(
-		'hero' => '',
-		'items' => '9',
-		'bg' => '#161720',
-		'post_type' => 'mensagens',
-		'nome' => 'Mensagens',
-		'youtube_link' => '',
-		'spotify_link' => ''
-	), $atts));
-
-	$args = array(
-		'post_type' => $post_type,
-		'post_count' => $items
-	);
-
-	$loop = new WP_Query($args);
-?>
-
-	<?php if ($loop->have_posts()) : if ($post_type == 'mensagens') {
-			$loop->the_post();
-		} ?>
-
-		<div class="section <?php echo $post_type; ?>">
-
-			<?php if ($hero) { ?>
-
-				<div class="section_hero" style="background-color: <?php echo $bg; ?>">
-
-					<?php if ($post_type == 'mensagens') { ?>
-
-						<img src="<?php the_post_thumbnail_url(); ?>" />
-
-						<a href="<?php the_permalink(); ?>">
-							<div class="mb-3">
-								<div class="badge badge-danger">Mais recente</div>
-							</div>
-							<h2 class="mb-3"><?php the_title(); ?></h2>
-							<div><button type="button" class="btn btn-light btn-lg"><i class="fad fa-play-circle"></i> Play</button></div>
-						</a>
-
-					<?php } else { ?>
-
-						<img src="<?php echo $hero; ?>" />
-
-					<?php } ?>
-
-				</div>
-
-			<?php } ?>
-
-			<div class="section_thumb_list">
-				<!-- the loop -->
-				<?php while ($loop->have_posts()) : $loop->the_post();
-					global $post; ?>
-
-
-					<a href="<?php the_permalink(); ?>">
-						<img src="<?php the_post_thumbnail_url('medium'); ?>">
-						<h3><?php the_title(); ?></h3>
-					</a>
-
-
-				<?php endwhile; ?>
-				<!-- end of the loop -->
-			</div>
-
-			<?php if ($youtube_link || $spotify_link) { ?>
-				<div class="section_btn" style="background-color: <?php echo $bg; ?>">
-					<!-- Action Sheet Trigger -->
-					<button type="button" class="btn btn-link" data-toggle="modal" data-target="#<?php echo $post_type; ?>_action_sheet">Mais da <?php echo $nome; ?> <i class="fad fa-external-link-alt"></i></button>
-
-					<!-- Action Sheet Options -->
-					<div class="modal fade action_sheet" id="<?php echo $post_type; ?>_action_sheet" tabindex="-1" role="dialog" aria-labelledby="action_sheet">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-
-								<div class="modal-body">
-									<div class="btn-group-vertical mb-2 pt-1">
-										<p class="mb-1 text-muted"><small>Escolha a plataforma</small></p>
-
-										<?php if ($youtube_link) { ?>
-											<a target="_blank" href="<?php echo $youtube_link; ?>" type="button" class="btn btn-light btn-lg btn-block"><span class="text-primary"><i class="fab fa-youtube"></i> YouTube</span></a>
-										<?php } ?>
-										<?php if ($spotify_link) { ?>
-											<a target="_blank" href="<?php echo $spotify_link; ?>" type="button" class="btn btn-light btn-lg btn-block"><span class="text-primary"><i class="fab fa-spotify"></i> Spotify</span></a>
-										<?php } ?>
-									</div>
-
-									<button type="button" class="btn btn-light btn-lg btn-block" data-dismiss="modal"><span class="text-primary">Cancelar</span></button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-
-		</div>
-
-		<!-- pagination here -->
-
-		<?php wp_reset_postdata(); ?>
-
-	<?php else : ?>
-		<p><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
-	<?php endif;
-
-
-
-	$output = ob_get_contents();
-	ob_end_clean();
-	return  $output;
-}
-add_shortcode('section-thumb-list', 'section_thumb_list');
-
-
-
-
-
-
-
-
-
-
-
 
 /*
  * SET LOCAIS SHORTCODE [locais]
@@ -562,12 +157,13 @@ function locais()
 
 	$args = array(
 		'post_type' => 'locais',
-		'order' => 'ASC'
+		'order' => 'ASC',
+		'posts_per_page' => -1
 	);
 
 	$loop = new WP_Query($args);
 
-	?>
+?>
 
 	<?php if ($loop->have_posts()) : ?>
 
@@ -709,3 +305,63 @@ function misha_loadmore_ajax_handler()
 }
 add_action('wp_ajax_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax_{action}
 add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax_nopriv_{action}
+
+
+
+
+/**
+ * Create Logo Setting and Upload Control - https://getflywheel.com/layout/how-to-add-options-to-the-wordpress-customizer/
+ */
+function your_theme_new_customizer_settings($wp_customize)
+{
+	// add a setting for the site logo
+	$wp_customize->add_setting('your_theme_logo');
+	// Add a control to upload the logo
+	$wp_customize->add_control(new WP_Customize_Media_Control(
+		$wp_customize,
+		'your_theme_logo',
+		array(
+			'label' => 'Upload Logo',
+			'section' => 'title_tagline',
+			'settings' => 'your_theme_logo',
+		)
+	));
+
+	// add a setting for the site navbar
+	$wp_customize->add_setting('your_navbar_color');
+	// Add a control to choose navbar color
+	$wp_customize->add_control(
+		'your_navbar_color',
+		array(
+			'type' => 'select',
+			'label' => 'Navbar color',
+			'section' => 'title_tagline',
+			'settings' => 'your_navbar_color',
+			'choices' => array(
+				'dark' => __('Dark'),
+				'light' => __('Light'),
+			),
+		)
+	);
+
+
+
+	// Add Footer Section
+	$wp_customize->add_section('your_theme_footer', array(
+		'title' => 'Footer',
+		'description' => '',
+		'priority' => 120,
+	));
+	// add a setting for the site logo
+	$wp_customize->add_setting('your_footer_info');
+	// Add a control to upload the logo
+	$wp_customize->add_control(
+		'your_footer_info',
+		array(
+			'label' => 'Footer info',
+			'section' => 'your_theme_footer',
+			'settings' => 'your_footer_info',
+		)
+	);
+}
+add_action('customize_register', 'your_theme_new_customizer_settings');

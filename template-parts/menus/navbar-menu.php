@@ -16,7 +16,6 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 
 ?>
 
-
 <div class="collapse navbar-collapse">
     <ul class="navbar-nav ms-auto me-auto">
         <?php
@@ -39,7 +38,10 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 
                 <li class="nav-item <?php echo $active; ?>">
                     <a class="nav-link" href="<?php echo $link; ?>">
-                        <div class="active_highlight"><i class="fad <?php echo $class; ?>"></i><span><?php echo $title; ?></span></div>
+                        <div class="active_highlight">
+                            <?php if ($class) : ?><i class="fad <?php echo $class; ?>"></i><?php endif ?>
+                            <span><?php echo $title; ?></span>
+                        </div>
                     </a>
                 <?php endif; ?>
 

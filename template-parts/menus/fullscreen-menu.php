@@ -26,6 +26,7 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 
             $link = $item->url;
             $title = $item->title;
+            $class = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($item->classes), $item)));
             $active = ($item->object_id == get_queried_object_id()) ? 'active' : '';
 
             // item does not have a parent so menu_item_parent equals 0 (false)
@@ -39,7 +40,8 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
         ?>
                     <li class="<?php echo $active; ?>">
                         <a data-bs-toggle="collapse" href="#z<?php echo $parent_id; ?>" role="button" aria-expanded="false" aria-controls="z<?php echo $parent_id; ?>">
-                            <?php echo $title; ?>
+                            <?php if ($class) : ?><i class="fad <?php echo $class; ?>"></i><?php endif ?>
+                            <span><?php echo $title; ?></span>
                             <i class="fal fa-plus float-end"></i>
                         </a>
 
@@ -48,7 +50,8 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 
                     <li class="<?php echo $active; ?>">
                         <a href="<?php echo $link; ?>">
-                            <?php echo $title; ?>
+                            <?php if ($class) : ?><i class="fad <?php echo $class; ?>"></i><?php endif ?>
+                            <span><?php echo $title; ?></span>
                         </a>
                     <?php endif; ?>
 
@@ -61,7 +64,10 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                         <div class="submenu collapse" id="z<?php echo $parent_id; ?>">
                         <?php endif; ?>
                         <div>
-                            <a href="<?php echo $link; ?>" class="title"><?php echo $title; ?></a>
+                            <a href="<?php echo $link; ?>" class="title">
+                                <?php if ($class) : ?><i class="fad <?php echo $class; ?>"></i><?php endif ?>
+                                <span><?php echo $title; ?></span>
+                            </a>
                         </div>
                         <?php if ($menuitems[$count + 1]->menu_item_parent != $parent_id && $submenu) : ?>
                         </div>

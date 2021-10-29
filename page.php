@@ -7,23 +7,7 @@
 
         <article>
 
-            <?php // https://developer.wordpress.org/reference/functions/the_meta/
-            $keys = get_post_custom_keys();
-            if ($keys) {
-                $li_html = '';
-                foreach ((array) $keys as $key) {
-                    $keyt = trim($key);
-                    if (is_protected_meta($keyt, 'post')) {
-                        continue;
-                    }
-
-                    $values = array_map('trim', get_post_custom_values($key));
-                    $value  = implode(', ', $values);
-
-                    echo do_shortcode($value);
-                }
-            }
-            ?>
+            <?php the_field('campo_extra'); ?>
 
             <?php the_content(); ?>
 
