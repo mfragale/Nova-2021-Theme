@@ -64,7 +64,7 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                         <div class="submenu collapse" id="z<?php echo $parent_id; ?>">
                         <?php endif; ?>
                         <div>
-                            <a href="<?php echo $link; ?>" class="title">
+                            <a href="<?php echo $link; ?>" class="title <?php echo $active; ?>">
                                 <?php if ($class) : ?><i class="fad <?php echo $class; ?>"></i><?php endif ?>
                                 <span><?php echo $title; ?></span>
                             </a>

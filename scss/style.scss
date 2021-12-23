@@ -359,6 +359,10 @@ body {
 							&:hover {
 								color: $gray-400;
 							}
+
+							&.active {
+								color: $primary;
+							}
 						}
 					}
 				}
