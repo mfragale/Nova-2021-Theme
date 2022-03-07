@@ -4,6 +4,10 @@
 add_theme_support('post-thumbnails');
 
 
+// Disable two-factor authentication enforcement - https://docs.wpvip.com/technical-references/restricting-site-access/two-factor-authentication/
+add_filter('wpcom_vip_is_two_factor_forced', '__return_false');
+
+
 /**
  * Enqueue scripts and styles.
  */

@@ -14,6 +14,14 @@ body {
 	}
 }
 
+.et-db #et-boc .et-l .et_pb_module a {
+	color: $primary !important;
+
+	&:hover {
+		color: darken($primary, 10%) !important;
+	}
+}
+
 // .rainbow_border {
 // 	border: 10px solid;
 // 	border-image-slice: 1;
@@ -79,9 +87,9 @@ body {
 					svg {
 						margin-right: 5px;
 
-						path {
-							//fill: $gray-400;
-						}
+						// path {
+						// 	fill: $gray-400;
+						// }
 
 						@include media-breakpoint-down(sm) {
 							display: none;
@@ -151,9 +159,9 @@ body {
 			&:hover {
 				cursor: pointer;
 
-				.line {
-					//background-color: #000;
-				}
+				// .line {
+				// 	background-color: #000;
+				// }
 			}
 
 			&.is-active {
@@ -852,5 +860,50 @@ div.sap-embed-player > iframe {
 			background-color: $primary;
 			border-radius: 100px;
 		}
+	}
+}
+
+// Hide Recaptcha
+.grecaptcha-badge {
+	visibility: hidden;
+}
+
+// FORMS
+.et-db #et-boc .et-l .et_pb_module input.text:not(.qty),
+.et-db #et-boc .et-l .et_pb_module input.title,
+.et-db #et-boc .et-l .et_pb_module input[type="email"],
+.et-db #et-boc .et-l .et_pb_module input[type="password"],
+.et-db #et-boc .et-l .et_pb_module input[type="tel"],
+.et-db #et-boc .et-l .et_pb_module input[type="text"],
+.et-db #et-boc .et-l .et_pb_module input select,
+.et-db #et-boc .et-l .et_pb_module input textarea {
+	width: 100% !important;
+
+	&:focus {
+		border-color: $primary;
+	}
+}
+.gform_wrapper.gravity-theme .ginput_complex {
+	gap: 1%;
+}
+.et-db #et-boc .et-l .et_pb_module textarea {
+	border: 1px solid #bbb;
+}
+.gform_wrapper.gravity-theme .ginput_container_address span {
+	flex: auto !important;
+}
+.gf_clear {
+	display: none;
+}
+.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .gform_wrapper .gfield select,
+.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .gform_wrapper .gfield select {
+	border-color: #bbb;
+}
+
+// NEWSLETTER HOME
+#gform_1 {
+	.gform_footer {
+		margin: 0;
+		padding: 0;
 	}
 }
