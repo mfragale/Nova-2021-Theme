@@ -17,6 +17,22 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 ?>
 
 <nav id="fullscreenmenu">
+
+    <?php if (is_user_logged_in()) { ?>
+        <div class="user_profile">
+            <p class="text-muted text-center">
+                <small> Logado como:
+                    <?php
+                    $current_user = wp_get_current_user();
+                    echo $current_user->first_name;
+                    ?>
+                    |
+                    <a href="<?php echo wp_logout_url(get_permalink()); ?>" class="text-decoration-none">Sair <i class="fas fa-sign-out"></i></a>
+                </small>
+            </p>
+        </div>
+    <?php } ?>
+
     <ul class="main-nav">
         <?php
         $count = 0;

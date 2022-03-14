@@ -854,18 +854,27 @@ div.sap-embed-player > iframe {
 }
 
 // RD Station Forms
-#rd-column-kuyys2mp {
-	#rd-form-kuyys2mq {
-		#rd-button-kuyys2mu {
-			background-color: $primary;
-			border-radius: 100px;
-		}
-	}
-}
+// #rd-column-kuyys2mp {
+// 	#rd-form-kuyys2mq {
+// 		#rd-button-kuyys2mu {
+// 			background-color: $primary;
+// 			border-radius: 100px;
+// 		}
+// 	}
+// }
 
 // Hide Recaptcha
 .grecaptcha-badge {
 	visibility: hidden;
+}
+.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 div.gform_wrapper form .hide_recaptcha {
+	margin: 0 !important;
+	padding: 0 !important;
+
+	.ginput_recaptcha {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
 }
 
 // FORMS
@@ -899,11 +908,51 @@ div.sap-embed-player > iframe {
 .et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .gform_wrapper .gfield select {
 	border-color: #bbb;
 }
+.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 form .gform_page_footer,
+.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 form .gform_footer {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .gform_wrapper .gform_fields .gfield div.ginput_container_consent {
+	input {
+		width: 20px;
+		height: 20px;
+	}
 
-// NEWSLETTER HOME
-#gform_1 {
-	.gform_footer {
-		margin: 0;
-		padding: 0;
+	label {
+		display: inline;
+	}
+}
+.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .et_pb_button {
+	width: 100%;
+	text-align: center;
+}
+.gform_wrapper.gravity-theme .ginput_container_date {
+	flex-grow: 1;
+}
+.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 div.gform_wrapper form div.ginput_container.ginput_container_date {
+	margin-right: 0 !important;
+	max-width: none;
+}
+
+// DIVI columns
+// prevents columns from breaking in mobile view
+@media only screen and (max-width: 980px) {
+	.et-db #et-boc .et-l {
+		.two-columns .et_pb_column {
+			width: 50% !important;
+		}
+
+		.three-columns .et_pb_column {
+			width: 33.33% !important;
+		}
+
+		.four-columns .et_pb_column {
+			width: 25% !important;
+			margin: 0 !important;
+		}
+		.five-columns .et_pb_column {
+			width: 20% !important;
+		}
 	}
 }

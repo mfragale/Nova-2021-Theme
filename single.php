@@ -7,7 +7,7 @@
 
 
         <article id="post-<?php the_ID(); ?>" class="<?php post_class(); ?> col">
-            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('<?php the_post_thumbnail_url(); ?>');">
+            <!-- <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('<?php the_post_thumbnail_url(); ?>');">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                     <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"><?php the_title(); ?></h2>
                     <ul class="d-flex list-unstyled mt-auto">
@@ -28,7 +28,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
 
             <div class="content">
                 <?php the_content(); ?>
