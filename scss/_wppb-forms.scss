@@ -139,6 +139,7 @@
 	font-size: 10px;
 	text-align: center;
 	display: block;
+	width: 100%;
 }
 .doenanova_wppb_button {
 	display: block;
@@ -203,6 +204,7 @@
 		p.login-remember {
 			text-align: center;
 			font-size: 14px;
+			display: block;
 
 			label {
 				vertical-align: super;
@@ -386,7 +388,8 @@ form#wppb-edit-user {
 					}
 				}
 
-				input.text-input {
+				input.text-input,
+				input.password {
 					@extend .doenanova_wppb_input;
 				}
 
