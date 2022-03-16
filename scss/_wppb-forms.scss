@@ -82,11 +82,7 @@
 // }
 
 //ALERTS
-#wppb_form_general_message,
-.wppb-alert,
-#wppb_register_pre_form_message,
-p.wppb-error {
-	//max-width: 320px;
+.doenanova_alert {
 	margin: 0 auto;
 	text-align: center;
 	font-size: 14px;
@@ -99,11 +95,17 @@ p.wppb-error {
 	}
 }
 
+.et-db #et-boc .et-l .et_pb_text {
+	#wppb_form_general_message,
+	.wppb-alert,
+	#wppb_register_pre_form_message,
+	p.wppb-error {
+		@extend .doenanova_alert;
+	}
+}
+
 //STRUCTURE
 .doenanova_wppb_1 {
-	//max-width: 320px;
-	//margin: 50px auto;
-	//padding: 0 1rem;
 	text-align: left;
 }
 .doenanova_wppb_ul {
@@ -193,14 +195,23 @@ p.wppb-error {
 			}
 		}
 
+		#itsec-recaptcha-opt-in {
+			@extend .doenanova_alert;
+			margin-bottom: 15px;
+		}
+
 		p.login-remember {
 			text-align: center;
-			font-size: 12px;
+			font-size: 14px;
 
 			label {
+				vertical-align: super;
 			}
 
 			input {
+				width: 20px;
+				height: 20px;
+				margin-right: 10px;
 			}
 		}
 
@@ -347,4 +358,75 @@ form#wppb-edit-user {
 
 .wppb-front-end-logout {
 	text-align: center;
+}
+
+// FORGOT PASSWORD FORM
+.et-db #et-boc .et-l .et_pb_text {
+	form#wppb-recover-password {
+		@extend .doenanova_wppb_1;
+
+		p:not(.form-submit) {
+			@extend .doenanova_alert;
+		}
+
+		ul {
+			@extend .doenanova_wppb_ul;
+
+			li.wppb-form-field {
+				@extend .doenanova_wppb_li;
+
+				label {
+					@extend .doenanova_wppb_label;
+
+					span.wppb-required {
+					}
+
+					img {
+						@extend .doenanova_wppb_img;
+					}
+				}
+
+				input.text-input {
+					@extend .doenanova_wppb_input;
+				}
+
+				span.wppb-description-delimiter {
+					@extend .doenanova_wppb_description-delimiter;
+				}
+
+				#pass-strength-result {
+					@extend .doenanova_wppb_description-delimiter;
+
+					margin-bottom: 20px;
+
+					&.short,
+					&.bad {
+						color: $danger;
+					}
+					&.good,
+					&.strong {
+						color: $success;
+					}
+				}
+
+				span.wppb-form-error {
+					@extend .doenanova_wppb_form_error;
+				}
+
+				&.wppb-default-username {
+					color: #ccc;
+
+					input[disabled="disabled"] {
+						color: #ccc;
+					}
+				}
+			}
+		}
+
+		p.form-submit {
+			input.button {
+				@extend .doenanova_wppb_button;
+			}
+		}
+	}
 }
