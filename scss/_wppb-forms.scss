@@ -2,85 +2,6 @@
  * WPPB - Profile Builder
 */
 
-// PROFILE
-// .wppb-user-forms {
-// 	margin: 50px auto;
-// 	max-width: 300px;
-
-// 	ul {
-// 		list-style: none;
-// 		margin: 0;
-// 		padding: 0;
-
-// 		.wppb-form-field {
-// 			margin-bottom: 20px;
-
-// 			label {
-// 				display: block;
-// 				font-size: 0.8rem;
-// 			}
-
-// 			.text-input {
-// 				display: block;
-// 				width: 100%;
-// 				padding: 0.5rem;
-// 				border: 2px solid #ccc;
-// 				border-radius: 0.5rem;
-// 			}
-
-// 			.wppb-description-delimiter {
-// 				display: block;
-// 				font-size: 10px;
-// 			}
-
-// 			#pass-strength-result {
-// 				display: block;
-// 				font-size: 10px;
-
-// 				&.short,
-// 				&.bad {
-// 					color: $danger;
-// 				}
-// 				&.good,
-// 				&.strong {
-// 					color: $success;
-// 				}
-// 			}
-// 		}
-// 	}
-
-// 	.form-submit {
-// 		color: black;
-
-// 		.submit {
-// 			width: 100%;
-// 			border: none;
-// 			border-radius: 100px;
-// 			padding: 0.8rem;
-// 		}
-
-// 		#action {
-// 			color: black;
-// 		}
-
-// 		#form_name {
-// 			color: black;
-// 		}
-
-// 		input {
-// 			color: black;
-// 		}
-// 	}
-
-// 	#edit_profile_unspecified_nonce_field {
-// 		color: black;
-// 	}
-
-// 	input {
-// 		color: black;
-// 	}
-// }
-
 //ALERTS
 .doenanova_alert {
 	margin: 0 auto;
@@ -240,8 +161,8 @@
 				label {
 					@extend .doenanova_wppb_label;
 
-					span {
-					}
+					// span {
+					// }
 
 					img {
 						@extend .doenanova_wppb_img;
@@ -317,8 +238,8 @@ form#wppb-edit-user {
 			label {
 				@extend .doenanova_wppb_label;
 
-				span.wppb-required {
-				}
+				// span.wppb-required {
+				// }
 
 				img {
 					@extend .doenanova_wppb_img;
@@ -391,8 +312,8 @@ form#wppb-edit-user {
 				label {
 					@extend .doenanova_wppb_label;
 
-					span.wppb-required {
-					}
+					// span.wppb-required {
+					// }
 
 					img {
 						@extend .doenanova_wppb_img;

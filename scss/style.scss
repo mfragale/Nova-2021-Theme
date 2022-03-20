@@ -134,17 +134,14 @@ body {
 		.hamburger {
 			padding: 0.7rem 0;
 			width: 40px;
-			//margin-left: 1rem;
 
 			@include media-breakpoint-up(md) {
 				width: 60px;
-				//margin-left: 0.5rem;
 			}
 
 			.line {
 				height: 1px;
 				margin: 0 0 0 auto;
-				//background-color: $gray-700;
 				display: block;
 				transition: all 0.3s ease-in-out;
 
@@ -152,7 +149,7 @@ body {
 					width: 25px;
 				}
 				&:nth-child(2) {
-					width: 21px;
+					width: 25px;
 					margin-top: 6px;
 				}
 			}
@@ -435,207 +432,6 @@ div.sap-embed-player > iframe {
 	left: 0;
 	top: 0;
 }
-
-// Thumbnail List VARIABLES
-// $thumbList_WidthLG: 220px;
-// $thumbList_WidthSM: $thumbList_WidthLG * 0.9;
-// $thumbList_WidthXS: $thumbList_WidthLG * 0.65;
-// $thumbList_Gutter: 20px;
-// $moreMessagesPadding: 2rem;
-
-// .section {
-// 	background-color: $gray-900;
-
-// 	.section_hero {
-// 		display: flex;
-// 		height: 600px;
-// 		justify-content: center;
-// 		align-items: center;
-// 		position: relative;
-// 		margin-bottom: $moreMessagesPadding * -5;
-
-// 		@include media-breakpoint-down(sm) {
-// 			height: 500px;
-// 		}
-
-// 		@include media-breakpoint-down(xs) {
-// 			height: 400px;
-// 		}
-
-// 		img,
-// 		video {
-// 			object-fit: cover;
-// 			object-position: 50% 30%;
-// 			width: 100%;
-// 			height: 100%;
-// 			position: absolute;
-// 			top: 0;
-// 			left: 0;
-// 		}
-// 	}
-
-// 	.section_thumb_list {
-// 		padding: 5rem $moreMessagesPadding * 2.5 3rem;
-// 		width: 100%;
-// 		text-align: center;
-// 		background: linear-gradient(0deg, $gray-900 0%, $gray-900 60%, transparentize($gray-900, 1) 100%);
-// 		white-space: nowrap;
-// 		font-size: 0;
-// 		overflow-x: auto;
-// 		position: relative;
-// 		-ms-overflow-style: none; /* IE and Edge */
-// 		scrollbar-width: none; /* Firefox */
-// 		&::-webkit-scrollbar {
-// 			display: none;
-// 		}
-
-// 		@include media-breakpoint-down(sm) {
-// 			padding: 5rem $moreMessagesPadding 3rem;
-// 		}
-
-// 		a {
-// 			width: $thumbList_WidthLG;
-// 			display: inline-block;
-// 			line-height: 0rem;
-// 			position: relative;
-// 			border-radius: 10px;
-// 			overflow: hidden;
-// 			margin-right: $thumbList_Gutter;
-// 			border: 1px solid transparentize($primary, 0.8);
-// 			transition: all 0.1s linear;
-// 			text-align: left;
-
-// 			&:last-child {
-// 				margin-right: 0;
-// 			}
-
-// 			&:hover {
-// 				transform: scale(1.03);
-// 				transition: all 0.1s linear;
-// 			}
-
-// 			@include media-breakpoint-down(sm) {
-// 				width: $thumbList_WidthSM;
-// 			}
-
-// 			@include media-breakpoint-down(xs) {
-// 				width: $thumbList_WidthXS;
-// 			}
-
-// 			img {
-// 				width: 100%;
-// 			}
-// 			h3 {
-// 				position: absolute;
-// 				font-size: 1rem;
-// 				bottom: 0;
-// 				left: 0;
-// 				margin: 0;
-// 				padding: 1rem;
-// 				color: $white;
-// 				background: linear-gradient(
-// 					to bottom,
-// 					rgba(0, 0, 0, 0) 0%,
-// 					rgba(0, 0, 0, 0.8) 50%,
-// 					rgba(0, 0, 0, 0.8) 100%
-// 				);
-// 				text-shadow: 0px 0px 20px $gray-900;
-// 				width: 100%;
-// 				white-space: initial;
-
-// 				@include media-breakpoint-down(sm) {
-// 					font-size: 0.85rem;
-// 				}
-
-// 				@include media-breakpoint-down(xs) {
-// 					font-size: 0.7rem;
-// 				}
-// 			}
-// 		}
-// 	}
-
-// 	.section_btn {
-// 		background-color: $gray-900;
-// 		padding: 0.5rem 0 3rem;
-// 		text-align: center;
-// 	}
-// }
-
-// // PLAY > Mensagens section
-// .mensagens {
-// 	.section_hero {
-// 		a {
-// 			padding: 5rem;
-// 			flex-grow: 1;
-// 			height: 100%;
-// 			display: flex;
-// 			flex-direction: column;
-// 			justify-content: center;
-// 			color: $gray-100;
-// 			position: relative;
-// 			//z-index: 2;
-
-// 			@include media-breakpoint-down(sm) {
-// 				padding: 2rem;
-// 			}
-
-// 			&:hover {
-// 				text-decoration: none;
-// 			}
-
-// 			h2 {
-// 				max-width: 400px;
-
-// 				@include media-breakpoint-down(sm) {
-// 					font-size: 1.6rem;
-// 					max-width: 300px;
-// 				}
-
-// 				@include media-breakpoint-down(xs) {
-// 					font-size: 1.2rem;
-// 					max-width: 200px;
-// 				}
-// 			}
-// 		}
-// 	}
-
-// 	.section_btn {
-// 		background-color: $gray-900;
-// 	}
-// }
-
-// // PLAY > Nova Music section
-// .nova_music {
-// 	.section_hero {
-// 		flex-direction: column;
-// 		color: $white;
-// 	}
-
-// 	.section_thumb_list {
-// 		background: linear-gradient(0deg, $gray-900 0%, $gray-900 60%, transparentize($gray-900, 1) 100%);
-
-// 		a {
-// 			h3 {
-// 				display: none;
-// 			}
-// 		}
-// 	}
-
-// 	.section_btn {
-// 		background-color: $gray-900;
-// 	}
-// }
-
-// // PLAY > Geração Nova section
-// .geracao_nova {
-// 	.section_thumb_list {
-// 		background: linear-gradient(0deg, $gn 0%, $gn 60%, transparentize($gn, 1) 100%);
-// 	}
-
-// 	.section_btn {
-// 		background-color: $gn;
-// 	}
-// }
 
 /* -------------------------------------------------------------------------- */
 
