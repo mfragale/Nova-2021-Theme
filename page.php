@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php get_header();
+
+/**
+ * Detect plugin. For frontend only.
+ */
+include_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+?>
 
 <?php if (have_posts()) : ?>
 
@@ -7,7 +14,12 @@
 
         <article>
 
-            <?php the_field('campo_extra'); ?>
+            <?php
+            // check for plugin using plugin name
+            if (is_plugin_active('advanced-custom-fields-pro/acf.php')) {
+                if (get_field('campo_extra')) : the_field('campo_extra');
+                endif;
+            } ?>
 
             <?php the_content(); ?>
 
