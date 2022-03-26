@@ -23,14 +23,15 @@
     "autoprefixer": "^9.8.6",
     "browser-sync": "^2.26.13",
     "connect-livereload": "^0.6.1",
-    "gulp": "^4.0.2",
+    "gulp": "^4.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-livereload": "^4.0.2",
     "gulp-minify": "^3.1.0",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-scss-lint": "^1.0.0",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-sourcemaps": "^2.6.5",
+    "sass": "^1.49.9"
   }
 }
