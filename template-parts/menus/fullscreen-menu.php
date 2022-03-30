@@ -42,7 +42,9 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 
             $link = $item->url;
             $title = $item->title;
-            $class = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($item->classes), $item)));
+            //$class = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($item->classes), $item)));
+            $classes = $item->classes;
+            $description = $item->description;
             $active = ($item->object_id == get_queried_object_id()) ? 'active' : '';
 
             // item does not have a parent so menu_item_parent equals 0 (false)
@@ -54,9 +56,12 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                 // item has child
                 if ($menuitems[$count + 1]->menu_item_parent == $parent_id) :
         ?>
-                    <li class="<?php echo $active; ?>">
+                    <li class="<?php echo $active;
+                                foreach ($classes as $class) {
+                                    echo $class, ' ';
+                                }; ?>">
                         <a data-bs-toggle="collapse" href="#z<?php echo $parent_id; ?>" role="button" aria-expanded="false" aria-controls="z<?php echo $parent_id; ?>">
-                            <?php if ($class) : ?><i class="fad <?php echo $class; ?>"></i><?php endif ?>
+                            <?php if ($description) : ?><i class="fad <?php echo $description; ?>"></i><?php endif ?>
                             <span><?php echo $title; ?></span>
                             <i class="fal fa-plus float-end"></i>
                         </a>
