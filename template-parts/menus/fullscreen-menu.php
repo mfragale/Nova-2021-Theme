@@ -69,9 +69,12 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                     <?php else : // item doen't have child 
                     ?>
 
-                    <li class="<?php echo $active; ?>">
+                    <li class="<?php echo $active;
+                                foreach ($classes as $class) {
+                                    echo $class, ' ';
+                                }; ?>">
                         <a href="<?php echo $link; ?>">
-                            <?php if ($class) : ?><i class="fad <?php echo $class; ?>"></i><?php endif ?>
+                            <?php if ($description) : ?><i class="fad <?php echo $description; ?>"></i><?php endif ?>
                             <span><?php echo $title; ?></span>
                         </a>
                     <?php endif; ?>

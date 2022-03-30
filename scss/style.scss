@@ -325,6 +325,19 @@ body {
 					font-size: 1rem;
 					line-height: 1;
 
+					svg:first-child {
+						margin-right: 10px;
+						width: 15px;
+
+						// path {
+						// 	fill: $gray-400;
+						// }
+
+						@include media-breakpoint-down(sm) {
+							display: none;
+						}
+					}
+
 					@include media-breakpoint-up(sm) {
 						font-size: 1.3rem;
 						padding: 1.2rem 2rem;
