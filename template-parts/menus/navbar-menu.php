@@ -26,7 +26,9 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 
             $link = $item->url;
             $title = $item->title;
-            $class = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($item->classes), $item)));
+            //$class = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($item->classes), $item)));
+            $classes = $item->classes;
+            $description = $item->description;
             $active = ($item->object_id == get_queried_object_id()) ? 'active' : '';
 
             // item does not have a parent so menu_item_parent equals 0 (false)
@@ -36,10 +38,13 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                 $parent_id = $item->ID;
         ?>
 
-                <li class="nav-item <?php echo $active; ?>">
+                <li class="nav-item <?php echo $active;
+                                    foreach ($classes as $class) {
+                                        echo $class, ' ';
+                                    }; ?>">
                     <a class="nav-link" href="<?php echo $link; ?>">
                         <div class="active_highlight">
-                            <?php if ($class) : ?><i class="fad <?php echo $class; ?>"></i><?php endif ?>
+                            <?php if ($description) : ?><i class="fad <?php echo $description; ?>"></i><?php endif ?>
                             <span><?php echo $title; ?></span>
                         </div>
                     </a>

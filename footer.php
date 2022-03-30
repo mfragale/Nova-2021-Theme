@@ -1,8 +1,18 @@
 <?php if (!is_page_template('template-blank-page.php')) { ?>
 
-    <footer id="footer" class="mt-5">
+    <footer id="footer" class="mt-5 <?php if (get_theme_mod('your_navbar_color') == "light") {
+                                        echo "";
+                                    } else {
+                                        echo "text-light bg-dark";
+                                    }
+                                    ?>">
 
-        <div class="container border-top">
+        <div class="container <?php if (get_theme_mod('your_navbar_color') == "light") {
+                                    echo "border-top";
+                                } else {
+                                    echo "";
+                                }
+                                ?>">
             <div class="row text-center py-5">
 
                 <div class="col-12 col-sm-6 text-sm-start stamp">

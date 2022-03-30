@@ -58,19 +58,26 @@ body {
 		.navbar-brand {
 			line-height: 0;
 			margin-right: 0;
+			width: 40px;
+
+			@include media-breakpoint-up(md) {
+				width: 60px;
+			}
 
 			img {
-				width: 40px;
+				width: 100%;
 				height: auto;
 
-				@include media-breakpoint-up(md) {
-					width: 60px;
-				}
+				// @include media-breakpoint-up(md) {
+				// 	width: 60px;
+				// }
 			}
 		}
 
 		//MENU
 		ul.navbar-nav {
+			max-width: 850px;
+
 			li.nav-item {
 				a.nav-link {
 					line-height: 1rem;
