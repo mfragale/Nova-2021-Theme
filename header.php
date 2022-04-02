@@ -49,10 +49,14 @@
 					<?php get_template_part('template-parts/menus/navbar-menu'); ?>
 
 					<!-- FULL SCREEN MENU TOGGLE BUTTON -->
-					<div class="hamburger">
-						<span class="line"></span>
-						<span class="line"></span>
-					</div>
+
+					<?php if (wp_get_nav_menu_items(get_nav_menu_locations()['fullscreen_menu'])) : ?>
+						<div class="hamburger">
+							<span class="line"></span>
+							<span class="line"></span>
+						</div>
+					<?php endif; ?>
+
 				</div>
 			</nav>
 
@@ -61,4 +65,4 @@
 
 		</header>
 
-	<?php } ?>
+	<?php }	?>
