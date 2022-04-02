@@ -38,7 +38,8 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                 $parent_id = $item->ID;
         ?>
 
-                <li class="nav-item <?php echo $active;
+                <li class="nav-item <?php
+                                    echo $active, ' ';
                                     foreach ($classes as $class) {
                                         echo $class, ' ';
                                     }; ?>">
