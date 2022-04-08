@@ -490,7 +490,7 @@ div.sap-embed-player > iframe {
 					height: 120px;
 				}
 
-				@include media-breakpoint-down(sm) {
+				@include media-breakpoint-down(md) {
 					display: none;
 				}
 			}
