@@ -715,8 +715,17 @@ div.sap-embed-player > iframe {
 		border-color: $primary;
 	}
 }
-.gform_wrapper.gravity-theme .ginput_complex {
-	gap: 1%;
+.gform_wrapper {
+	&.gravity-theme {
+		.ginput_complex {
+			gap: 1%;
+		}
+	}
+}
+.et-db #et-boc .et-l .et_pb_module .gf_name_has_2 {
+	input {
+		margin-bottom: 0.5em;
+	}
 }
 .et-db #et-boc .et-l .et_pb_module textarea {
 	border: 1px solid #bbb;
