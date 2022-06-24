@@ -464,7 +464,52 @@ div.sap-embed-player > iframe {
 /*	LOCAIS
 /* -------------------------------------------------------------------------- */
 .locais {
+	// Local nav list
 	.nav-link {
+		text-decoration: none;
+		color: $gray-700;
+		display: block;
+		padding: 1rem 0;
+		border-bottom: 1px solid $gray-300;
+		width: 100%;
+
+		.row {
+			transition: all 0.2s ease-in-out;
+
+			img {
+				width: 100%;
+				max-width: 100px;
+				height: auto;
+				box-shadow: 0 5px 25px 5px transparentize($gray-500, 0.5);
+				border-radius: 15px;
+			}
+			h1 {
+				font-size: 1.5rem;
+				font-weight: 900;
+				margin-bottom: 0;
+
+				@include media-breakpoint-down(md) {
+					font-size: 1rem;
+				}
+			}
+			p {
+				margin-bottom: 0;
+
+				@include media-breakpoint-down(md) {
+					font-size: 0.6rem;
+				}
+			}
+			svg {
+				height: 30px;
+				width: 10px !important;
+			}
+		}
+		&:hover,
+		&.active {
+			color: $primary;
+			background-color: $white;
+		}
+
 		&:last-child {
 			border-bottom: none;
 		}
@@ -536,155 +581,11 @@ div.sap-embed-player > iframe {
 					border-radius: 20px;
 					z-index: 1;
 					position: relative;
-
-					.local-hero {
-						font-weight: inherit;
-						border-radius: 8px;
-						background-size: cover;
-						background-position: center;
-						height: 300px;
-						margin: 0;
-						align-content: flex-end;
-
-						@include media-breakpoint-down(sm) {
-							height: 150px;
-						}
-
-						.pastores {
-							h3 {
-								background-color: $primary;
-								font-size: 14px;
-								width: fit-content;
-								padding: 2px 5px;
-								margin: 0 0 0 0px;
-							}
-							h4 {
-								background-color: $primary;
-								font-size: 10px;
-								width: fit-content;
-								padding: 2px 5px;
-								margin: 0 0 10px 10px;
-							}
-						}
-
-						.contato {
-							text-align: right;
-
-							@include media-breakpoint-down(sm) {
-								text-align: center;
-								margin-bottom: 10px;
-							}
-
-							a {
-								@include media-breakpoint-down(sm) {
-									margin-bottom: -40px;
-								}
-							}
-						}
-					}
-					.info {
-						padding: 50px 0;
-
-						> .col-lg-6 {
-							padding: 0 50px;
-
-							@include media-breakpoint-down(md) {
-								&:first-child {
-									margin-bottom: 50px;
-								}
-							}
-
-							@include media-breakpoint-down(xs) {
-								padding: 0 20px;
-							}
-
-							h3 {
-								color: $primary;
-								font-size: 16px;
-								font-weight: 900;
-							}
-
-							.info_dia_semana {
-								font-size: 12px;
-								margin: 0;
-							}
-
-							.info_horario {
-								font-size: 30px;
-								font-weight: 900;
-
-								@include media-breakpoint-down(xs) {
-									font-size: 20px;
-								}
-							}
-
-							.info_detalhes {
-								font-size: 12px;
-							}
-						}
-					}
 				}
 			}
-		}
-	}
-
-	// Local nav list
-	.nav-link {
-		text-decoration: none;
-		color: $gray-700;
-		display: block;
-		padding: 1rem 0;
-		border-bottom: 1px solid $gray-300;
-		width: 100%;
-
-		.row {
-			transition: all 0.2s ease-in-out;
-
-			img {
-				width: 100%;
-				max-width: 100px;
-				height: auto;
-				box-shadow: 0 5px 25px 5px transparentize($gray-500, 0.5);
-				border-radius: 15px;
-			}
-			h1 {
-				font-size: 1.5rem;
-				font-weight: 900;
-				margin-bottom: 0;
-
-				@include media-breakpoint-down(md) {
-					font-size: 1rem;
-				}
-			}
-			p {
-				margin-bottom: 0;
-
-				@include media-breakpoint-down(md) {
-					font-size: 0.6rem;
-				}
-			}
-			svg {
-				height: 30px;
-				width: 10px !important;
-			}
-		}
-		&:hover,
-		&.active {
-			color: $primary;
-			background-color: $white;
 		}
 	}
 }
-
-// RD Station Forms
-// #rd-column-kuyys2mp {
-// 	#rd-form-kuyys2mq {
-// 		#rd-button-kuyys2mu {
-// 			background-color: $primary;
-// 			border-radius: 100px;
-// 		}
-// 	}
-// }
 
 // Hide Recaptcha
 .grecaptcha-badge {

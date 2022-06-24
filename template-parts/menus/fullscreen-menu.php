@@ -26,6 +26,12 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                     $current_user = wp_get_current_user();
                     echo $current_user->first_name;
                     ?>
+
+                    <?php if (current_user_can('administrator')) { ?>
+                        |
+                        <a target="_blank" href="/wp-admin/" class="text-decoration-none">Dashboard <i class="fas fa-tachometer-alt-fast"></i></a>
+                    <?php } ?>
+
                     |
                     <a href="<?php echo wp_logout_url(get_permalink()); ?>" class="text-decoration-none">Sair <i class="fas fa-sign-out"></i></a>
                 </small>
