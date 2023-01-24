@@ -103,32 +103,6 @@ add_filter('nav_menu_link_attributes', 'add_specific_menu_location_atts', 10, 3)
 
 
 
-/**
- * Remove image titles from WordPress 
- * 
- * @author Arun Basil Lal
- * @link https://imageattributespro.com/bulk-remove-wordpress-image-titles/
- * 
- * @param $content string Content of current post.
- * 
- * @return $content string Current post content with titles removed. 
- */
-function prefix_iap_remove_image_titles($content)
-{
-
-	// \s prevents matching data-title="" attributes. 
-	preg_match_all('/\stitle="[^"]+"/', $content, $matches);
-
-	// Replace title="" with empty string.
-	foreach ($matches[0] as $image_title) {
-		$content = str_replace($image_title, '', $content);
-	}
-
-	return $content;
-}
-add_filter('the_content', 'prefix_iap_remove_image_titles');
-
-
 
 
 
