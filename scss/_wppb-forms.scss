@@ -45,7 +45,7 @@
 }
 .doenanova_wppb_input {
 	display: block;
-	border-radius: 50px;
+	border-radius: 0.25rem;
 	border: 1px solid #dfdfe0;
 	padding: 10px 15px;
 	width: 100%;
@@ -70,7 +70,7 @@
 	background: #efeff3;
 	padding: 15px;
 	font-size: 16px;
-	border-radius: 500px;
+	border-radius: 0.25rem;
 	text-align: center;
 
 	&:hover {
@@ -212,7 +212,7 @@ form#select_user_to_edit_form {
 	background-color: #eee;
 	padding: 5%;
 	margin-top: 10px;
-	border-radius: 10px;
+	border-radius: 0.25rem;
 
 	p {
 		label {
