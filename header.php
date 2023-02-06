@@ -59,10 +59,11 @@
 					<?php endif; ?>
 
 				</div>
-			</nav>
 
-			<!-- Menu secundário -->
-			<?php get_template_part('template-parts/menus/secondary-navbar-menu'); ?>
+				<!-- Menu secundário -->
+				<?php get_template_part('template-parts/menus/secondary-navbar-menu'); ?>
+
+			</nav>
 
 			<!-- FULL SCREEN MENU -->
 			<?php get_template_part('template-parts/menus/fullscreen-menu'); ?>

@@ -16,30 +16,28 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 
 if ($menuitems) {
 ?>
-    <div class="container mb-2">
-        <div class="row">
-            <nav class="col secondary-navbar">
-                <ul class="nav nav-tabs nav-fill">
+    <div class="container-fluid">
+        <nav class="secondary-navbar">
+            <ul class="nav nav-fill">
 
-                    <?php foreach ($menuitems as $item) :
-                        $link = $item->url;
-                        $title = $item->title;
-                        //$class = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($item->classes), $item)));
-                        $classes = $item->classes;
-                        $description = $item->description;
-                        $active = ($item->object_id == get_queried_object_id()) ? 'active' : '';
-                    ?>
-                        <li class="nav-item">
-                            <a href="<?php echo $link; ?>" aria-current="page" class="nav-link <?php echo $active; ?>">
-                                <?php if ($description) : ?><i class="fad <?php echo $description; ?>"></i><?php endif ?>
-                                <span><?php echo $title; ?></span>
-                            </a>
-                        </li>
+                <?php foreach ($menuitems as $item) :
+                    $link = $item->url;
+                    $title = $item->title;
+                    //$class = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($item->classes), $item)));
+                    $classes = $item->classes;
+                    $description = $item->description;
+                    $active = ($item->object_id == get_queried_object_id()) ? 'active' : '';
+                ?>
+                    <li class="nav-item">
+                        <a href="<?php echo $link; ?>" aria-current="page" class="nav-link <?php echo $active; ?>">
+                            <?php if ($description) : ?><i class="fad <?php echo $description; ?>"></i><?php endif ?>
+                            <span><?php echo $title; ?></span>
+                        </a>
+                    </li>
 
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
 
-                </ul>
-            </nav>
-        </div>
+            </ul>
+        </nav>
     </div>
 <?php } ?>

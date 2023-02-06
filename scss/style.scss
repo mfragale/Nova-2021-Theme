@@ -52,6 +52,7 @@ body {
 		backdrop-filter: blur(8px);
 		--bs-bg-opacity: 0.9;
 		min-height: 54px;
+		flex-direction: column;
 
 		//LOGO
 		.navbar-brand {
@@ -211,6 +212,10 @@ body {
 
 		// ONLY COLORS
 		&.navbar-light {
+			.container-fluid:nth-child(2) {
+				border-top: 1px solid $gray-200;
+			}
+
 			ul.navbar-nav {
 				li.nav-item {
 					a.nav-link {
@@ -268,6 +273,10 @@ body {
 			}
 		}
 		&.navbar-dark {
+			.container-fluid:nth-child(2) {
+				border-top: 1px solid $gray-800;
+			}
+
 			ul.navbar-nav {
 				li.nav-item {
 					a.nav-link {
@@ -327,6 +336,8 @@ body {
 	}
 
 	.secondary-navbar {
+		width: 100%;
+
 		ul {
 			li {
 				a {
