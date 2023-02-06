@@ -13,7 +13,6 @@ $menu_name = 'navbar';
 $locations = get_nav_menu_locations();
 $menu = wp_get_nav_menu_object($locations[$menu_name]);
 $menuitems = wp_get_nav_menu_items($menu->term_id);
-
 ?>
 
 <div class="collapse navbar-collapse">
@@ -38,12 +37,12 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                 $parent_id = $item->ID;
         ?>
 
-                <li class="nav-item <?php
-                                    echo $active, ' ';
-                                    foreach ($classes as $class) {
-                                        echo $class, ' ';
-                                    }; ?>">
-                    <a class="nav-link" href="<?php echo $link; ?>">
+                <li class="nav-item dropdown <?php
+                                                echo $active, ' ';
+                                                foreach ($classes as $class) {
+                                                    echo $class, ' ';
+                                                }; ?>">
+                    <a class="nav-link <?php if (has_sub_menu($menu_name, $item->ID)) { ?>dropdown-toggle<?php } ?>" <?php if (has_sub_menu($menu_name, $item->ID)) { ?>data-bs-toggle="dropdown" role="button" aria-expanded="false" <?php } ?> href="<?php echo $link; ?>">
                         <div class="active_highlight">
                             <?php if ($description) : ?><i class="fad <?php echo $description; ?>"></i><?php endif ?>
                             <span><?php echo $title; ?></span>
@@ -54,11 +53,16 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                 <?php if ($parent_id == $item->menu_item_parent) : ?>
 
                     <?php if (!$submenu) : $submenu = true; ?>
-                        <ul class="sub-menu">
+                        <ul class="dropdown-menu <?php if (get_theme_mod('your_navbar_color') == "light") {
+                                                        echo "dropdown-menu-light";
+                                                    } else {
+                                                        echo "dropdown-menu-dark";
+                                                    }
+                                                    ?>">
                         <?php endif; ?>
 
-                        <li class="item">
-                            <a href="<?php echo $link; ?>" class="title"><?php echo $title; ?></a>
+                        <li class="dropdown-item">
+                            <a href="<?php echo $link; ?>" class="title"><?php if ($description) : ?><i class="fad <?php echo $description; ?>"></i><?php endif ?> <?php echo $title; ?></a>
                         </li>
 
                         <?php if ($menuitems[$count + 1]->menu_item_parent != $parent_id && $submenu) : ?>

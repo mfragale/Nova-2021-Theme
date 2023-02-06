@@ -78,6 +78,11 @@ function register_my_menus()
 	);
 	register_nav_menus(
 		array(
+			'secondary_navbar' => 'Secondary Navbar'
+		)
+	);
+	register_nav_menus(
+		array(
 			'fullscreen_menu' => 'Full Screen Menu'
 		)
 	);
@@ -91,6 +96,10 @@ function add_specific_menu_location_atts($atts, $item, $args)
 	if ($args->theme_location == 'navbar') {
 		// add the desired attributes:
 		$atts['class'] = "nav-link";
+	}
+	if ($args->theme_location == 'secondary_navbar') {
+		// add the desired attributes:
+		$atts['class'] = "secondary_navbar-link";
 	}
 	if ($args->theme_location == 'fullscreen_menu') {
 		// add the desired attributes:
@@ -331,3 +340,25 @@ function your_theme_new_customizer_settings($wp_customize)
 	);
 }
 add_action('customize_register', 'your_theme_new_customizer_settings');
+
+
+
+/**
+ * Check if menu item has submenu items - https://gist.github.com/bolante93/a9a15688ed0e7e746a93da712ed54241
+ */
+
+function has_sub_menu(string $menu_location, int $id)
+{
+	//Get proper menu
+	$menuLocations = get_nav_menu_locations();
+	$menuID = $menuLocations[$menu_location];
+	$menu_items = wp_get_nav_menu_items($menuID);
+
+	//Go through and see if this is a parent
+	foreach ($menu_items as $menu_item) {
+		if ((int)$menu_item->menu_item_parent === $id) {
+			return true;
+		}
+	}
+	return false;
+}

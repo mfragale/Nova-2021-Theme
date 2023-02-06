@@ -48,6 +48,7 @@
 					<!-- Menu principal -->
 					<?php get_template_part('template-parts/menus/navbar-menu'); ?>
 
+
 					<!-- FULL SCREEN MENU TOGGLE BUTTON -->
 
 					<?php if (wp_get_nav_menu_items(get_nav_menu_locations()['fullscreen_menu'])) : ?>
@@ -59,6 +60,9 @@
 
 				</div>
 			</nav>
+
+			<!-- Menu secundário -->
+			<?php get_template_part('template-parts/menus/secondary-navbar-menu'); ?>
 
 			<!-- FULL SCREEN MENU -->
 			<?php get_template_part('template-parts/menus/fullscreen-menu'); ?>

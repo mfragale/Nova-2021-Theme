@@ -83,6 +83,8 @@ body {
 			max-width: 850px;
 
 			li.nav-item {
+				position: relative;
+
 				a.nav-link {
 					line-height: 1rem;
 					text-align: center;
@@ -94,6 +96,10 @@ body {
 					@include media-breakpoint-up(md) {
 						padding: 1.2rem 2rem;
 						font-size: 1rem;
+					}
+
+					.active_highlight {
+						display: inline-block;
 					}
 
 					svg {
@@ -135,6 +141,23 @@ body {
 							box-shadow: 0px 0px 20px -5px transparentize($primary, 0.7);
 
 							padding: 0.8rem 1rem;
+						}
+					}
+				}
+
+				.dropdown-menu {
+					backdrop-filter: blur(8px);
+					--bs-bg-opacity: 0.9;
+					border: none;
+
+					.dropdown-item {
+						padding: 0;
+
+						a {
+							display: block;
+							padding: 0.45rem 1rem;
+							text-decoration: none;
+							font-size: 0.8em;
 						}
 					}
 				}
@@ -220,6 +243,16 @@ body {
 							}
 						}
 					}
+
+					.dropdown-menu {
+						background-color: $gray-100;
+
+						.dropdown-item {
+							a {
+								color: $gray-700;
+							}
+						}
+					}
 				}
 			}
 			.hamburger {
@@ -267,6 +300,16 @@ body {
 							}
 						}
 					}
+
+					.dropdown-menu {
+						background-color: $gray-700;
+
+						.dropdown-item {
+							a {
+								color: $gray-300;
+							}
+						}
+					}
 				}
 			}
 			.hamburger {
@@ -277,6 +320,41 @@ body {
 				&:hover {
 					.line {
 						background-color: #fff;
+					}
+				}
+			}
+		}
+	}
+
+	.secondary-navbar {
+		ul {
+			li {
+				a {
+					font-size: 0.8em;
+					color: $gray-600;
+					border-radius: 0;
+					border: none;
+
+					&:hover {
+						background-color: $gray-200;
+					}
+
+					svg {
+						margin-right: 5px;
+					}
+
+					&.active {
+						background-color: $primary;
+						color: $gray-100;
+					}
+				}
+				@media only screen and (max-width: 460px) {
+					a {
+						font-size: 1em;
+
+						span {
+							display: none;
+						}
 					}
 				}
 			}
