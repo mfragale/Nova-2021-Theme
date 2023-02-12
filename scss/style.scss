@@ -271,6 +271,36 @@ body {
 					}
 				}
 			}
+			.secondary-navbar {
+				ul {
+					li {
+						a {
+							color: $gray-700;
+
+							svg {
+								path {
+									fill: $gray-400;
+								}
+							}
+
+							&:hover {
+								color: #000;
+
+								svg {
+									path {
+										fill: $gray-500;
+									}
+								}
+							}
+
+							&.active {
+								background-color: #fff;
+								color: $primary;
+							}
+						}
+					}
+				}
+			}
 		}
 		&.navbar-dark {
 			.container-fluid:nth-child(2) {
@@ -293,7 +323,7 @@ body {
 
 							svg {
 								path {
-									fill: $gray-500;
+									fill: $gray-400;
 								}
 							}
 						}
@@ -332,6 +362,36 @@ body {
 					}
 				}
 			}
+			.secondary-navbar {
+				ul {
+					li {
+						a {
+							color: $gray-300;
+
+							svg {
+								path {
+									fill: $gray-600;
+								}
+							}
+
+							&:hover {
+								color: #fff;
+
+								svg {
+									path {
+										fill: $gray-400;
+									}
+								}
+							}
+
+							&.active {
+								background-color: #000;
+								color: $primary;
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -342,13 +402,8 @@ body {
 			li {
 				a {
 					font-size: 0.8em;
-					color: $gray-600;
 					border-radius: 0;
 					border: none;
-
-					&:hover {
-						background-color: $gray-200;
-					}
 
 					svg {
 						margin-right: 5px;
@@ -356,11 +411,6 @@ body {
 						@include media-breakpoint-down(sm) {
 							display: none;
 						}
-					}
-
-					&.active {
-						background-color: $primary;
-						color: $gray-100;
 					}
 				}
 				@include media-breakpoint-down(sm) {
