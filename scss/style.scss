@@ -352,6 +352,10 @@ body {
 
 					svg {
 						margin-right: 5px;
+
+						@include media-breakpoint-down(sm) {
+							display: none;
+						}
 					}
 
 					&.active {
