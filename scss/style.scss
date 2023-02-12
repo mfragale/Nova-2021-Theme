@@ -359,13 +359,9 @@ body {
 						color: $gray-100;
 					}
 				}
-				@media only screen and (max-width: 460px) {
+				@include media-breakpoint-down(sm) {
 					a {
-						font-size: 1em;
-
-						span {
-							display: none;
-						}
+						padding: 0.5rem;
 					}
 				}
 			}

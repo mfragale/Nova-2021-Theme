@@ -16,7 +16,7 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 
 if ($menuitems) {
 ?>
-    <div class="container-fluid">
+    <div class="container-fluid px-0">
         <nav class="secondary-navbar">
             <ul class="nav nav-fill">
 

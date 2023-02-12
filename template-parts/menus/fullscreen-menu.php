@@ -51,7 +51,7 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
             //$class = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($item->classes), $item)));
             $classes = $item->classes;
             $description = $item->description;
-            $active = ($item->object_id == get_queried_object_id()) ? 'active' : '';
+            $active = ($item->object_id == get_queried_object_id() || $post->post_parent == $item->object_id) ? 'active' : '';
 
             // item does not have a parent so menu_item_parent equals 0 (false)
             if (!$item->menu_item_parent) :
