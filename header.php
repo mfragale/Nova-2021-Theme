@@ -13,7 +13,7 @@
 
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> style="padding-top: <?php echo get_theme_mod('your_theme_paddingtop'); ?>px">
 
 	<?php if (!is_page_template('template-blank-page.php')) { ?>
 
@@ -26,10 +26,15 @@
 															echo "navbar-dark bg-dark";
 														}
 														?>">
-				<div class="container-fluid">
+				<div class="<?php if (get_theme_mod('your_navbar_container')) {
+								echo "container";
+							} else {
+								echo "container-fluid";
+							}
+							?>">
 
 					<!-- Logo -->
-					<a class="navbar-brand" href="<?php echo get_site_url(); ?>">
+					<a class="navbar-brand" href="<?php echo get_site_url(); ?>" style="width: <?php echo get_theme_mod('your_theme_logo_width'); ?>px">
 						<?php
 						// check to see if the logo exists and add it to the page
 						if (get_theme_mod('your_theme_logo')) : ?>

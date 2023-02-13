@@ -289,6 +289,15 @@ add_shortcode('locais', 'locais');
  */
 function your_theme_new_customizer_settings($wp_customize)
 {
+
+	// Add Header Section
+	$wp_customize->add_section('your_theme_header', array(
+		'title' => 'Header',
+		'description' => '',
+		'priority' => 120,
+	));
+
+
 	// add a setting for the site logo
 	$wp_customize->add_setting('your_theme_logo');
 	// Add a control to upload the logo
@@ -297,10 +306,39 @@ function your_theme_new_customizer_settings($wp_customize)
 		'your_theme_logo',
 		array(
 			'label' => 'Upload Logo',
-			'section' => 'title_tagline',
+			'section' => 'your_theme_header',
 			'settings' => 'your_theme_logo',
 		)
 	));
+
+	// add a setting for the site logo width
+	$wp_customize->add_setting('your_theme_logo_width');
+	// Add a control to upload the logo width
+	$wp_customize->add_control(new WP_Customize_Media_Control(
+		$wp_customize,
+		'your_theme_logo_width',
+		array(
+			'type' => 'number',
+			'label' => 'Logo width (px)',
+			'section' => 'your_theme_header',
+			'settings' => 'your_theme_logo_width',
+		)
+	));
+
+	// add a setting for the site logo width
+	$wp_customize->add_setting('your_theme_paddingtop');
+	// Add a control to upload the logo width
+	$wp_customize->add_control(new WP_Customize_Media_Control(
+		$wp_customize,
+		'your_theme_paddingtop',
+		array(
+			'type' => 'number',
+			'label' => 'Padding top (px)',
+			'section' => 'your_theme_header',
+			'settings' => 'your_theme_paddingtop',
+		)
+	));
+
 
 	// add a setting for the site navbar
 	$wp_customize->add_setting('your_navbar_color');
@@ -310,12 +348,45 @@ function your_theme_new_customizer_settings($wp_customize)
 		array(
 			'type' => 'select',
 			'label' => 'Navbar color',
-			'section' => 'title_tagline',
+			'section' => 'your_theme_header',
 			'settings' => 'your_navbar_color',
 			'choices' => array(
 				'dark' => __('Dark'),
 				'light' => __('Light'),
 			),
+		)
+	);
+
+
+
+	// add a setting for the site navbar
+	$wp_customize->add_setting('your_navbar_alignment');
+	// Add a control to choose navbar alignment
+	$wp_customize->add_control(
+		'your_navbar_alignment',
+		array(
+			'type' => 'select',
+			'label' => 'Navbar alignment',
+			'section' => 'your_theme_header',
+			'settings' => 'your_navbar_alignment',
+			'choices' => array(
+				'center' => __('Center'),
+				'left' => __('Left'),
+				'right' => __('Right'),
+			),
+		)
+	);
+
+	// add a setting for the site navbar
+	$wp_customize->add_setting('your_navbar_container');
+	// Add a control to choose navbar container
+	$wp_customize->add_control(
+		'your_navbar_container',
+		array(
+			'type' => 'checkbox',
+			'label' => 'Add container',
+			'section' => 'your_theme_header',
+			'settings' => 'your_navbar_container',
 		)
 	);
 
@@ -327,9 +398,22 @@ function your_theme_new_customizer_settings($wp_customize)
 		'description' => '',
 		'priority' => 120,
 	));
-	// add a setting for the site logo
-	$wp_customize->add_setting('your_footer_info');
+	// add a setting for the site footer
+	$wp_customize->add_setting('your_footer_visibility');
 	// Add a control to upload the logo
+	$wp_customize->add_control(
+		'your_footer_visibility',
+		array(
+			'type' => 'checkbox',
+			'label' => 'Hide Footer',
+			'section' => 'your_theme_footer',
+			'settings' => 'your_footer_visibility',
+		)
+	);
+
+	// add a setting for the site footer
+	$wp_customize->add_setting('your_footer_info');
+	// Add a control
 	$wp_customize->add_control(
 		'your_footer_info',
 		array(
