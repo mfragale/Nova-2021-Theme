@@ -13,6 +13,18 @@
 
 </head>
 
+
+
+<?php
+// Push Body down when Divi Builder is enabled
+if (!empty($_GET['et_fb'])) {
+?>
+	<div style="padding-top: <?php echo get_theme_mod('your_theme_paddingtop'); ?>px"></div>
+<?php
+}
+?>
+
+
 <body <?php body_class(); ?> style="padding-top: <?php echo get_theme_mod('your_theme_paddingtop'); ?>px">
 
 	<?php if (!is_page_template('template-blank-page.php')) { ?>
