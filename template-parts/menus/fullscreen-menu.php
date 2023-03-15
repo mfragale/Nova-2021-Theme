@@ -29,11 +29,11 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 
                     <?php if (current_user_can('administrator')) { ?>
                         |
-                        <a target="_blank" href="/wp-admin/" class="text-decoration-none">Dashboard <i class="fas fa-tachometer-alt-fast"></i></a>
+                        <a target="_blank" href="/wp-admin/" class="text-decoration-none">Dashboard <i class="fa-solid fa-gauge-max"></i></a>
                     <?php } ?>
 
                     |
-                    <a href="<?php echo wp_logout_url(get_permalink()); ?>" class="text-decoration-none">Sair <i class="fas fa-sign-out"></i></a>
+                    <a href="<?php echo wp_logout_url(get_permalink()); ?>" class="text-decoration-none">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
                 </small>
             </p>
         </div>
@@ -67,9 +67,9 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                                     echo $class, ' ';
                                 }; ?>">
                         <a data-bs-toggle="collapse" href="#z<?php echo $parent_id; ?>" role="button" aria-expanded="false" aria-controls="z<?php echo $parent_id; ?>">
-                            <?php if ($description) : ?><i class="fad <?php echo $description; ?>"></i><?php endif ?>
+                            <?php if ($description) : ?><i class="fa-duotone <?php echo $description; ?>"></i><?php endif ?>
                             <span><?php echo $title; ?></span>
-                            <i class="fal fa-plus float-end"></i>
+                            <i class="fa-light fa-plus float-end"></i>
                         </a>
 
                     <?php else : // item doen't have child 
@@ -80,7 +80,7 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                                     echo $class, ' ';
                                 }; ?>">
                         <a href="<?php echo $link; ?>">
-                            <?php if ($description) : ?><i class="fad <?php echo $description; ?>"></i><?php endif ?>
+                            <?php if ($description) : ?><i class="fa-duotone <?php echo $description; ?>"></i><?php endif ?>
                             <span><?php echo $title; ?></span>
                         </a>
                     <?php endif; ?>
@@ -95,7 +95,7 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                         <?php endif; ?>
                         <div>
                             <a href="<?php echo $link; ?>" class="title <?php echo $active; ?>">
-                                <?php if ($class) : ?><i class="fad <?php echo $class; ?>"></i><?php endif ?>
+                                <?php if ($class) : ?><i class="fa-duotone <?php echo $description; ?>"></i><?php endif ?>
                                 <span><?php echo $title; ?></span>
                             </a>
                         </div>

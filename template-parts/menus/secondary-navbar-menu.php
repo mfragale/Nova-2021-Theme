@@ -30,7 +30,7 @@ if ($menuitems) {
                 ?>
                     <li class="nav-item">
                         <a href="<?php echo $link; ?>" aria-current="page" class="nav-link <?php echo $active; ?>">
-                            <?php if ($description) : ?><i class="fad <?php echo $description; ?>"></i><?php endif ?>
+                            <?php if ($description) : ?><i class="fa-duotone <?php echo $description; ?>"></i><?php endif ?>
                             <span><?php echo $title; ?></span>
                         </a>
                     </li>
