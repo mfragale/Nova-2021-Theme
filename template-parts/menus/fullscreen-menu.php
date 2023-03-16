@@ -67,7 +67,7 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                                     echo $class, ' ';
                                 }; ?>">
                         <a data-bs-toggle="collapse" href="#z<?php echo $parent_id; ?>" role="button" aria-expanded="false" aria-controls="z<?php echo $parent_id; ?>">
-                            <?php if ($description) : ?><i class="fa-duotone <?php echo $description; ?>"></i><?php endif ?>
+                            <?php if ($description) : ?><i class="fa-duotone fa-<?php echo $description; ?>"></i><?php endif ?>
                             <span><?php echo $title; ?></span>
                             <i class="fa-light fa-plus float-end"></i>
                         </a>
@@ -80,7 +80,7 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                                     echo $class, ' ';
                                 }; ?>">
                         <a href="<?php echo $link; ?>">
-                            <?php if ($description) : ?><i class="fa-duotone <?php echo $description; ?>"></i><?php endif ?>
+                            <?php if ($description) : ?><i class="fa-duotone fa-<?php echo $description; ?>"></i><?php endif ?>
                             <span><?php echo $title; ?></span>
                         </a>
                     <?php endif; ?>
@@ -95,7 +95,7 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
                         <?php endif; ?>
                         <div>
                             <a href="<?php echo $link; ?>" class="title <?php echo $active; ?>">
-                                <?php if ($class) : ?><i class="fa-duotone <?php echo $description; ?>"></i><?php endif ?>
+                                <?php if ($class) : ?><i class="fa-duotone fa-<?php echo $description; ?>"></i><?php endif ?>
                                 <span><?php echo $title; ?></span>
                             </a>
                         </div>
