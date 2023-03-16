@@ -11,7 +11,7 @@ add_filter('wpcom_vip_is_two_factor_forced', '__return_false');
 /**
  * Enqueue scripts and styles.
  */
-function nova2021_scripts()
+function nova_scripts()
 {
 
 	$theme = wp_get_theme();
@@ -24,17 +24,17 @@ function nova2021_scripts()
 	wp_enqueue_script('bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js', array('jquery'), true);
 
 	//DEV
-	wp_enqueue_style('nova2021-style', get_template_directory_uri() . '/scss/dist/style-min.css', array(), $style_ver);
+	wp_enqueue_style('nova-style', get_template_directory_uri() . '/scss/dist/style-min.css', array(), $style_ver);
 
 
 	//PROD
 	//wp_enqueue_style('style', get_template_directory_uri() . '/scss/dist/style-min.css', array(), true);
 
-	wp_enqueue_script('nova2021-functions', get_template_directory_uri() . '/js/dist/functions-min.js', array('jquery'), true);
+	wp_enqueue_script('nova-functions', get_template_directory_uri() . '/js/dist/functions-min.js', array('jquery'), true);
 
 	wp_enqueue_script('fontawesome', 'https://kit.fontawesome.com/edc432ff9b.js', array(), null);
 }
-add_action('wp_enqueue_scripts', 'nova2021_scripts');
+add_action('wp_enqueue_scripts', 'nova_scripts');
 
 
 

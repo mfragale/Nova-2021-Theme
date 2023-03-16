@@ -1,6 +1,6 @@
 # Gulp
 To build CSS file (autoprefixer, cleanCss, rename -min) and to minify JS:
-cd wp-content/themes/Nova-2021-Theme/gulp
+cd wp-content/themes/Nova-Theme/gulp
 gulp
 
 # GitHub
