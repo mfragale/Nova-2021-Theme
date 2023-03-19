@@ -26,6 +26,9 @@
 }
 
 //STRUCTURE
+.doenanova_wppb-form-title {
+	display: none;
+}
 .doenanova_wppb_1 {
 	text-align: left;
 }
@@ -102,6 +105,9 @@
 
 //LOGIN FORM
 .et-db #et-boc .et-l .et_pb_text {
+	.wppb-form-title {
+		@extend .doenanova_wppb-form-title;
+	}
 	form#wppb-loginform {
 		@extend .doenanova_wppb_1;
 
@@ -145,10 +151,16 @@
 			}
 		}
 	}
+	.login-register-lost-password {
+		@extend .doenanova_wppb-form-title;
+	}
 }
 
 //REGISTER FORM
 .et-db #et-boc .et-l .et_pb_text {
+	.wppb-form-title {
+		@extend .doenanova_wppb-form-title;
+	}
 	form#wppb-register-user {
 		@extend .doenanova_wppb_1;
 
@@ -207,6 +219,11 @@
 }
 
 //EDIT PROFILE FORM
+#wppb-forms_style_default-wrapper {
+	.wppb-form-title {
+		@extend .doenanova_wppb-form-title;
+	}
+}
 form#select_user_to_edit_form {
 	@extend .doenanova_wppb_1;
 	background-color: #eee;
@@ -296,6 +313,9 @@ form#wppb-edit-user {
 
 // FORGOT PASSWORD FORM
 .et-db #et-boc .et-l .et_pb_text {
+	.wppb-form-title {
+		@extend .doenanova_wppb-form-title;
+	}
 	form#wppb-recover-password {
 		@extend .doenanova_wppb_1;
 
