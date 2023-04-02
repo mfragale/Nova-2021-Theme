@@ -15,19 +15,29 @@
 
 
 
-<?php
-// Push Body down when Divi Builder is enabled
-if (!empty($_GET['et_fb'])) {
-?>
-	<div style="padding-top: <?php echo get_theme_mod('your_theme_paddingtop'); ?>px"></div>
-<?php
-}
-?>
 
 
-<body <?php body_class(); ?> style="padding-top: <?php echo get_theme_mod('your_theme_paddingtop'); ?>px">
 
-	<?php if (!is_page_template('template-blank-page.php')) { ?>
+<body <?php body_class(); ?>>
+	<style>
+		body.admin-bar #header .navbar.fixed-top {
+			top: 32px;
+		}
+
+		@media only screen and (max-width: 782px) {
+			body.admin-bar #header .navbar.fixed-top {
+				top: 46px;
+			}
+		}
+
+		#header {
+			margin-bottom: <?php echo get_theme_mod('your_theme_paddingtop'); ?>px;
+		}
+	</style>
+
+	<?php if (empty($_GET['novaapp'])) {
+
+	?>
 
 		<!-- Header -->
 		<header id="header">

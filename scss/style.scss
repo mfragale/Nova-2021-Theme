@@ -6,12 +6,6 @@
 @import "../gulp/node_modules/bootstrap/scss/bootstrap";
 @import "wppb-forms";
 
-body {
-	&.page-template-template-blank-page {
-		padding-top: 0 !important;
-	}
-}
-
 .et-db #et-boc .et-l .et_pb_module a {
 	color: $primary !important;
 

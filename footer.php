@@ -1,4 +1,4 @@
-<?php if (!is_page_template('template-blank-page.php')) {
+<?php if (!isset($_GET['novaapp'])) {
     if (!get_theme_mod('your_footer_visibility')) { ?>
 
         <footer id="footer" class="<?php if (get_theme_mod('your_navbar_color') == "light") {
