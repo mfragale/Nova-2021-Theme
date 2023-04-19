@@ -35,9 +35,7 @@
 		}
 	</style>
 
-	<?php if (empty($_GET['novaapp'])) {
-
-	?>
+	<?php if (empty($_GET['novaapp'])) { ?>
 
 		<!-- Header -->
 		<header id="header">
