@@ -301,6 +301,7 @@ function check_user_other_sessions()
 		//If there is more than one session then destroy all other sessions except the current session.
 		if (count($all_sessions) > 1) {
 			$sessions->destroy_others(wp_get_session_token());
+			header("Refresh:0");
 		}
 	}
 }
