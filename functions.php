@@ -280,3 +280,28 @@ function has_sub_menu(string $menu_location, int $id)
 	}
 	return false;
 }
+
+
+
+//Limit subscriber to have only ONE session at a time.
+//https://sleeksoft.in/limit-only-one-session-per-user-wordpress/
+function check_user_other_sessions()
+{
+	//Get current user who is logged in
+	$user = wp_get_current_user();
+
+	//Check if user's role is subscriber
+	if (in_array('novaconf2023online', $user->roles)) {
+		//Get current user's session
+		$sessions = WP_Session_Tokens::get_instance($user->ID);
+
+		//Get all his active wordpress sessions
+		$all_sessions = $sessions->get_all();
+
+		//If there is more than one session then destroy all other sessions except the current session.
+		if (count($all_sessions) > 1) {
+			$sessions->destroy_others(wp_get_session_token());
+		}
+	}
+}
+add_action('init', 'check_user_other_sessions', 99);
