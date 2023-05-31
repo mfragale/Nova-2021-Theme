@@ -301,23 +301,7 @@ function check_user_other_sessions()
 		//If there is more than one session then destroy all other sessions except the current session.
 		if (count($all_sessions) > 1) {
 			$sessions->destroy_others(wp_get_session_token());
-			header("Refresh:0");
 		}
 	}
 }
 add_action('init', 'check_user_other_sessions', 99);
-
-//https://stackoverflow.com/questions/33185302/how-to-make-a-php-function-loop-every-5-seconds
-$status = TRUE;
-do {
-
-	check_user_other_sessions(); // Call your function
-	sleep(5);   //wait for 5 sec for next function call
-
-	//you can set $status as FALSE if you want get out of this loop.
-
-	//if(somecondition){
-	//    $status=FALSE:
-	//}
-
-} while ($status == TRUE); //loop will run infinite
