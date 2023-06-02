@@ -305,3 +305,6 @@ function check_user_other_sessions()
 	}
 }
 add_action('init', 'check_user_other_sessions', 99);
+
+
+// <img id="gform_ajax_spinner_10"  class="gform_ajax_spinner" src="https://nova2021.dev/wp-content/plugins/gravityforms/images/spinner.svg" alt="" />
