@@ -618,9 +618,17 @@ div.sap-embed-player > iframe {
 // 	border: 1px solid #bbb;
 // }
 .gform_wrapper.gravity-theme .ginput_container_address span {
-	flex: auto !important;
+	//flex: auto !important;
 	margin-bottom: 20px !important;
 }
+
+.et_pb_wpt_gravityform .gform_wrapper .ginput_container_address .ginput_left {
+	flex: 0 0 49%;
+}
+.et_pb_wpt_gravityform .gform_wrapper .ginput_container_address .ginput_right {
+	flex: 0 0 50%;
+}
+
 .gf_clear {
 	display: none;
 }
