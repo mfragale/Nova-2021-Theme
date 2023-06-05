@@ -592,6 +592,7 @@ div.sap-embed-player > iframe {
 .et-db #et-boc .et-l .et_pb_module input[type="password"],
 .et-db #et-boc .et-l .et_pb_module input[type="tel"],
 .et-db #et-boc .et-l .et_pb_module input[type="text"],
+.et-db #et-boc .et-l .et_pb_module input[type="number"],
 .et-db #et-boc .et-l .et_pb_module input select,
 .et-db #et-boc .et-l .et_pb_module input textarea {
 	width: 100% !important;
@@ -612,9 +613,9 @@ div.sap-embed-player > iframe {
 		margin-bottom: 0.5em;
 	}
 }
-.et-db #et-boc .et-l .et_pb_module textarea {
-	border: 1px solid #bbb;
-}
+// .et-db #et-boc .et-l .et_pb_module textarea {
+// 	border: 1px solid #bbb;
+// }
 .gform_wrapper.gravity-theme .ginput_container_address span {
 	flex: auto !important;
 	margin-bottom: 20px !important;
