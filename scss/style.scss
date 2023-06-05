@@ -641,11 +641,12 @@ div.sap-embed-player > iframe {
 	margin: 0 !important;
 	padding: 0 !important;
 }
-.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .gform_wrapper .gform_fields .gfield div.ginput_container_consent {
-	input {
-		width: 20px;
-		height: 20px;
-	}
+.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .gform_wrapper .gform_fields .gfield div.ginput_container_consent,
+.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .gform_wrapper .gform_fields .gfield div.gchoice {
+	// input {
+	// 	width: 20px;
+	// 	height: 20px;
+	// }
 
 	label {
 		display: inline;
