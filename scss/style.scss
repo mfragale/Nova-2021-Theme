@@ -598,9 +598,9 @@ div.sap-embed-player > iframe {
 .et-db #et-boc .et-l .et_pb_module textarea {
 	width: 100% !important;
 
-	// &:focus {
-	// 	border-color: $primary;
-	// }
+	&:focus {
+		border-color: $primary;
+	}
 }
 .gform_wrapper {
 	&.gravity-theme {
