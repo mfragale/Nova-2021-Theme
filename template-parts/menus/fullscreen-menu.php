@@ -18,27 +18,6 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 
 <nav id="fullscreenmenu">
 
-    <?php if (is_user_logged_in()) { ?>
-        <div class="user_profile">
-            <p class="text-muted text-center">
-                <small> Logado como:
-                    <?php
-                    $current_user = wp_get_current_user();
-                    echo $current_user->first_name;
-                    ?>
-
-                    <?php if (current_user_can('administrator')) { ?>
-                        |
-                        <a target="_blank" href="/wp-admin/" class="text-decoration-none">Dashboard <i class="fa-solid fa-gauge-max"></i></a>
-                    <?php } ?>
-
-                    |
-                    <a href="<?php echo wp_logout_url(get_permalink()); ?>" class="text-decoration-none">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-                </small>
-            </p>
-        </div>
-    <?php } ?>
-
     <ul class="main-nav">
         <?php
         $count = 0;
@@ -115,4 +94,25 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
         endforeach; ?>
 
     </ul>
+
+    <?php if (is_user_logged_in()) { ?>
+        <div class="user_profile">
+            <p class="text-muted">
+                <small> Logado como:
+                    <?php
+                    $current_user = wp_get_current_user();
+                    echo $current_user->first_name;
+                    ?>
+
+                    <?php if (current_user_can('administrator')) { ?>
+                        |
+                        <a target="_blank" href="/wp-admin/" class="text-decoration-none">Dashboard <i class="fa-solid fa-gauge-max"></i></a>
+                    <?php } ?>
+
+                    |
+                    <a href="<?php echo wp_logout_url(get_permalink()); ?>" class="text-decoration-none">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                </small>
+            </p>
+        </div>
+    <?php } ?>
 </nav>

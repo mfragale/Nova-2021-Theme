@@ -510,6 +510,15 @@
 				}
 			}
 		}
+
+		.user_profile {
+			margin: 20px auto;
+			max-width: 320px;
+
+			@include media-breakpoint-up(sm) {
+				max-width: 420px;
+			}
+		}
 	}
 }
 
