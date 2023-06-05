@@ -673,6 +673,14 @@ div.sap-embed-player > iframe {
 	max-width: none;
 }
 
+.gform_wrapper.gravity-theme input:not([type="radio"]):not([type="checkbox"]):not([type="image"]):not([type="file"]) {
+	line-height: 1;
+}
+.et-db #et-boc .et-l .et_pb_module select {
+	line-height: 1;
+	padding-top: 14px !important;
+}
+
 // DIVI columns
 // prevents columns from breaking in mobile view
 @media only screen and (max-width: 980px) {
