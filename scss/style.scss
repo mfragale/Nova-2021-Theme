@@ -674,9 +674,9 @@ div.sap-embed-player > iframe {
 }
 
 .gform_wrapper.gravity-theme input:not([type="radio"]):not([type="checkbox"]):not([type="image"]):not([type="file"]) {
-	line-height: 1;
+	line-height: 1 !important;
 }
-.et-db #et-boc .et-l .et_pb_module select {
+.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .gform_wrapper .gform_fields .gfield select {
 	line-height: 1;
 	padding-top: 14px !important;
 }
