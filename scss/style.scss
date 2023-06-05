@@ -599,7 +599,7 @@ div.sap-embed-player > iframe {
 	width: 100% !important;
 
 	&:focus {
-		border-color: $primary;
+		border-color: $primary !important;
 	}
 }
 .gform_wrapper {
