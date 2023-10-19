@@ -15,14 +15,14 @@ $menu = wp_get_nav_menu_object($locations[$menu_name]);
 $menuitems = wp_get_nav_menu_items($menu->term_id);
 ?>
 
-<div class="collapse navbar-collapse <?php if (get_theme_mod('your_navbar_alignment') == "right") {
-                                            echo "justify-content-end";
-                                        } else if (get_theme_mod('your_navbar_alignment') == "left") {
-                                            echo "justify-content-start";
-                                        } else {
-                                            echo "justify-content-center";
-                                        }
-                                        ?>">
+<div class="mx-3 mx-sm-0 collapse navbar-collapse <?php if (get_theme_mod('your_navbar_alignment') == "right") {
+                                                        echo "justify-content-end";
+                                                    } else if (get_theme_mod('your_navbar_alignment') == "left") {
+                                                        echo "justify-content-start";
+                                                    } else {
+                                                        echo "justify-content-center";
+                                                    }
+                                                    ?>">
     <ul class="navbar-nav">
         <?php
         $count = 0;
