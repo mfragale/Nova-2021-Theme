@@ -4,7 +4,6 @@
  */
 @import "custom-variables";
 @import "../gulp/node_modules/bootstrap/scss/bootstrap";
-@import "wppb-forms";
 
 .et-db #et-boc .et-l .et_pb_module a {
 	color: $primary !important;
@@ -22,7 +21,6 @@
 	.navbar {
 		padding-top: 0;
 		padding-bottom: 0;
-		//box-shadow: 0 0px 0px 1px $gray-300;
 		backdrop-filter: blur(8px);
 		--bs-bg-opacity: 0.9;
 		min-height: 54px;
@@ -33,19 +31,9 @@
 			line-height: 0;
 			margin-right: 0;
 
-			@include media-breakpoint-up(md) {
-				// width: 60px;
-			}
-
 			img {
 				max-width: 100%;
 				height: auto;
-				// width: auto;
-				// max-height: 100%;
-
-				// @include media-breakpoint-up(md) {
-				// 	width: 60px;
-				// }
 			}
 		}
 
@@ -59,7 +47,6 @@
 				a.nav-link {
 					line-height: 1rem;
 					text-align: center;
-					//color: $gray-700;
 					padding: 1.2rem 1rem;
 					font-size: 0.8rem;
 					line-height: 1rem;
@@ -76,21 +63,14 @@
 					svg {
 						margin-right: 5px;
 
-						// path {
-						// 	fill: $gray-400;
-						// }
-
 						@include media-breakpoint-down(sm) {
 							display: none;
 						}
 					}
 
 					&:hover {
-						//color: #000;
-
 						svg {
 							path {
-								//fill: $gray-500;
 								transition: all 0.1s ease-in-out;
 							}
 						}
@@ -161,10 +141,6 @@
 
 			&:hover {
 				cursor: pointer;
-
-				// .line {
-				// 	background-color: #000;
-				// }
 			}
 
 			&.is-active {
@@ -427,14 +403,10 @@
 			}
 
 			> li {
-				//border-bottom: solid 1px #333333;
-
 				> a {
 					display: block;
 					color: $gray-300;
 					text-decoration: none;
-					// padding: 0.8rem 0 0.6rem;
-					// font-size: 1rem;
 					padding: 0.9rem 0 0.6rem;
 					font-size: 1.6rem;
 					line-height: 1;
@@ -443,19 +415,10 @@
 						margin-right: 10px;
 						width: 15px;
 
-						// path {
-						// 	fill: $gray-400;
-						// }
-
 						@include media-breakpoint-down(sm) {
 							display: none;
 						}
 					}
-
-					// @include media-breakpoint-up(sm) {
-					// 	font-size: 1.3rem;
-					// 	padding: 1.2rem 2rem;
-					// }
 
 					&:hover {
 						color: $gray-100;
@@ -488,15 +451,9 @@
 						a {
 							color: $gray-600;
 							text-decoration: none;
-							//font-size: 0.8rem;
 							font-size: 1.4rem;
 							padding: 0 1rem 0.4rem;
 							display: block;
-
-							// @include media-breakpoint-up(sm) {
-							// 	padding: 0 3rem 1rem;
-							// 	font-size: 1rem;
-							// }
 
 							&:hover {
 								color: $gray-400;
@@ -529,9 +486,6 @@
 #footer {
 	.container {
 		.row {
-			// padding-top: 3rem;
-			// padding-bottom: 3rem;
-
 			.stamp {
 				@include media-breakpoint-down(xs) {
 					margin-bottom: 1rem;
@@ -557,160 +511,4 @@
 			}
 		}
 	}
-}
-
-/* -------------------------------------------------------------------------- */
-
-/*	PLAY
-/* -------------------------------------------------------------------------- */
-
-div.sap-embed-player {
-	position: relative;
-	width: 100%;
-	height: 0;
-	padding-bottom: 56.25% !important; /* The height of the item will now be 56.25% of the width. */
-}
-div.sap-embed-player > iframe {
-	position: absolute;
-	width: 100%;
-	height: 100% !important;
-	left: 0;
-	top: 0;
-}
-
-/* -------------------------------------------------------------------------- */
-
-// Hide Recaptcha
-.grecaptcha-badge {
-	visibility: hidden;
-}
-.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 div.gform_wrapper form .hide_recaptcha {
-	margin: 0 !important;
-	padding: 0 !important;
-
-	.ginput_recaptcha {
-		margin: 0 !important;
-		padding: 0 !important;
-	}
-}
-
-// FORMS
-.et-db #et-boc .et-l .et_pb_module input.text:not(.qty),
-.et-db #et-boc .et-l .et_pb_module input.title,
-.et-db #et-boc .et-l .et_pb_module input[type="email"],
-.et-db #et-boc .et-l .et_pb_module input[type="password"],
-.et-db #et-boc .et-l .et_pb_module input[type="tel"],
-.et-db #et-boc .et-l .et_pb_module input[type="text"],
-.et-db #et-boc .et-l .et_pb_module input[type="number"],
-.et-db #et-boc .et-l .et_pb_module input[type="url"],
-.et-db #et-boc .et-l .et_pb_module select,
-.et-db #et-boc .et-l .et_pb_module textarea {
-	width: 100% !important;
-
-	&:focus {
-		border-color: $primary !important;
-	}
-}
-.gform_wrapper {
-	&.gravity-theme {
-		.ginput_complex {
-			gap: 1%;
-		}
-	}
-}
-.et-db #et-boc .et-l .et_pb_module .gf_name_has_2 {
-	input {
-		margin-bottom: 0.5em;
-	}
-}
-// .et-db #et-boc .et-l .et_pb_module textarea {
-// 	border: 1px solid #bbb;
-// }
-.gform_wrapper.gravity-theme .ginput_container_address span {
-	//flex: auto !important;
-	margin-bottom: 20px !important;
-}
-
-.et_pb_wpt_gravityform .gform_wrapper .ginput_container_address .ginput_left {
-	flex: 0 0 49%;
-}
-.et_pb_wpt_gravityform .gform_wrapper .ginput_container_address .ginput_right {
-	flex: 0 0 50%;
-}
-
-.gf_clear {
-	display: none;
-}
-// .et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .gform_wrapper .gfield select,
-// .et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .gform_wrapper .gfield select {
-// 	border-color: #bbb;
-// }
-.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 form .gform_page_footer,
-.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 form .gform_footer {
-	margin: 0 !important;
-	padding: 0 !important;
-}
-.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .gform_wrapper .gform_fields .gfield div.ginput_container_consent,
-.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .gform_wrapper .gform_fields .gfield div.gchoice {
-	// input {
-	// 	width: 20px;
-	// 	height: 20px;
-	// }
-
-	label {
-		display: inline;
-	}
-}
-.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .et_pb_button {
-	width: 100%;
-	text-align: center;
-}
-.gform_wrapper.gravity-theme .ginput_container_date {
-	flex-grow: 1;
-}
-.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 div.gform_wrapper form div.ginput_container.ginput_container_date {
-	margin-right: 0 !important;
-	max-width: none;
-}
-
-.gform_wrapper.gravity-theme input:not([type="radio"]):not([type="checkbox"]):not([type="image"]):not([type="file"]) {
-	line-height: 1 !important;
-}
-.et-db #et-boc .et-l section.et_pb_wpt_gravityform_0 .gform_wrapper .gform_fields .gfield select {
-	line-height: 1;
-	padding-top: 14px !important;
-}
-
-// DIVI columns
-// prevents columns from breaking in mobile view
-@media only screen and (max-width: 980px) {
-	.et-db #et-boc .et-l {
-		.two-columns .et_pb_column {
-			width: 50% !important;
-		}
-
-		.three-columns .et_pb_column {
-			width: 33.33% !important;
-		}
-
-		.four-columns .et_pb_column {
-			width: 25% !important;
-			margin: 0 !important;
-		}
-		.five-columns .et_pb_column {
-			width: 20% !important;
-		}
-	}
-}
-
-// Gravity forms
-.gform_ajax_spinner {
-	position: fixed;
-	background: #ffffffc7 !important;
-	padding: 20% 45% !important;
-	display: block;
-	width: 100vw !important;
-	height: 100vh !important;
-	top: 0 !important;
-	left: 0 !important;
 }
