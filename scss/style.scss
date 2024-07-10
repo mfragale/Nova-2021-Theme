@@ -512,3 +512,39 @@
 		}
 	}
 }
+
+/* -------------------------------------------------------------------------- */
+
+/*	PASSWORD PROTECTED PAGE BOX
+/* -------------------------------------------------------------------------- */
+#et-boc .et-l form.post-password-form {
+	max-width: 500px;
+	margin: 100px auto;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	padding: 50px;
+
+	input[type="submit"] {
+		display: block;
+		text-align: center;
+		background: #000;
+		width: 100%;
+		color: #fff;
+		padding: 10px;
+		border-radius: 5px;
+	}
+
+	input[type="password"] {
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		display: block;
+		width: 100%;
+		padding: 10px 15px;
+		background: #fff;
+	}
+
+	label {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+}
