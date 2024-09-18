@@ -17,11 +17,20 @@ include_once ABSPATH . 'wp-admin/includes/plugin.php';
             <?php
             // check for plugin using plugin name
             if (is_plugin_active('advanced-custom-fields-pro/acf.php')) {
-                if (get_field('campo_extra')) : the_field('campo_extra');
-                endif;
+                if (get_field('campo_extra') && !get_field('fundo_da_pagina')) {
+                    the_field('campo_extra');
+                }
             } ?>
 
             <?php the_content(); ?>
+
+            <?php
+            // check for plugin using plugin name
+            if (is_plugin_active('advanced-custom-fields-pro/acf.php')) {
+                if (get_field('campo_extra') && get_field('fundo_da_pagina')) {
+                    the_field('campo_extra');
+                }
+            } ?>
 
         </article><!-- .post -->
 
